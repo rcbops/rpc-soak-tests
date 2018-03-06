@@ -1,0 +1,424 @@
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_delete_networks": [
+        {
+            "args": {
+                "network_create_args": {}
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  08ee6f6e-e88e-451f-a7c5-7f082ece163f: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 08ee6f6e-e88e-451f-a7c5-7f082ece163f
+2018-02-15 23:29:26.592 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Starting:  Task validation.
+2018-02-15 23:29:26.603 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Starting:  Task validation of syntax.
+2018-02-15 23:29:26.625 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Completed: Task validation of syntax.
+2018-02-15 23:29:26.625 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Starting:  Task validation of required platforms.
+2018-02-15 23:29:26.632 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Completed: Task validation of required platforms.
+2018-02-15 23:29:26.633 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Starting:  Task validation of semantic.
+2018-02-15 23:29:31.387 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack setup()  finished in 3.92 sec
+2018-02-15 23:29:31.931 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack cleanup() started
+2018-02-15 23:29:36.732 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack cleanup() finished in 4.80 sec
+2018-02-15 23:29:36.733 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Completed: Task validation of semantic.
+2018-02-15 23:29:36.733 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Completed: Task validation.
+2018-02-15 23:29:36.734 1878 INFO rally.api [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f input file is valid.
+2018-02-15 23:29:36.734 1878 INFO rally.api [-] Run Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f against Deployment b3d93970-2899-4826-8e45-0761b050b3a5
+2018-02-15 23:29:36.734 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Starting:  Running task.
+2018-02-15 23:29:36.780 1878 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=00f42cbf-ef5f-41bd-80d5-dbd64b788325)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_delete_networks", 
+         "description": "Create and delete a network.", 
+         "scenario": {
+            "NeutronNetworks.create_and_delete_networks": {
+               "network_create_args": {}
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-02-15 23:29:41.074 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack setup()  finished in 4.26 sec
+2018-02-15 23:29:41.985 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context quotas@openstack setup()  finished in 0.91 sec
+2018-02-15 23:29:41.985 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context cleanup@openstack setup()  finished in 0.01 msec
+2018-02-15 23:29:42.010 2006 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 1 START
+2018-02-15 23:29:42.011 2007 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 2 START
+2018-02-15 23:29:42.013 2008 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 3 START
+2018-02-15 23:29:42.017 2009 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 4 START
+2018-02-15 23:29:42.018 2010 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 5 START
+2018-02-15 23:29:42.020 2015 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 6 START
+2018-02-15 23:29:42.033 2025 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 8 START
+2018-02-15 23:29:42.034 2021 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 7 START
+2018-02-15 23:29:42.038 2026 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 9 START
+2018-02-15 23:29:42.040 2027 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 10 START
+2018-02-15 23:29:43.786 2026 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 9 END: OK
+2018-02-15 23:29:43.823 2015 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 6 END: OK
+2018-02-15 23:29:43.873 2007 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 2 END: OK
+2018-02-15 23:29:43.893 2006 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 1 END: OK
+2018-02-15 23:29:43.914 2027 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 10 END: OK
+2018-02-15 23:29:43.929 2025 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 8 END: OK
+2018-02-15 23:29:43.942 2009 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 4 END: OK
+2018-02-15 23:29:43.968 2008 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 3 END: OK
+2018-02-15 23:29:44.010 2010 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 5 END: OK
+2018-02-15 23:29:44.113 2021 INFO rally.task.runner [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | ITER: 7 END: OK
+2018-02-15 23:29:44.132 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context cleanup@openstack cleanup() started
+2018-02-15 23:30:08.132 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context cleanup@openstack cleanup() finished in 24.00 sec
+2018-02-15 23:30:08.132 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context quotas@openstack cleanup() started
+2018-02-15 23:30:08.202 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context quotas@openstack cleanup() finished in 69.73 msec
+2018-02-15 23:30:08.202 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack cleanup() started
+2018-02-15 23:30:14.853 1878 INFO rally.task.context [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Context users@openstack cleanup() finished in 6.65 sec
+2018-02-15 23:30:15.019 1878 INFO rally.task.engine [-] Load duration is: 2.100225
+2018-02-15 23:30:15.020 1878 INFO rally.task.engine [-] Full runner duration is: 2.14103
+2018-02-15 23:30:15.020 1878 INFO rally.task.engine [-] Full duration is: 38.065294
+2018-02-15 23:30:15.088 1878 INFO rally.task.engine [-] Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_delete_networks
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 08ee6f6e-e88e-451f-a7c5-7f082ece163f has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_network | 0.995     | 1.142        | 1.224        | 1.267        | 1.31      | 1.134     | 100.0%  | 10    |
+| neutron.delete_network | 0.632     | 0.758        | 0.859        | 0.867        | 0.876     | 0.764     | 100.0%  | 10    |
+| total                  | 1.746     | 1.888        | 1.996        | 2.036        | 2.077     | 1.898     | 100.0%  | 10    |
+|  -> duration           | 1.746     | 1.888        | 1.996        | 2.036        | 2.077     | 1.898     | 100.0%  | 10    |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 2.100225
+Full duration: 38.065294
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 08ee6f6e-e88e-451f-a7c5-7f082ece163f --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 08ee6f6e-e88e-451f-a7c5-7f082ece163f --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 08ee6f6e-e88e-451f-a7c5-7f082ece163f --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_delete_subnets": [
+        {
+            "args": {
+                "network_create_args": {},
+                "subnet_create_args": {},
+                "subnet_cidr_start": "1.1.0.0/30",
+                "subnets_per_network": 2
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "network": {},
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1,
+                        "subnet": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  b50b8bc0-2e39-4c1c-903c-855e9a2784e6: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: b50b8bc0-2e39-4c1c-903c-855e9a2784e6
+2018-02-15 23:30:16.855 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Starting:  Task validation.
+2018-02-15 23:30:16.867 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Starting:  Task validation of syntax.
+2018-02-15 23:30:16.890 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Completed: Task validation of syntax.
+2018-02-15 23:30:16.891 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Starting:  Task validation of required platforms.
+2018-02-15 23:30:16.898 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Completed: Task validation of required platforms.
+2018-02-15 23:30:16.899 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Starting:  Task validation of semantic.
+2018-02-15 23:30:21.558 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack setup()  finished in 3.90 sec
+2018-02-15 23:30:22.108 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack cleanup() started
+2018-02-15 23:30:26.745 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack cleanup() finished in 4.64 sec
+2018-02-15 23:30:26.747 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Completed: Task validation of semantic.
+2018-02-15 23:30:26.748 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Completed: Task validation.
+2018-02-15 23:30:26.748 2288 INFO rally.api [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 input file is valid.
+2018-02-15 23:30:26.749 2288 INFO rally.api [-] Run Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 against Deployment b3d93970-2899-4826-8e45-0761b050b3a5
+2018-02-15 23:30:26.749 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Starting:  Running task.
+2018-02-15 23:30:26.811 2288 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=8487150b-f675-4f00-a979-539ee9dfa124)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_delete_subnets", 
+         "description": "Create and delete a given number of subnets.", 
+         "scenario": {
+            "NeutronNetworks.create_and_delete_subnets": {
+               "network_create_args": {}, 
+               "subnet_create_args": {}, 
+               "subnet_cidr_start": "1.1.0.0/30", 
+               "subnets_per_network": 2
+            }
+         }, 
+         "contexts": {
+            "network": {}, 
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1, 
+                  "subnet": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-02-15 23:30:30.768 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack setup()  finished in 3.92 sec
+2018-02-15 23:30:31.649 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context quotas@openstack setup()  finished in 0.88 sec
+2018-02-15 23:30:43.352 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context network@openstack setup()  finished in 11.70 sec
+2018-02-15 23:30:43.353 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context cleanup@openstack setup()  finished in 0.04 msec
+2018-02-15 23:30:43.390 2416 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 1 START
+2018-02-15 23:30:43.395 2418 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 3 START
+2018-02-15 23:30:43.394 2417 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 2 START
+2018-02-15 23:30:43.404 2419 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 4 START
+2018-02-15 23:30:43.404 2421 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 5 START
+2018-02-15 23:30:43.405 2423 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 6 START
+2018-02-15 23:30:43.406 2428 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 7 START
+2018-02-15 23:30:43.411 2432 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 9 START
+2018-02-15 23:30:43.411 2429 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 8 START
+2018-02-15 23:30:43.413 2434 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 10 START
+2018-02-15 23:30:47.053 2419 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 4 END: OK
+2018-02-15 23:30:47.531 2434 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 10 END: OK
+2018-02-15 23:30:47.690 2417 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 2 END: OK
+2018-02-15 23:30:48.008 2428 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 7 END: OK
+2018-02-15 23:30:48.268 2423 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 6 END: OK
+2018-02-15 23:30:49.379 2421 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 5 END: OK
+2018-02-15 23:30:49.509 2432 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 9 END: OK
+2018-02-15 23:30:49.811 2416 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 1 END: OK
+2018-02-15 23:30:51.313 2429 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 8 END: OK
+2018-02-15 23:30:53.684 2418 INFO rally.task.runner [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | ITER: 3 END: OK
+2018-02-15 23:30:53.702 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context cleanup@openstack cleanup() started
+2018-02-15 23:31:19.547 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context cleanup@openstack cleanup() finished in 25.85 sec
+2018-02-15 23:31:19.548 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context network@openstack cleanup() started
+2018-02-15 23:31:41.055 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context network@openstack cleanup() finished in 21.51 sec
+2018-02-15 23:31:41.056 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context quotas@openstack cleanup() started
+2018-02-15 23:31:41.132 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context quotas@openstack cleanup() finished in 76.00 msec
+2018-02-15 23:31:41.132 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack cleanup() started
+2018-02-15 23:31:47.492 2288 INFO rally.task.context [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Context users@openstack cleanup() finished in 6.36 sec
+2018-02-15 23:31:49.303 2288 INFO rally.task.engine [-] Load duration is: 10.291106
+2018-02-15 23:31:49.303 2288 INFO rally.task.engine [-] Full runner duration is: 10.341109
+2018-02-15 23:31:49.304 2288 INFO rally.task.engine [-] Full duration is: 80.667242
+2018-02-15 23:31:49.374 2288 INFO rally.task.engine [-] Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_delete_subnets
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "network": {}, 
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1, 
+        "subnet": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}, 
+    "subnet_create_args": {}, 
+    "subnet_cidr_start": "1.1.0.0/30", 
+    "subnets_per_network": 2
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task b50b8bc0-2e39-4c1c-903c-855e9a2784e6 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Response Times (sec)                                                      |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                     | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_subnet (x2) | 1.889     | 2.439        | 4.526        | 5.554        | 6.582     | 3.035     | 100.0%  | 10    |
+| neutron.delete_subnet (x2) | 1.318     | 1.83         | 4.385        | 6.391        | 8.397     | 2.783     | 100.0%  | 10    |
+| total                      | 3.647     | 5.416        | 8.139        | 9.213        | 10.287    | 5.819     | 100.0%  | 10    |
+|  -> duration               | 3.647     | 5.416        | 8.139        | 9.213        | 10.287    | 5.819     | 100.0%  | 10    |
+|  -> idle_duration          | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 10.291106
+Full duration: 80.667242
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report b50b8bc0-2e39-4c1c-903c-855e9a2784e6 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export b50b8bc0-2e39-4c1c-903c-855e9a2784e6 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report b50b8bc0-2e39-4c1c-903c-855e9a2784e6 --json --out output.json
+
