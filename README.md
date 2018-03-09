@@ -15,11 +15,16 @@ test types,
 **References**
 
 What is Rally
+
 https://docs.openstack.org/developer/rally/overview/overview.html
 
 OpenStack SDK references that may be used
 for customized tests
+
 https://docs.openstack.org/python-openstacksdk/latest/
+
 https://wiki.openstack.org/wiki/OpenStackClients
+
 https://docs.openstack.org/mitaka/user-guide/sdk_compute_apis.html
+
 https://docs.openstack.org/mitaka/user-guide/sdk_neutron_apis.html

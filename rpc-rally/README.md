@@ -154,8 +154,6 @@ $ rally deployment list
 $ rally deployment use --deployment <uuid or name>
 ```
 
-**
-
 Running Rally
 -------------
 
@@ -167,6 +165,7 @@ be selected, for ex.
 ```
 
 This ex. scenario can be found at:
+
 https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial
 
 The scenario now becomes a Rally task and its results are printed to stdout
@@ -175,11 +174,13 @@ the Rally DB.
 
 To run multiple scenarios in sequence a simple runner was created and can
 be seen at,
+
 https://github.com/rcbops/rpc-soak-tests/blob/master/rpc-rally/serial/runner.py
 
 This runner will pick up all the JSON scenario files within the same dir and
 execute them as Rally tasks in sequence. The results are stored within a
 results directory, for ex.
+
 https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial/results
 
 And are timestamped text files that contain the stdout of the Rally tasks
@@ -194,7 +195,9 @@ within the results directory mentioned above.
 **References**
 
 Rally Quick Start
+
 https://docs.openstack.org/developer/rally/quick_start/index.html
 
 Rally scenarios
+
 https://github.com/openstack/rally/tree/master/samples/tasks/scenarios
