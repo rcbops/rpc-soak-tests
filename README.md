@@ -12,7 +12,9 @@ test types,
 * rpc-scenarios: customized RPC tests
 
 
-**References**
+
+References
+----------
 
 What is Rally
 

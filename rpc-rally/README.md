@@ -191,8 +191,8 @@ within the results directory mentioned above.
 **Note: the runner is still work in progress but fully functional.**
 
 
-
-**References**
+References
+----------
 
 Rally Quick Start
 
