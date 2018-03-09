@@ -185,7 +185,7 @@ https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial/results
 
 And are timestamped text files that contain the stdout of the Rally tasks
 and within are the tasks IDs and Rally commands to generate the HTML, JUnit
-and or raw JASON reports if desired. Examples of these files can be seen
+and or raw JSON reports if desired. Examples of these files can be seen
 within the results directory mentioned above.
 
 **Note: the runner is still work in progress but fully functional.**
