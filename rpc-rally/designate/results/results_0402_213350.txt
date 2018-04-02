@@ -1,0 +1,3125 @@
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_list_zones": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 500,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  f2853539-886e-4bd0-bde3-bed6cc0032ac: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: f2853539-886e-4bd0-bde3-bed6cc0032ac
+2018-04-02 21:33:51.872 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Starting:  Task validation.
+2018-04-02 21:33:51.884 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Starting:  Task validation of syntax.
+2018-04-02 21:33:51.913 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Completed: Task validation of syntax.
+2018-04-02 21:33:51.914 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Starting:  Task validation of required platforms.
+2018-04-02 21:33:51.923 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Completed: Task validation of required platforms.
+2018-04-02 21:33:51.923 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Starting:  Task validation of semantic.
+2018-04-02 21:33:55.131 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack setup()  finished in 2.48 sec
+2018-04-02 21:33:55.681 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack cleanup() started
+2018-04-02 21:33:59.387 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack cleanup() finished in 3.71 sec
+2018-04-02 21:33:59.388 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Completed: Task validation of semantic.
+2018-04-02 21:33:59.389 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Completed: Task validation.
+2018-04-02 21:33:59.389 37518 INFO rally.api [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac input file is valid.
+2018-04-02 21:33:59.389 37518 INFO rally.api [-] Run Task f2853539-886e-4bd0-bde3-bed6cc0032ac against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:33:59.390 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Starting:  Running task.
+2018-04-02 21:33:59.447 37518 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=b400765d-8581-49aa-b3a9-9c7e39e75a9d)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_list_zones", 
+         "description": "Create a zone and list all zones.", 
+         "scenario": {
+            "DesignateBasic.create_and_list_zones": {}
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 500, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:34:02.264 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack setup()  finished in 2.78 sec
+2018-04-02 21:34:03.474 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context quotas@openstack cleanup() started
+2018-04-02 21:34:03.538 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context quotas@openstack cleanup() finished in 63.67 msec
+2018-04-02 21:34:03.538 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack cleanup() started
+2018-04-02 21:34:08.412 37518 INFO rally.task.context [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Context users@openstack cleanup() finished in 4.87 sec
+2018-04-02 21:34:09.556 37518 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:34:09.557 37518 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:34:09.557 37518 INFO rally.task.engine [-] Full duration is: 8.953559
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     self.setup()
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:34:09.579 37518 ERROR rally.task.engine 
+2018-04-02 21:34:09.611 37518 INFO rally.task.engine [-] Task f2853539-886e-4bd0-bde3-bed6cc0032ac | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task f2853539-886e-4bd0-bde3-bed6cc0032ac: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_list_zones
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 500, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task f2853539-886e-4bd0-bde3-bed6cc0032ac has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.953559
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report f2853539-886e-4bd0-bde3-bed6cc0032ac --out output.html
+
+* To generate a JUnit report, run:
+	rally task export f2853539-886e-4bd0-bde3-bed6cc0032ac --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report f2853539-886e-4bd0-bde3-bed6cc0032ac --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_update_domain": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 500,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  2403ac44-31a2-45a8-9892-9388f20dedcb: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 2403ac44-31a2-45a8-9892-9388f20dedcb
+2018-04-02 21:34:11.368 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Starting:  Task validation.
+2018-04-02 21:34:11.380 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Starting:  Task validation of syntax.
+2018-04-02 21:34:11.403 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Completed: Task validation of syntax.
+2018-04-02 21:34:11.403 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Starting:  Task validation of required platforms.
+2018-04-02 21:34:11.412 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Completed: Task validation of required platforms.
+2018-04-02 21:34:11.412 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Starting:  Task validation of semantic.
+2018-04-02 21:34:14.747 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack setup()  finished in 2.55 sec
+2018-04-02 21:34:15.233 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack cleanup() started
+2018-04-02 21:34:18.875 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack cleanup() finished in 3.64 sec
+2018-04-02 21:34:18.876 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Completed: Task validation of semantic.
+2018-04-02 21:34:18.877 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Completed: Task validation.
+2018-04-02 21:34:18.877 37687 INFO rally.api [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb input file is valid.
+2018-04-02 21:34:18.878 37687 INFO rally.api [-] Run Task 2403ac44-31a2-45a8-9892-9388f20dedcb against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:34:18.878 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Starting:  Running task.
+2018-04-02 21:34:18.941 37687 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=10837ef3-e100-4047-8952-c44cf4055257)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_update_domain", 
+         "description": "Create and then update a domain.", 
+         "scenario": {
+            "DesignateBasic.create_and_update_domain": {}
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 500, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:34:21.688 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack setup()  finished in 2.70 sec
+2018-04-02 21:34:22.320 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context quotas@openstack cleanup() started
+2018-04-02 21:34:22.385 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context quotas@openstack cleanup() finished in 65.17 msec
+2018-04-02 21:34:22.386 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack cleanup() started
+2018-04-02 21:34:27.227 37687 INFO rally.task.context [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Context users@openstack cleanup() finished in 4.84 sec
+2018-04-02 21:34:29.126 37687 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:34:29.127 37687 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:34:29.127 37687 INFO rally.task.engine [-] Full duration is: 8.273004
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     self.setup()
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:34:29.148 37687 ERROR rally.task.engine 
+2018-04-02 21:34:29.183 37687 INFO rally.task.engine [-] Task 2403ac44-31a2-45a8-9892-9388f20dedcb | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 2403ac44-31a2-45a8-9892-9388f20dedcb: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_update_domain
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 500, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 2403ac44-31a2-45a8-9892-9388f20dedcb has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.273004
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 2403ac44-31a2-45a8-9892-9388f20dedcb --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 2403ac44-31a2-45a8-9892-9388f20dedcb --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 2403ac44-31a2-45a8-9892-9388f20dedcb --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_delete_records": [
+        {
+            "args": {
+                "records_per_domain": 10
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 2000,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  e4857a0c-7a12-42af-9856-ac70957dd7d7: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: e4857a0c-7a12-42af-9856-ac70957dd7d7
+2018-04-02 21:34:30.900 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Starting:  Task validation.
+2018-04-02 21:34:30.906 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Starting:  Task validation of syntax.
+2018-04-02 21:34:30.919 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Completed: Task validation of syntax.
+2018-04-02 21:34:30.919 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Starting:  Task validation of required platforms.
+2018-04-02 21:34:30.924 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Completed: Task validation of required platforms.
+2018-04-02 21:34:30.924 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Starting:  Task validation of semantic.
+2018-04-02 21:34:34.328 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack setup()  finished in 2.67 sec
+2018-04-02 21:34:34.808 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack cleanup() started
+2018-04-02 21:34:38.400 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack cleanup() finished in 3.59 sec
+2018-04-02 21:34:38.400 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Completed: Task validation of semantic.
+2018-04-02 21:34:38.401 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Completed: Task validation.
+2018-04-02 21:34:38.401 37856 INFO rally.api [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 input file is valid.
+2018-04-02 21:34:38.401 37856 INFO rally.api [-] Run Task e4857a0c-7a12-42af-9856-ac70957dd7d7 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:34:38.402 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Starting:  Running task.
+2018-04-02 21:34:38.448 37856 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=c161a28d-3dd0-43a6-857a-da7d68ed3eea)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_delete_records", 
+         "description": "Create and then delete records.", 
+         "scenario": {
+            "DesignateBasic.create_and_delete_records": {
+               "records_per_domain": 10
+            }
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 2000, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:34:41.153 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack setup()  finished in 2.67 sec
+2018-04-02 21:34:41.793 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context quotas@openstack cleanup() started
+2018-04-02 21:34:41.866 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context quotas@openstack cleanup() finished in 73.12 msec
+2018-04-02 21:34:41.866 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack cleanup() started
+2018-04-02 21:34:46.769 37856 INFO rally.task.context [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Context users@openstack cleanup() finished in 4.90 sec
+2018-04-02 21:34:48.570 37856 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:34:48.571 37856 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:34:48.571 37856 INFO rally.task.engine [-] Full duration is: 8.31276
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     self.setup()
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:34:48.593 37856 ERROR rally.task.engine 
+2018-04-02 21:34:48.629 37856 INFO rally.task.engine [-] Task e4857a0c-7a12-42af-9856-ac70957dd7d7 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task e4857a0c-7a12-42af-9856-ac70957dd7d7: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_delete_records
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 2000, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {
+    "records_per_domain": 10
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task e4857a0c-7a12-42af-9856-ac70957dd7d7 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.31276
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report e4857a0c-7a12-42af-9856-ac70957dd7d7 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export e4857a0c-7a12-42af-9856-ac70957dd7d7 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report e4857a0c-7a12-42af-9856-ac70957dd7d7 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_delete_server": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 1
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  680fecde-ccc2-44fb-b9b2-758376ea707c: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 680fecde-ccc2-44fb-b9b2-758376ea707c
+2018-04-02 21:34:50.405 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Starting:  Task validation.
+2018-04-02 21:34:50.417 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Starting:  Task validation of syntax.
+2018-04-02 21:34:50.432 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Completed: Task validation of syntax.
+2018-04-02 21:34:50.432 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Starting:  Task validation of required platforms.
+2018-04-02 21:34:50.439 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Completed: Task validation of required platforms.
+2018-04-02 21:34:50.440 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Starting:  Task validation of semantic.
+2018-04-02 21:34:53.709 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack setup()  finished in 2.48 sec
+2018-04-02 21:34:54.196 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack cleanup() started
+2018-04-02 21:34:57.785 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack cleanup() finished in 3.59 sec
+2018-04-02 21:34:57.785 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Completed: Task validation of semantic.
+2018-04-02 21:34:57.786 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Completed: Task validation.
+2018-04-02 21:34:57.786 38027 INFO rally.api [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c input file is valid.
+2018-04-02 21:34:57.786 38027 INFO rally.api [-] Run Task 680fecde-ccc2-44fb-b9b2-758376ea707c against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:34:57.787 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Starting:  Running task.
+2018-04-02 21:34:57.830 38027 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=3ba6eef4-d5bf-4101-a433-784f47545712)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_delete_server", 
+         "description": "Create and then delete a server.", 
+         "scenario": {
+            "DesignateBasic.create_and_delete_server": {}
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 1
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:35:00.544 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack setup()  finished in 2.68 sec
+2018-04-02 21:35:00.544 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context admin_cleanup@openstack setup()  finished in 0.01 msec
+2018-04-02 21:35:00.568 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 1 START
+2018-04-02 21:35:02.092 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 1 END: OK
+2018-04-02 21:35:02.095 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 2 START
+2018-04-02 21:35:03.933 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 2 END: OK
+2018-04-02 21:35:03.936 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 3 START
+2018-04-02 21:35:05.898 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 3 END: OK
+2018-04-02 21:35:05.901 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 4 START
+2018-04-02 21:35:07.327 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 4 END: OK
+2018-04-02 21:35:07.331 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 5 START
+2018-04-02 21:35:08.783 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 5 END: OK
+2018-04-02 21:35:08.786 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 6 START
+2018-04-02 21:35:10.280 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 6 END: OK
+2018-04-02 21:35:10.283 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 7 START
+2018-04-02 21:35:11.828 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 7 END: OK
+2018-04-02 21:35:11.831 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 8 START
+2018-04-02 21:35:13.303 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 8 END: OK
+2018-04-02 21:35:13.306 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 9 START
+2018-04-02 21:35:14.819 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 9 END: OK
+2018-04-02 21:35:14.822 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 10 START
+2018-04-02 21:35:16.197 38155 INFO rally.task.runner [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | ITER: 10 END: OK
+2018-04-02 21:35:16.220 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context admin_cleanup@openstack cleanup() started
+2018-04-02 21:35:16.918 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context admin_cleanup@openstack cleanup() finished in 0.70 sec
+2018-04-02 21:35:16.919 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack cleanup() started
+2018-04-02 21:35:21.669 38027 INFO rally.task.context [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Context users@openstack cleanup() finished in 4.75 sec
+2018-04-02 21:35:22.031 38027 INFO rally.task.engine [-] Load duration is: 15.626274
+2018-04-02 21:35:22.031 38027 INFO rally.task.engine [-] Full runner duration is: 15.668972
+2018-04-02 21:35:22.031 38027 INFO rally.task.engine [-] Full duration is: 23.834156
+2018-04-02 21:35:22.098 38027 INFO rally.task.engine [-] Task 680fecde-ccc2-44fb-b9b2-758376ea707c | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 680fecde-ccc2-44fb-b9b2-758376ea707c: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_delete_server
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 1
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 680fecde-ccc2-44fb-b9b2-758376ea707c has 0 error(s)
+--------------------------------------------------------------------------------
+
++----------------------------------------------------------------------------------------------------------------------------+
+|                                                    Response Times (sec)                                                    |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                  | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.create_server | 0.912     | 0.995        | 1.38         | 1.407        | 1.435     | 1.078     | 100.0%  | 10    |
+| designate.delete_server | 0.405     | 0.473        | 0.53         | 0.548        | 0.566     | 0.481     | 100.0%  | 10    |
+| total                   | 1.374     | 1.503        | 1.849        | 1.905        | 1.961     | 1.559     | 100.0%  | 10    |
+|  -> duration            | 1.374     | 1.503        | 1.849        | 1.905        | 1.961     | 1.559     | 100.0%  | 10    |
+|  -> idle_duration       | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 15.626274
+Full duration: 23.834156
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 680fecde-ccc2-44fb-b9b2-758376ea707c --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 680fecde-ccc2-44fb-b9b2-758376ea707c --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 680fecde-ccc2-44fb-b9b2-758376ea707c --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_delete_zone": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 500,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196
+2018-04-02 21:35:23.924 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Starting:  Task validation.
+2018-04-02 21:35:23.936 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Starting:  Task validation of syntax.
+2018-04-02 21:35:23.959 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Completed: Task validation of syntax.
+2018-04-02 21:35:23.959 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Starting:  Task validation of required platforms.
+2018-04-02 21:35:23.967 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Completed: Task validation of required platforms.
+2018-04-02 21:35:23.967 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Starting:  Task validation of semantic.
+2018-04-02 21:35:27.266 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack setup()  finished in 2.53 sec
+2018-04-02 21:35:27.731 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack cleanup() started
+2018-04-02 21:35:31.526 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack cleanup() finished in 3.80 sec
+2018-04-02 21:35:31.527 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Completed: Task validation of semantic.
+2018-04-02 21:35:31.528 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Completed: Task validation.
+2018-04-02 21:35:31.528 38210 INFO rally.api [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 input file is valid.
+2018-04-02 21:35:31.529 38210 INFO rally.api [-] Run Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:35:31.529 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Starting:  Running task.
+2018-04-02 21:35:31.585 38210 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=16651f70-5005-42c9-a2a9-af8cbd7f62c0)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_delete_zone", 
+         "description": "Create and then delete a zone.", 
+         "scenario": {
+            "DesignateBasic.create_and_delete_zone": {}
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 500, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:35:34.322 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack setup()  finished in 2.70 sec
+2018-04-02 21:35:34.957 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context quotas@openstack cleanup() started
+2018-04-02 21:35:35.018 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context quotas@openstack cleanup() finished in 61.44 msec
+2018-04-02 21:35:35.019 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack cleanup() started
+2018-04-02 21:35:39.654 38210 INFO rally.task.context [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Context users@openstack cleanup() finished in 4.64 sec
+2018-04-02 21:35:39.726 38210 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:35:39.727 38210 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:35:39.727 38210 INFO rally.task.engine [-] Full duration is: 8.05674
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     self.setup()
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:35:39.748 38210 ERROR rally.task.engine 
+2018-04-02 21:35:39.784 38210 INFO rally.task.engine [-] Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_delete_zone
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 500, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.05674
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report e1ae09b7-83bc-4f15-bfa3-1dac2b3eb196 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.list_servers": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  c56fab69-5d58-40ca-a830-bd643ffe5236: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: c56fab69-5d58-40ca-a830-bd643ffe5236
+2018-04-02 21:35:41.563 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Starting:  Task validation.
+2018-04-02 21:35:41.575 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Starting:  Task validation of syntax.
+2018-04-02 21:35:41.590 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Completed: Task validation of syntax.
+2018-04-02 21:35:41.590 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Starting:  Task validation of required platforms.
+2018-04-02 21:35:41.597 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Completed: Task validation of required platforms.
+2018-04-02 21:35:41.597 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Starting:  Task validation of semantic.
+2018-04-02 21:35:45.097 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack setup()  finished in 2.74 sec
+2018-04-02 21:35:45.617 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack cleanup() started
+2018-04-02 21:35:49.250 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack cleanup() finished in 3.63 sec
+2018-04-02 21:35:49.250 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Completed: Task validation of semantic.
+2018-04-02 21:35:49.251 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Completed: Task validation.
+2018-04-02 21:35:49.251 38379 INFO rally.api [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 input file is valid.
+2018-04-02 21:35:49.251 38379 INFO rally.api [-] Run Task c56fab69-5d58-40ca-a830-bd643ffe5236 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:35:49.252 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Starting:  Running task.
+2018-04-02 21:35:49.296 38379 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=ec92316f-37f0-4672-9005-2b954d15eb25)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.list_servers", 
+         "description": "List Designate servers.", 
+         "scenario": {
+            "DesignateBasic.list_servers": {}
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 3, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:35:52.031 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack setup()  finished in 2.70 sec
+2018-04-02 21:35:52.055 38507 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 1 START
+2018-04-02 21:35:52.058 38508 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 2 START
+2018-04-02 21:35:52.745 38508 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 2 END: OK
+2018-04-02 21:35:52.748 38508 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 3 START
+2018-04-02 21:35:52.806 38507 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 1 END: OK
+2018-04-02 21:35:53.369 38508 INFO rally.task.runner [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | ITER: 3 END: OK
+2018-04-02 21:35:53.390 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack cleanup() started
+2018-04-02 21:35:58.324 38379 INFO rally.task.context [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Context users@openstack cleanup() finished in 4.93 sec
+2018-04-02 21:35:59.407 38379 INFO rally.task.engine [-] Load duration is: 1.311393
+2018-04-02 21:35:59.408 38379 INFO rally.task.engine [-] Full runner duration is: 1.350813
+2018-04-02 21:35:59.408 38379 INFO rally.task.engine [-] Full duration is: 9.022021
+2018-04-02 21:35:59.467 38379 INFO rally.task.engine [-] Task c56fab69-5d58-40ca-a830-bd643ffe5236 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task c56fab69-5d58-40ca-a830-bd643ffe5236: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.list_servers
+args position 0
+args values:
+{
+  "runner": {
+    "times": 3, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task c56fab69-5d58-40ca-a830-bd643ffe5236 has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.list_servers | 0.62      | 0.685        | 0.735        | 0.742        | 0.748     | 0.684     | 100.0%  | 3     |
+| total                  | 0.62      | 0.685        | 0.736        | 0.742        | 0.748     | 0.684     | 100.0%  | 3     |
+|  -> duration           | 0.62      | 0.685        | 0.736        | 0.742        | 0.748     | 0.684     | 100.0%  | 3     |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 3     |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 1.311393
+Full duration: 9.022021
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report c56fab69-5d58-40ca-a830-bd643ffe5236 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export c56fab69-5d58-40ca-a830-bd643ffe5236 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report c56fab69-5d58-40ca-a830-bd643ffe5236 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_delete_domain": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 500,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  428912d6-5672-4136-a0dc-4623edc80cd9: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 428912d6-5672-4136-a0dc-4623edc80cd9
+2018-04-02 21:36:01.189 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Starting:  Task validation.
+2018-04-02 21:36:01.201 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Starting:  Task validation of syntax.
+2018-04-02 21:36:01.224 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Completed: Task validation of syntax.
+2018-04-02 21:36:01.224 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Starting:  Task validation of required platforms.
+2018-04-02 21:36:01.231 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Completed: Task validation of required platforms.
+2018-04-02 21:36:01.232 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Starting:  Task validation of semantic.
+2018-04-02 21:36:04.390 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack setup()  finished in 2.42 sec
+2018-04-02 21:36:04.880 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack cleanup() started
+2018-04-02 21:36:08.774 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack cleanup() finished in 3.89 sec
+2018-04-02 21:36:08.775 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Completed: Task validation of semantic.
+2018-04-02 21:36:08.775 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Completed: Task validation.
+2018-04-02 21:36:08.776 38557 INFO rally.api [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 input file is valid.
+2018-04-02 21:36:08.776 38557 INFO rally.api [-] Run Task 428912d6-5672-4136-a0dc-4623edc80cd9 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:36:08.776 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Starting:  Running task.
+2018-04-02 21:36:08.819 38557 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=7bc5a4bf-15b0-4ea9-9897-4ea5b8cb5db1)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_delete_domain", 
+         "description": "Create and then delete a domain.", 
+         "scenario": {
+            "DesignateBasic.create_and_delete_domain": {}
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 500, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:36:11.568 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack setup()  finished in 2.72 sec
+2018-04-02 21:36:12.223 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context quotas@openstack cleanup() started
+2018-04-02 21:36:12.289 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context quotas@openstack cleanup() finished in 65.10 msec
+2018-04-02 21:36:12.289 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack cleanup() started
+2018-04-02 21:36:16.994 38557 INFO rally.task.context [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Context users@openstack cleanup() finished in 4.71 sec
+2018-04-02 21:36:18.902 38557 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:36:18.902 38557 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:36:18.903 38557 INFO rally.task.engine [-] Full duration is: 8.168265
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     self.setup()
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:36:18.923 38557 ERROR rally.task.engine 
+2018-04-02 21:36:18.956 38557 INFO rally.task.engine [-] Task 428912d6-5672-4136-a0dc-4623edc80cd9 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 428912d6-5672-4136-a0dc-4623edc80cd9: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_delete_domain
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 500, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 428912d6-5672-4136-a0dc-4623edc80cd9 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.168265
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 428912d6-5672-4136-a0dc-4623edc80cd9 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 428912d6-5672-4136-a0dc-4623edc80cd9 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 428912d6-5672-4136-a0dc-4623edc80cd9 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.list_records": [
+        {
+            "args": {
+                "domain_id": "<uuid>"
+            },
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  4b874962-7f4e-40e4-8469-6a98f1db374a: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 4b874962-7f4e-40e4-8469-6a98f1db374a
+2018-04-02 21:36:20.670 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Starting:  Task validation.
+2018-04-02 21:36:20.676 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Starting:  Task validation of syntax.
+2018-04-02 21:36:20.685 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Completed: Task validation of syntax.
+2018-04-02 21:36:20.685 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Starting:  Task validation of required platforms.
+2018-04-02 21:36:20.689 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Completed: Task validation of required platforms.
+2018-04-02 21:36:20.689 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Starting:  Task validation of semantic.
+2018-04-02 21:36:24.011 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack setup()  finished in 2.57 sec
+2018-04-02 21:36:24.525 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack cleanup() started
+2018-04-02 21:36:28.095 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack cleanup() finished in 3.57 sec
+2018-04-02 21:36:28.095 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Completed: Task validation of semantic.
+2018-04-02 21:36:28.096 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Completed: Task validation.
+2018-04-02 21:36:28.096 38726 INFO rally.api [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a input file is valid.
+2018-04-02 21:36:28.096 38726 INFO rally.api [-] Run Task 4b874962-7f4e-40e4-8469-6a98f1db374a against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:36:28.097 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Starting:  Running task.
+2018-04-02 21:36:28.141 38726 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=e5df3bb1-8c76-4037-9ee2-91e1d0e16da8)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.list_records", 
+         "description": "List Designate records.", 
+         "scenario": {
+            "DesignateBasic.list_records": {
+               "domain_id": "<uuid>"
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 3, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:36:30.846 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack setup()  finished in 2.68 sec
+2018-04-02 21:36:30.871 38854 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 1 START
+2018-04-02 21:36:30.881 38855 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 2 START
+2018-04-02 21:36:31.584 38854 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 1 END: Error NotFound: NotFound
+2018-04-02 21:36:31.588 38854 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 3 START
+2018-04-02 21:36:31.593 38855 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 2 END: Error NotFound: NotFound
+2018-04-02 21:36:32.096 38854 INFO rally.task.runner [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | ITER: 3 END: Error NotFound: NotFound
+2018-04-02 21:36:32.115 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack cleanup() started
+2018-04-02 21:36:37.133 38726 INFO rally.task.context [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Context users@openstack cleanup() finished in 5.02 sec
+2018-04-02 21:36:38.263 38726 INFO rally.task.engine [-] Load duration is: 1.221774
+2018-04-02 21:36:38.264 38726 INFO rally.task.engine [-] Full runner duration is: 1.261012
+2018-04-02 21:36:38.264 38726 INFO rally.task.engine [-] Full duration is: 8.985745
+2018-04-02 21:36:38.326 38726 INFO rally.task.engine [-] Task 4b874962-7f4e-40e4-8469-6a98f1db374a | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 4b874962-7f4e-40e4-8469-6a98f1db374a: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.list_records
+args position 0
+args values:
+{
+  "runner": {
+    "times": 3, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {
+    "domain_id": "<uuid>"
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 4b874962-7f4e-40e4-8469-6a98f1db374a has 3 error(s)
+--------------------------------------------------------------------------------
+
+NotFound: NotFound
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 158, in run
+    self._list_records(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 84, in _list_records
+    return self.clients("designate").records.list(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/records.py", line 39, in list
+    'domain_id': domain_id
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 152, in get
+    return self.wrap_api_call(self.session.get, path, **kw)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 143, in wrap_api_call
+    raise exceptions.NotFound(**response_payload)
+NotFound: NotFound
+
+--------------------------------------------------------------------------------
+NotFound: NotFound
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 158, in run
+    self._list_records(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 84, in _list_records
+    return self.clients("designate").records.list(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/records.py", line 39, in list
+    'domain_id': domain_id
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 152, in get
+    return self.wrap_api_call(self.session.get, path, **kw)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 143, in wrap_api_call
+    raise exceptions.NotFound(**response_payload)
+NotFound: NotFound
+
+--------------------------------------------------------------------------------
+NotFound: NotFound
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 158, in run
+    self._list_records(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 84, in _list_records
+    return self.clients("designate").records.list(domain_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/records.py", line 39, in list
+    'domain_id': domain_id
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 152, in get
+    return self.wrap_api_call(self.session.get, path, **kw)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 143, in wrap_api_call
+    raise exceptions.NotFound(**response_payload)
+NotFound: NotFound
+
+--------------------------------------------------------------------------------
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.list_records | 0.507     | 0.676        | 0.701        | 0.704        | 0.707     | 0.63      | 0.0%    | 3     |
+| total                  | 0.507     | 0.676        | 0.701        | 0.704        | 0.708     | 0.63      | 0.0%    | 3     |
+|  -> duration           | 0.507     | 0.676        | 0.701        | 0.704        | 0.708     | 0.63      | 0.0%    | 3     |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 0.0%    | 3     |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 1.221774
+Full duration: 8.985745
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 4b874962-7f4e-40e4-8469-6a98f1db374a --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 4b874962-7f4e-40e4-8469-6a98f1db374a --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 4b874962-7f4e-40e4-8469-6a98f1db374a --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.list_zones": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  62fad81b-134f-4aea-a56a-6c6e461b8232: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 62fad81b-134f-4aea-a56a-6c6e461b8232
+2018-04-02 21:36:40.001 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Starting:  Task validation.
+2018-04-02 21:36:40.013 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Starting:  Task validation of syntax.
+2018-04-02 21:36:40.027 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Completed: Task validation of syntax.
+2018-04-02 21:36:40.027 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Starting:  Task validation of required platforms.
+2018-04-02 21:36:40.034 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Completed: Task validation of required platforms.
+2018-04-02 21:36:40.034 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Starting:  Task validation of semantic.
+2018-04-02 21:36:43.208 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack setup()  finished in 2.48 sec
+2018-04-02 21:36:43.743 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack cleanup() started
+2018-04-02 21:36:47.389 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack cleanup() finished in 3.65 sec
+2018-04-02 21:36:47.390 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Completed: Task validation of semantic.
+2018-04-02 21:36:47.390 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Completed: Task validation.
+2018-04-02 21:36:47.391 38904 INFO rally.api [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 input file is valid.
+2018-04-02 21:36:47.391 38904 INFO rally.api [-] Run Task 62fad81b-134f-4aea-a56a-6c6e461b8232 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:36:47.391 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Starting:  Running task.
+2018-04-02 21:36:47.434 38904 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=ed895d61-8508-4819-974f-8953dbe1df90)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.list_zones", 
+         "description": "List Designate zones.", 
+         "scenario": {
+            "DesignateBasic.list_zones": {}
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 3, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:36:50.163 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack setup()  finished in 2.70 sec
+2018-04-02 21:36:50.187 39032 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 1 START
+2018-04-02 21:36:50.190 39033 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 2 START
+2018-04-02 21:36:51.296 39032 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 1 END: OK
+2018-04-02 21:36:51.297 39033 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 2 END: OK
+2018-04-02 21:36:51.300 39032 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 3 START
+2018-04-02 21:36:52.203 39032 INFO rally.task.runner [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | ITER: 3 END: OK
+2018-04-02 21:36:52.232 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack cleanup() started
+2018-04-02 21:36:56.980 38904 INFO rally.task.context [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Context users@openstack cleanup() finished in 4.75 sec
+2018-04-02 21:36:57.540 38904 INFO rally.task.engine [-] Load duration is: 2.013269
+2018-04-02 21:36:57.541 38904 INFO rally.task.engine [-] Full runner duration is: 2.061482
+2018-04-02 21:36:57.541 38904 INFO rally.task.engine [-] Full duration is: 9.541225
+2018-04-02 21:36:57.614 38904 INFO rally.task.engine [-] Task 62fad81b-134f-4aea-a56a-6c6e461b8232 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 62fad81b-134f-4aea-a56a-6c6e461b8232: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.list_zones
+args position 0
+args values:
+{
+  "runner": {
+    "times": 3, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 62fad81b-134f-4aea-a56a-6c6e461b8232 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-------------------------------------------------------------------------------------------------------------------------+
+|                                                  Response Times (sec)                                                   |
++----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action               | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.list_zones | 0.902     | 1.105        | 1.106        | 1.106        | 1.106     | 1.038     | 100.0%  | 3     |
+| total                | 0.902     | 1.105        | 1.106        | 1.106        | 1.106     | 1.038     | 100.0%  | 3     |
+|  -> duration         | 0.902     | 1.105        | 1.106        | 1.106        | 1.106     | 1.038     | 100.0%  | 3     |
+|  -> idle_duration    | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 3     |
++----------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 2.013269
+Full duration: 9.541225
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 62fad81b-134f-4aea-a56a-6c6e461b8232 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 62fad81b-134f-4aea-a56a-6c6e461b8232 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 62fad81b-134f-4aea-a56a-6c6e461b8232 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_list_recordsets": [
+        {
+            "args": {
+                "recordsets_per_zone": 10
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 2000,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                },
+                "zones": {
+                    "zones_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  47b3776b-cbfe-4787-9210-f43d748a4dbc: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 47b3776b-cbfe-4787-9210-f43d748a4dbc
+2018-04-02 21:36:59.481 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Starting:  Task validation.
+2018-04-02 21:36:59.488 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Starting:  Task validation of syntax.
+2018-04-02 21:36:59.502 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Completed: Task validation of syntax.
+2018-04-02 21:36:59.502 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Starting:  Task validation of required platforms.
+2018-04-02 21:36:59.508 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Completed: Task validation of required platforms.
+2018-04-02 21:36:59.508 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Starting:  Task validation of semantic.
+2018-04-02 21:37:02.630 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack setup()  finished in 2.39 sec
+2018-04-02 21:37:03.104 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack cleanup() started
+2018-04-02 21:37:06.655 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack cleanup() finished in 3.55 sec
+2018-04-02 21:37:06.656 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Completed: Task validation of semantic.
+2018-04-02 21:37:06.656 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Completed: Task validation.
+2018-04-02 21:37:06.656 39082 INFO rally.api [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc input file is valid.
+2018-04-02 21:37:06.657 39082 INFO rally.api [-] Run Task 47b3776b-cbfe-4787-9210-f43d748a4dbc against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:37:06.657 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Starting:  Running task.
+2018-04-02 21:37:06.704 39082 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=68351262-14f2-4fb0-81a4-48ce44e8ce08)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_list_recordsets", 
+         "description": "Create and then list recordsets.", 
+         "scenario": {
+            "DesignateBasic.create_and_list_recordsets": {
+               "recordsets_per_zone": 10
+            }
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 2000, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }, 
+            "zones": {
+               "zones_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:37:09.388 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack setup()  finished in 2.65 sec
+2018-04-02 21:37:10.055 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context quotas@openstack cleanup() started
+2018-04-02 21:37:10.115 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context quotas@openstack cleanup() finished in 59.92 msec
+2018-04-02 21:37:10.115 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack cleanup() started
+2018-04-02 21:37:15.007 39082 INFO rally.task.context [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Context users@openstack cleanup() finished in 4.89 sec
+2018-04-02 21:37:16.785 39082 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:37:16.785 39082 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:37:16.786 39082 INFO rally.task.engine [-] Full duration is: 8.294507
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     self.setup()
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:37:16.807 39082 ERROR rally.task.engine 
+2018-04-02 21:37:16.838 39082 INFO rally.task.engine [-] Task 47b3776b-cbfe-4787-9210-f43d748a4dbc | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 47b3776b-cbfe-4787-9210-f43d748a4dbc: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_list_recordsets
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 2000, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }, 
+    "zones": {
+      "zones_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "recordsets_per_zone": 10
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 47b3776b-cbfe-4787-9210-f43d748a4dbc has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.294507
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 47b3776b-cbfe-4787-9210-f43d748a4dbc --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 47b3776b-cbfe-4787-9210-f43d748a4dbc --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 47b3776b-cbfe-4787-9210-f43d748a4dbc --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_list_domains": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 500,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  2e6e515b-e1bb-45f1-a008-7c0566447a95: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 2e6e515b-e1bb-45f1-a008-7c0566447a95
+2018-04-02 21:37:18.620 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Starting:  Task validation.
+2018-04-02 21:37:18.632 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Starting:  Task validation of syntax.
+2018-04-02 21:37:18.654 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Completed: Task validation of syntax.
+2018-04-02 21:37:18.654 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Starting:  Task validation of required platforms.
+2018-04-02 21:37:18.662 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Completed: Task validation of required platforms.
+2018-04-02 21:37:18.662 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Starting:  Task validation of semantic.
+2018-04-02 21:37:21.901 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack setup()  finished in 2.49 sec
+2018-04-02 21:37:22.357 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack cleanup() started
+2018-04-02 21:37:26.190 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack cleanup() finished in 3.83 sec
+2018-04-02 21:37:26.192 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Completed: Task validation of semantic.
+2018-04-02 21:37:26.192 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Completed: Task validation.
+2018-04-02 21:37:26.193 39251 INFO rally.api [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 input file is valid.
+2018-04-02 21:37:26.193 39251 INFO rally.api [-] Run Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:37:26.193 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Starting:  Running task.
+2018-04-02 21:37:26.255 39251 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=bdc99f5b-0233-4a83-be7d-1669660ed0ea)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_list_domains", 
+         "description": "Create a domain and list all domains.", 
+         "scenario": {
+            "DesignateBasic.create_and_list_domains": {}
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 500, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:37:28.998 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack setup()  finished in 2.70 sec
+2018-04-02 21:37:29.690 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context quotas@openstack cleanup() started
+2018-04-02 21:37:29.756 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context quotas@openstack cleanup() finished in 65.91 msec
+2018-04-02 21:37:29.757 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack cleanup() started
+2018-04-02 21:37:34.876 39251 INFO rally.task.context [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Context users@openstack cleanup() finished in 5.12 sec
+2018-04-02 21:37:36.368 39251 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:37:36.369 39251 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:37:36.369 39251 INFO rally.task.engine [-] Full duration is: 8.606587
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     self.setup()
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:37:36.391 39251 ERROR rally.task.engine 
+2018-04-02 21:37:36.424 39251 INFO rally.task.engine [-] Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 2e6e515b-e1bb-45f1-a008-7c0566447a95: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_list_domains
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 500, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 2e6e515b-e1bb-45f1-a008-7c0566447a95 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.606587
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 2e6e515b-e1bb-45f1-a008-7c0566447a95 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 2e6e515b-e1bb-45f1-a008-7c0566447a95 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 2e6e515b-e1bb-45f1-a008-7c0566447a95 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_delete_recordsets": [
+        {
+            "args": {
+                "recordsets_per_zone": 10
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 2000,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                },
+                "zones": {
+                    "zones_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  7e9b682c-6f78-45c7-a608-0486c67654b4: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 7e9b682c-6f78-45c7-a608-0486c67654b4
+2018-04-02 21:37:38.299 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Starting:  Task validation.
+2018-04-02 21:37:38.310 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Starting:  Task validation of syntax.
+2018-04-02 21:37:38.333 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Completed: Task validation of syntax.
+2018-04-02 21:37:38.333 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Starting:  Task validation of required platforms.
+2018-04-02 21:37:38.341 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Completed: Task validation of required platforms.
+2018-04-02 21:37:38.342 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Starting:  Task validation of semantic.
+2018-04-02 21:37:41.713 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack setup()  finished in 2.63 sec
+2018-04-02 21:37:42.245 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack cleanup() started
+2018-04-02 21:37:45.892 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack cleanup() finished in 3.65 sec
+2018-04-02 21:37:45.893 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Completed: Task validation of semantic.
+2018-04-02 21:37:45.893 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Completed: Task validation.
+2018-04-02 21:37:45.894 39420 INFO rally.api [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 input file is valid.
+2018-04-02 21:37:45.894 39420 INFO rally.api [-] Run Task 7e9b682c-6f78-45c7-a608-0486c67654b4 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:37:45.895 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Starting:  Running task.
+2018-04-02 21:37:45.947 39420 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=1c773134-cb84-4ee4-82d4-4f164e784f13)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_delete_recordsets", 
+         "description": "Create and then delete recordsets.", 
+         "scenario": {
+            "DesignateBasic.create_and_delete_recordsets": {
+               "recordsets_per_zone": 10
+            }
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 2000, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }, 
+            "zones": {
+               "zones_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:37:48.718 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack setup()  finished in 2.74 sec
+2018-04-02 21:37:49.307 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context quotas@openstack cleanup() started
+2018-04-02 21:37:49.376 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context quotas@openstack cleanup() finished in 68.72 msec
+2018-04-02 21:37:49.376 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack cleanup() started
+2018-04-02 21:37:54.046 39420 INFO rally.task.context [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Context users@openstack cleanup() finished in 4.67 sec
+2018-04-02 21:37:56.062 39420 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:37:56.062 39420 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:37:56.063 39420 INFO rally.task.engine [-] Full duration is: 8.091785
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     self.setup()
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:37:56.083 39420 ERROR rally.task.engine 
+2018-04-02 21:37:56.116 39420 INFO rally.task.engine [-] Task 7e9b682c-6f78-45c7-a608-0486c67654b4 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 7e9b682c-6f78-45c7-a608-0486c67654b4: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_delete_recordsets
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 2000, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }, 
+    "zones": {
+      "zones_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "recordsets_per_zone": 10
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 7e9b682c-6f78-45c7-a608-0486c67654b4 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.091785
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 7e9b682c-6f78-45c7-a608-0486c67654b4 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 7e9b682c-6f78-45c7-a608-0486c67654b4 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 7e9b682c-6f78-45c7-a608-0486c67654b4 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.list_domains": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  961daa71-fc83-4d28-bbc1-906288725f64: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 961daa71-fc83-4d28-bbc1-906288725f64
+2018-04-02 21:37:57.976 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Starting:  Task validation.
+2018-04-02 21:37:57.987 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Starting:  Task validation of syntax.
+2018-04-02 21:37:58.001 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Completed: Task validation of syntax.
+2018-04-02 21:37:58.001 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Starting:  Task validation of required platforms.
+2018-04-02 21:37:58.008 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Completed: Task validation of required platforms.
+2018-04-02 21:37:58.008 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Starting:  Task validation of semantic.
+2018-04-02 21:38:01.193 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack setup()  finished in 2.43 sec
+2018-04-02 21:38:01.711 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack cleanup() started
+2018-04-02 21:38:05.341 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack cleanup() finished in 3.63 sec
+2018-04-02 21:38:05.341 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Completed: Task validation of semantic.
+2018-04-02 21:38:05.342 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Completed: Task validation.
+2018-04-02 21:38:05.342 39589 INFO rally.api [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 input file is valid.
+2018-04-02 21:38:05.342 39589 INFO rally.api [-] Run Task 961daa71-fc83-4d28-bbc1-906288725f64 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:38:05.343 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Starting:  Running task.
+2018-04-02 21:38:05.394 39589 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=d90512c2-bc4e-492c-963a-0bfb6f02a8c6)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.list_domains", 
+         "description": "List Designate domains.", 
+         "scenario": {
+            "DesignateBasic.list_domains": {}
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 3, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:38:08.086 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack setup()  finished in 2.66 sec
+2018-04-02 21:38:08.111 39717 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 1 START
+2018-04-02 21:38:08.114 39718 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 2 START
+2018-04-02 21:38:08.823 39717 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 1 END: OK
+2018-04-02 21:38:08.826 39717 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 3 START
+2018-04-02 21:38:08.844 39718 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 2 END: OK
+2018-04-02 21:38:09.430 39717 INFO rally.task.runner [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | ITER: 3 END: OK
+2018-04-02 21:38:09.454 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack cleanup() started
+2018-04-02 21:38:14.320 39589 INFO rally.task.context [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Context users@openstack cleanup() finished in 4.87 sec
+2018-04-02 21:38:15.526 39589 INFO rally.task.engine [-] Load duration is: 1.315746
+2018-04-02 21:38:15.527 39589 INFO rally.task.engine [-] Full runner duration is: 1.359951
+2018-04-02 21:38:15.527 39589 INFO rally.task.engine [-] Full duration is: 8.918311
+2018-04-02 21:38:15.588 39589 INFO rally.task.engine [-] Task 961daa71-fc83-4d28-bbc1-906288725f64 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 961daa71-fc83-4d28-bbc1-906288725f64: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.list_domains
+args position 0
+args values:
+{
+  "runner": {
+    "times": 3, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 961daa71-fc83-4d28-bbc1-906288725f64 has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.list_domains | 0.603     | 0.708        | 0.724        | 0.726        | 0.728     | 0.68      | 100.0%  | 3     |
+| total                  | 0.603     | 0.708        | 0.724        | 0.726        | 0.728     | 0.68      | 100.0%  | 3     |
+|  -> duration           | 0.603     | 0.708        | 0.724        | 0.726        | 0.728     | 0.68      | 100.0%  | 3     |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 3     |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 1.315746
+Full duration: 8.918311
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 961daa71-fc83-4d28-bbc1-906288725f64 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 961daa71-fc83-4d28-bbc1-906288725f64 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 961daa71-fc83-4d28-bbc1-906288725f64 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.list_recordsets": [
+        {
+            "args": {
+                "zone_id": "<uuid>"
+            },
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  491ff25b-8f3b-45c5-be38-d7fabe072cc4: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 491ff25b-8f3b-45c5-be38-d7fabe072cc4
+2018-04-02 21:38:17.324 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Starting:  Task validation.
+2018-04-02 21:38:17.336 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Starting:  Task validation of syntax.
+2018-04-02 21:38:17.349 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Completed: Task validation of syntax.
+2018-04-02 21:38:17.350 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Starting:  Task validation of required platforms.
+2018-04-02 21:38:17.356 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Completed: Task validation of required platforms.
+2018-04-02 21:38:17.356 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Starting:  Task validation of semantic.
+2018-04-02 21:38:20.636 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack setup()  finished in 2.54 sec
+2018-04-02 21:38:21.120 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack cleanup() started
+2018-04-02 21:38:24.747 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack cleanup() finished in 3.63 sec
+2018-04-02 21:38:24.748 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Completed: Task validation of semantic.
+2018-04-02 21:38:24.748 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Completed: Task validation.
+2018-04-02 21:38:24.749 39767 INFO rally.api [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 input file is valid.
+2018-04-02 21:38:24.749 39767 INFO rally.api [-] Run Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:38:24.749 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Starting:  Running task.
+2018-04-02 21:38:24.822 39767 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=a3f6e424-be72-4327-b7e9-7ea8d9bb0ae8)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.list_recordsets", 
+         "description": "List Designate recordsets.", 
+         "scenario": {
+            "DesignateBasic.list_recordsets": {
+               "zone_id": "<uuid>"
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 3, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:38:27.586 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack setup()  finished in 2.72 sec
+2018-04-02 21:38:27.611 39895 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 1 START
+2018-04-02 21:38:27.613 39896 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 2 START
+2018-04-02 21:38:28.317 39895 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 1 END: Error NotFound: Name <uuid> didn't resolve
+2018-04-02 21:38:28.317 39896 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 2 END: Error NotFound: Name <uuid> didn't resolve
+2018-04-02 21:38:28.320 39896 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 3 START
+2018-04-02 21:38:28.950 39896 INFO rally.task.runner [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | ITER: 3 END: Error NotFound: Name <uuid> didn't resolve
+2018-04-02 21:38:28.976 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack cleanup() started
+2018-04-02 21:38:33.784 39767 INFO rally.task.context [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Context users@openstack cleanup() finished in 4.81 sec
+2018-04-02 21:38:34.922 39767 INFO rally.task.engine [-] Load duration is: 1.336344
+2018-04-02 21:38:34.922 39767 INFO rally.task.engine [-] Full runner duration is: 1.383147
+2018-04-02 21:38:34.922 39767 INFO rally.task.engine [-] Full duration is: 8.945516
+2018-04-02 21:38:34.990 39767 INFO rally.task.engine [-] Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.list_recordsets
+args position 0
+args values:
+{
+  "runner": {
+    "times": 3, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {
+    "zone_id": "<uuid>"
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 491ff25b-8f3b-45c5-be38-d7fabe072cc4 has 3 error(s)
+--------------------------------------------------------------------------------
+
+NotFound: Name <uuid> didn't resolve
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 319, in run
+    self._list_recordsets(zone_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 179, in _list_recordsets
+    zone_id, criterion=criterion, marker=marker, limit=limit)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/recordsets.py", line 69, in list
+    zone = v2_utils.resolve_by_name(self.client.zones.list, zone)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/utils.py", line 40, in resolve_by_name
+    raise exceptions.NotFound("Name %s didn't resolve" % name)
+NotFound: Name <uuid> didn't resolve
+
+--------------------------------------------------------------------------------
+NotFound: Name <uuid> didn't resolve
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 319, in run
+    self._list_recordsets(zone_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 179, in _list_recordsets
+    zone_id, criterion=criterion, marker=marker, limit=limit)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/recordsets.py", line 69, in list
+    zone = v2_utils.resolve_by_name(self.client.zones.list, zone)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/utils.py", line 40, in resolve_by_name
+    raise exceptions.NotFound("Name %s didn't resolve" % name)
+NotFound: Name <uuid> didn't resolve
+
+--------------------------------------------------------------------------------
+NotFound: Name <uuid> didn't resolve
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/basic.py", line 319, in run
+    self._list_recordsets(zone_id)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/designate/utils.py", line 179, in _list_recordsets
+    zone_id, criterion=criterion, marker=marker, limit=limit)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/recordsets.py", line 69, in list
+    zone = v2_utils.resolve_by_name(self.client.zones.list, zone)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v2/utils.py", line 40, in resolve_by_name
+    raise exceptions.NotFound("Name %s didn't resolve" % name)
+NotFound: Name <uuid> didn't resolve
+
+--------------------------------------------------------------------------------
++------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Response Times (sec)                                                     |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                    | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.list_recordsets | 0.628     | 0.685        | 0.69         | 0.69         | 0.691     | 0.668     | 0.0%    | 3     |
+| total                     | 0.628     | 0.685        | 0.69         | 0.691        | 0.691     | 0.668     | 0.0%    | 3     |
+|  -> duration              | 0.628     | 0.685        | 0.69         | 0.691        | 0.691     | 0.668     | 0.0%    | 3     |
+|  -> idle_duration         | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 0.0%    | 3     |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 1.336344
+Full duration: 8.945516
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 491ff25b-8f3b-45c5-be38-d7fabe072cc4 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 491ff25b-8f3b-45c5-be38-d7fabe072cc4 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 491ff25b-8f3b-45c5-be38-d7fabe072cc4 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_list_records": [
+        {
+            "args": {
+                "records_per_domain": 10
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "quotas": {
+                    "designate": {
+                        "domains": 100,
+                        "domain_recordsets": 2000,
+                        "domain_records": 2000,
+                        "recordset_records": 2000
+                    }
+                },
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  9624ee00-8931-4be9-9569-28a7d1e5ab99: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 9624ee00-8931-4be9-9569-28a7d1e5ab99
+2018-04-02 21:38:36.764 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Starting:  Task validation.
+2018-04-02 21:38:36.776 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Starting:  Task validation of syntax.
+2018-04-02 21:38:36.798 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Completed: Task validation of syntax.
+2018-04-02 21:38:36.798 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Starting:  Task validation of required platforms.
+2018-04-02 21:38:36.805 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Completed: Task validation of required platforms.
+2018-04-02 21:38:36.806 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Starting:  Task validation of semantic.
+2018-04-02 21:38:40.075 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack setup()  finished in 2.50 sec
+2018-04-02 21:38:40.567 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack cleanup() started
+2018-04-02 21:38:44.328 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack cleanup() finished in 3.76 sec
+2018-04-02 21:38:44.328 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Completed: Task validation of semantic.
+2018-04-02 21:38:44.328 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Completed: Task validation.
+2018-04-02 21:38:44.329 39957 INFO rally.api [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 input file is valid.
+2018-04-02 21:38:44.329 39957 INFO rally.api [-] Run Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:38:44.329 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Starting:  Running task.
+2018-04-02 21:38:44.402 39957 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=86bfbde8-b23c-4705-8012-900c2a572bbc)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_list_records", 
+         "description": "Create and then list records.", 
+         "scenario": {
+            "DesignateBasic.create_and_list_records": {
+               "records_per_domain": 10
+            }
+         }, 
+         "contexts": {
+            "quotas": {
+               "designate": {
+                  "domains": 100, 
+                  "domain_recordsets": 2000, 
+                  "domain_records": 2000, 
+                  "recordset_records": 2000
+               }
+            }, 
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:38:47.122 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack setup()  finished in 2.68 sec
+2018-04-02 21:38:47.768 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context quotas@openstack cleanup() started
+2018-04-02 21:38:47.811 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context quotas@openstack cleanup() finished in 42.50 msec
+2018-04-02 21:38:47.811 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack cleanup() started
+2018-04-02 21:38:52.500 39957 INFO rally.task.context [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Context users@openstack cleanup() finished in 4.69 sec
+2018-04-02 21:38:52.568 39957 INFO rally.task.engine [-] Load duration is: 0.0
+2018-04-02 21:38:52.569 39957 INFO rally.task.engine [-] Full runner duration is: 0.0
+2018-04-02 21:38:52.569 39957 INFO rally.task.engine [-] Full duration is: 8.083376
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine [-] Unexpected exception during the workload execution: Forbidden: forbidden
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine Traceback (most recent call last):
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/engine.py", line 480, in _run_workload
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     with ctx_manager:
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 294, in __enter__
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     self.setup()
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/context.py", line 239, in setup
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     ctx.setup()
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/quotas.py", line 79, in setup
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     **self.config[service])
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/context/quotas/designate_quotas.py", line 46, in update
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     self.clients.designate().quotas.update(tenant_id, kwargs)
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/quotas.py", line 32, in update
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     data=json.dumps(values))
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 158, in put
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     return self.wrap_api_call(self.session.put, path, **kw)
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine   File "/home/leon0944/rally/local/lib/python2.7/site-packages/designateclient/v1/__init__.py", line 141, in wrap_api_call
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine     raise exceptions.Forbidden(**response_payload)
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine Forbidden: forbidden
+2018-04-02 21:38:52.590 39957 ERROR rally.task.engine 
+2018-04-02 21:38:52.624 39957 INFO rally.task.engine [-] Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 9624ee00-8931-4be9-9569-28a7d1e5ab99: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_list_records
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "quotas": {
+      "designate": {
+        "domains": 100, 
+        "domain_recordsets": 2000, 
+        "domain_records": 2000, 
+        "recordset_records": 2000
+      }
+    }, 
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {
+    "records_per_domain": 10
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 9624ee00-8931-4be9-9569-28a7d1e5ab99 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------+
+|                                           Response Times (sec)                                            |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| total  | n/a       | n/a          | n/a          | n/a          | n/a       | n/a       | n/a     | 0     |
++--------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 0.0
+Full duration: 8.083376
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 9624ee00-8931-4be9-9569-28a7d1e5ab99 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 9624ee00-8931-4be9-9569-28a7d1e5ab99 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 9624ee00-8931-4be9-9569-28a7d1e5ab99 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "DesignateBasic.create_and_list_servers": [
+        {
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 1
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 2
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  3a4ee729-3a71-45dc-9cb6-5d39b3f9f517: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517
+2018-04-02 21:38:54.456 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Starting:  Task validation.
+2018-04-02 21:38:54.467 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Starting:  Task validation of syntax.
+2018-04-02 21:38:54.483 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Completed: Task validation of syntax.
+2018-04-02 21:38:54.483 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Starting:  Task validation of required platforms.
+2018-04-02 21:38:54.490 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Completed: Task validation of required platforms.
+2018-04-02 21:38:54.490 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Starting:  Task validation of semantic.
+2018-04-02 21:38:57.796 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack setup()  finished in 2.51 sec
+2018-04-02 21:38:58.307 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack cleanup() started
+2018-04-02 21:39:01.954 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack cleanup() finished in 3.65 sec
+2018-04-02 21:39:01.955 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Completed: Task validation of semantic.
+2018-04-02 21:39:01.955 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Completed: Task validation.
+2018-04-02 21:39:01.956 40126 INFO rally.api [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 input file is valid.
+2018-04-02 21:39:01.956 40126 INFO rally.api [-] Run Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:39:01.956 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Starting:  Running task.
+2018-04-02 21:39:02.002 40126 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=42eed296-aa5b-4ae5-b399-b723291883c9)", 
+   "subtasks": [
+      {
+         "title": "DesignateBasic.create_and_list_servers", 
+         "description": "Create a Designate server and list all servers.", 
+         "scenario": {
+            "DesignateBasic.create_and_list_servers": {}
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 2, 
+               "users_per_tenant": 2
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 1
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:39:04.632 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack setup()  finished in 2.59 sec
+2018-04-02 21:39:04.633 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context admin_cleanup@openstack setup()  finished in 0.01 msec
+2018-04-02 21:39:04.660 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 1 START
+2018-04-02 21:39:06.002 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 1 END: OK
+2018-04-02 21:39:06.006 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 2 START
+2018-04-02 21:39:07.082 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 2 END: OK
+2018-04-02 21:39:07.085 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 3 START
+2018-04-02 21:39:08.076 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 3 END: OK
+2018-04-02 21:39:08.079 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 4 START
+2018-04-02 21:39:09.195 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 4 END: OK
+2018-04-02 21:39:09.198 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 5 START
+2018-04-02 21:39:10.291 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 5 END: OK
+2018-04-02 21:39:10.294 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 6 START
+2018-04-02 21:39:11.490 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 6 END: OK
+2018-04-02 21:39:11.494 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 7 START
+2018-04-02 21:39:12.677 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 7 END: OK
+2018-04-02 21:39:12.680 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 8 START
+2018-04-02 21:39:13.948 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 8 END: OK
+2018-04-02 21:39:13.951 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 9 START
+2018-04-02 21:39:15.171 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 9 END: OK
+2018-04-02 21:39:15.175 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 10 START
+2018-04-02 21:39:16.371 40254 INFO rally.task.runner [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | ITER: 10 END: OK
+2018-04-02 21:39:16.391 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context admin_cleanup@openstack cleanup() started
+2018-04-02 21:39:37.393 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context admin_cleanup@openstack cleanup() finished in 21.00 sec
+2018-04-02 21:39:37.394 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack cleanup() started
+2018-04-02 21:39:42.205 40126 INFO rally.task.context [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Context users@openstack cleanup() finished in 4.81 sec
+2018-04-02 21:39:42.300 40126 INFO rally.task.engine [-] Load duration is: 11.708349
+2018-04-02 21:39:42.300 40126 INFO rally.task.engine [-] Full runner duration is: 11.751741
+2018-04-02 21:39:42.300 40126 INFO rally.task.engine [-] Full duration is: 40.194695
+2018-04-02 21:39:42.370 40126 INFO rally.task.engine [-] Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517: finished
+--------------------------------------------------------------------------------
+
+test scenario DesignateBasic.create_and_list_servers
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 1
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 2, 
+      "users_per_tenant": 2
+    }
+  }, 
+  "args": {}, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 has 0 error(s)
+--------------------------------------------------------------------------------
+
++----------------------------------------------------------------------------------------------------------------------------+
+|                                                    Response Times (sec)                                                    |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                  | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| designate.create_server | 0.891     | 1.04         | 1.127        | 1.18         | 1.232     | 1.041     | 100.0%  | 10    |
+| designate.list_servers  | 0.09      | 0.126        | 0.162        | 0.163        | 0.163     | 0.126     | 100.0%  | 10    |
+| total                   | 0.99      | 1.189        | 1.274        | 1.307        | 1.339     | 1.167     | 100.0%  | 10    |
+|  -> duration            | 0.99      | 1.189        | 1.274        | 1.307        | 1.339     | 1.167     | 100.0%  | 10    |
+|  -> idle_duration       | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++-------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 11.708349
+Full duration: 40.194695
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 3a4ee729-3a71-45dc-9cb6-5d39b3f9f517 --json --out output.json
+
