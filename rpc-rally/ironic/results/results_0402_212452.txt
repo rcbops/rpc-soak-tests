@@ -1,0 +1,949 @@
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "IronicNodes.create_and_delete_node": [
+        {
+            "args": {
+                "driver": "pxe_ssh",
+                "properties": {
+                    "capabilities": "boot_option:local"
+                }
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 5,
+                    "users_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  19615e76-a869-4b2c-b5b3-0bd8205ae4f9: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 19615e76-a869-4b2c-b5b3-0bd8205ae4f9
+2018-04-02 21:24:54.043 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Starting:  Task validation.
+2018-04-02 21:24:54.055 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Starting:  Task validation of syntax.
+2018-04-02 21:24:54.071 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Completed: Task validation of syntax.
+2018-04-02 21:24:54.071 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Starting:  Task validation of required platforms.
+2018-04-02 21:24:54.079 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Completed: Task validation of required platforms.
+2018-04-02 21:24:54.079 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Starting:  Task validation of semantic.
+2018-04-02 21:24:57.040 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack setup()  finished in 2.27 sec
+2018-04-02 21:24:57.497 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack cleanup() started
+2018-04-02 21:25:00.797 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack cleanup() finished in 3.30 sec
+2018-04-02 21:25:00.798 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Completed: Task validation of semantic.
+2018-04-02 21:25:00.798 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Completed: Task validation.
+2018-04-02 21:25:00.798 36399 INFO rally.api [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 input file is valid.
+2018-04-02 21:25:00.799 36399 INFO rally.api [-] Run Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:25:00.799 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Starting:  Running task.
+2018-04-02 21:25:00.853 36399 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=f64f771a-7885-4180-87fe-8fc0fe314348)", 
+   "subtasks": [
+      {
+         "title": "IronicNodes.create_and_delete_node", 
+         "description": "Create and delete node.", 
+         "scenario": {
+            "IronicNodes.create_and_delete_node": {
+               "driver": "pxe_ssh", 
+               "properties": {
+                  "capabilities": "boot_option:local"
+               }
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 5, 
+               "users_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:25:03.610 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack setup()  finished in 2.72 sec
+2018-04-02 21:25:03.611 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context admin_cleanup@openstack setup()  finished in 0.02 msec
+2018-04-02 21:25:03.640 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 1 START
+2018-04-02 21:25:03.641 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 2 START
+2018-04-02 21:25:04.249 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 2 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:04.249 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 1 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:04.253 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 4 START
+2018-04-02 21:25:04.253 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 3 START
+2018-04-02 21:25:04.670 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 4 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:04.673 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 5 START
+2018-04-02 21:25:04.690 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 3 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:04.693 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 6 START
+2018-04-02 21:25:05.113 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 5 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:05.117 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 7 START
+2018-04-02 21:25:05.150 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 6 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:05.153 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 8 START
+2018-04-02 21:25:05.531 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 7 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:05.535 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 9 START
+2018-04-02 21:25:05.555 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 8 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:05.559 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 10 START
+2018-04-02 21:25:05.980 36536 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 9 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:05.980 36535 INFO rally.task.runner [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | ITER: 10 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:06.007 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context admin_cleanup@openstack cleanup() started
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager [-] Seems like rally.plugins.openstack.cleanup.resources.IronicNodes.list(self) method is broken. It shouldn't raise any exceptions.: SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager Traceback (most recent call last):
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/cleanup/manager.py", line 133, in _publish
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     for raw_resource in rutils.retry(3, manager.list):
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/common/utils.py", line 229, in retry
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     return func(*args, **kwargs)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/cleanup/base.py", line 134, in list
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     return self._manager().list()
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/v1/node.py", line 140, in list
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     return self._list(self._path(path), "nodes")
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 174, in _list
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     resp, body = self.api.json_request('GET', url)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     resp = self._http_request(url, method, **kwargs)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     return func(self, url, method, **kwargs)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     raise_exc=False, **kwargs)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     resp = send(**kwargs)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager     raise exceptions.SSLError(msg)
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:06.472 36399 ERROR rally.plugins.openstack.cleanup.manager 
+2018-04-02 21:25:06.484 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context admin_cleanup@openstack cleanup() finished in 0.48 sec
+2018-04-02 21:25:06.485 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack cleanup() started
+2018-04-02 21:25:14.973 36399 INFO rally.task.context [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Context users@openstack cleanup() finished in 8.49 sec
+2018-04-02 21:25:16.972 36399 INFO rally.task.engine [-] Load duration is: 2.338242
+2018-04-02 21:25:16.973 36399 INFO rally.task.engine [-] Full runner duration is: 2.388609
+2018-04-02 21:25:16.973 36399 INFO rally.task.engine [-] Full duration is: 14.105622
+2018-04-02 21:25:17.044 36399 INFO rally.task.engine [-] Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9: finished
+--------------------------------------------------------------------------------
+
+test scenario IronicNodes.create_and_delete_node
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 5, 
+      "users_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "driver": "pxe_ssh", 
+    "properties": {
+      "capabilities": "boot_option:local"
+    }
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 has 10 error(s)
+--------------------------------------------------------------------------------
+
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 85, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
++-----------------------------------------------------------------------------------------------------------------------+
+|                                                 Response Times (sec)                                                  |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action             | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| ironic.create_node | 0.4       | 0.437        | 0.577        | 0.578        | 0.579     | 0.458     | 0.0%    | 10    |
+| total              | 0.4       | 0.437        | 0.577        | 0.578        | 0.579     | 0.458     | 0.0%    | 10    |
+|  -> duration       | 0.4       | 0.437        | 0.577        | 0.578        | 0.579     | 0.458     | 0.0%    | 10    |
+|  -> idle_duration  | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 0.0%    | 10    |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 2.338242
+Full duration: 14.105622
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 19615e76-a869-4b2c-b5b3-0bd8205ae4f9 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "IronicNodes.create_and_list_node": [
+        {
+            "args": {
+                "driver": "pxe_ssh"
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 5,
+                    "users_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  2b04e892-c7e5-48fb-9633-6ac7172cffa0: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 2b04e892-c7e5-48fb-9633-6ac7172cffa0
+2018-04-02 21:25:18.981 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Starting:  Task validation.
+2018-04-02 21:25:18.990 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Starting:  Task validation of syntax.
+2018-04-02 21:25:19.003 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Completed: Task validation of syntax.
+2018-04-02 21:25:19.003 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Starting:  Task validation of required platforms.
+2018-04-02 21:25:19.009 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Completed: Task validation of required platforms.
+2018-04-02 21:25:19.009 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Starting:  Task validation of semantic.
+2018-04-02 21:25:21.957 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack setup()  finished in 2.27 sec
+2018-04-02 21:25:22.409 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack cleanup() started
+2018-04-02 21:25:26.041 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack cleanup() finished in 3.63 sec
+2018-04-02 21:25:26.042 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Completed: Task validation of semantic.
+2018-04-02 21:25:26.042 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Completed: Task validation.
+2018-04-02 21:25:26.043 36612 INFO rally.api [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 input file is valid.
+2018-04-02 21:25:26.043 36612 INFO rally.api [-] Run Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 against Deployment 9178e466-7f95-4c72-934c-364758361d2d
+2018-04-02 21:25:26.043 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Starting:  Running task.
+2018-04-02 21:25:26.091 36612 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=8a56bdb6-250b-4910-a7c3-fecb423707fd)", 
+   "subtasks": [
+      {
+         "title": "IronicNodes.create_and_list_node", 
+         "description": "Create and list nodes.", 
+         "scenario": {
+            "IronicNodes.create_and_list_node": {
+               "driver": "pxe_ssh"
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 5, 
+               "users_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-04-02 21:25:29.060 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack setup()  finished in 2.94 sec
+2018-04-02 21:25:29.061 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context admin_cleanup@openstack setup()  finished in 0.01 msec
+2018-04-02 21:25:29.086 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 1 START
+2018-04-02 21:25:29.089 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 2 START
+2018-04-02 21:25:29.600 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 2 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:29.605 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 3 START
+2018-04-02 21:25:29.732 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 1 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:29.736 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 4 START
+2018-04-02 21:25:30.110 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 3 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:30.114 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 5 START
+2018-04-02 21:25:30.228 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 4 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:30.232 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 6 START
+2018-04-02 21:25:30.509 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 5 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:30.512 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 7 START
+2018-04-02 21:25:30.650 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 6 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:30.653 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 8 START
+2018-04-02 21:25:30.919 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 7 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:30.923 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 9 START
+2018-04-02 21:25:31.060 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 8 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:31.063 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 10 START
+2018-04-02 21:25:31.388 36742 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 9 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:31.480 36741 INFO rally.task.runner [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | ITER: 10 END: Error SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:31.508 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context admin_cleanup@openstack cleanup() started
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager [-] Seems like rally.plugins.openstack.cleanup.resources.IronicNodes.list(self) method is broken. It shouldn't raise any exceptions.: SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager Traceback (most recent call last):
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/cleanup/manager.py", line 133, in _publish
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     for raw_resource in rutils.retry(3, manager.list):
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/common/utils.py", line 229, in retry
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     return func(*args, **kwargs)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/cleanup/base.py", line 134, in list
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     return self._manager().list()
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/v1/node.py", line 140, in list
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     return self._list(self._path(path), "nodes")
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 174, in _list
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     resp, body = self.api.json_request('GET', url)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     resp = self._http_request(url, method, **kwargs)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     return func(self, url, method, **kwargs)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     raise_exc=False, **kwargs)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     resp = send(**kwargs)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager   File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager     raise exceptions.SSLError(msg)
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+2018-04-02 21:25:31.974 36612 ERROR rally.plugins.openstack.cleanup.manager 
+2018-04-02 21:25:31.985 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context admin_cleanup@openstack cleanup() finished in 0.48 sec
+2018-04-02 21:25:31.986 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack cleanup() started
+2018-04-02 21:25:39.494 36612 INFO rally.task.context [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Context users@openstack cleanup() finished in 7.51 sec
+2018-04-02 21:25:40.239 36612 INFO rally.task.engine [-] Load duration is: 2.39145
+2018-04-02 21:25:40.239 36612 INFO rally.task.engine [-] Full runner duration is: 2.438995
+2018-04-02 21:25:40.240 36612 INFO rally.task.engine [-] Full duration is: 13.39675
+2018-04-02 21:25:40.303 36612 INFO rally.task.engine [-] Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0: finished
+--------------------------------------------------------------------------------
+
+test scenario IronicNodes.create_and_list_node
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 5, 
+      "users_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "driver": "pxe_ssh"
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 2b04e892-c7e5-48fb-9633-6ac7172cffa0 has 10 error(s)
+--------------------------------------------------------------------------------
+
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+Traceback (most recent call last):
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/runner.py", line 71, in _run_scenario_once
+    getattr(scenario_inst, method_name)(**scenario_kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/nodes.py", line 62, in run
+    node = self._create_node(driver, properties, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/task/atomic.py", line 91, in func_atomic_actions
+    f = func(self, *args, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/rally/plugins/openstack/scenarios/ironic/utils.py", line 58, in _create_node
+    **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/base.py", line 237, in create
+    resp, body = self.api.json_request('POST', url, body=new)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 558, in json_request
+    resp = self._http_request(url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 188, in wrapper
+    return func(self, url, method, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/ironicclient/common/http.py", line 527, in _http_request
+    raise_exc=False, **kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 698, in request
+    resp = send(**kwargs)
+  File "/home/leon0944/rally/local/lib/python2.7/site-packages/keystoneauth1/session.py", line 760, in _send_request
+    raise exceptions.SSLError(msg)
+SSLError: SSL exception connecting to https://172.18.0.227:6385/v1/nodes: HTTPSConnectionPool(host='172.18.0.227', port=6385): Max retries exceeded with url: /v1/nodes (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'ssl3_get_record', 'wrong version number')],)",),))
+
+--------------------------------------------------------------------------------
++-----------------------------------------------------------------------------------------------------------------------+
+|                                                 Response Times (sec)                                                  |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action             | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| ironic.create_node | 0.394     | 0.441        | 0.521        | 0.581        | 0.642     | 0.465     | 0.0%    | 10    |
+| total              | 0.394     | 0.441        | 0.521        | 0.582        | 0.642     | 0.465     | 0.0%    | 10    |
+|  -> duration       | 0.394     | 0.441        | 0.521        | 0.582        | 0.642     | 0.465     | 0.0%    | 10    |
+|  -> idle_duration  | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 0.0%    | 10    |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 2.39145
+Full duration: 13.39675
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 2b04e892-c7e5-48fb-9633-6ac7172cffa0 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 2b04e892-c7e5-48fb-9633-6ac7172cffa0 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 2b04e892-c7e5-48fb-9633-6ac7172cffa0 --json --out output.json
+
+At least one workload did not pass SLA criteria.
+
