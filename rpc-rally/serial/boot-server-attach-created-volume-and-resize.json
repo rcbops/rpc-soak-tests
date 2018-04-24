@@ -7,7 +7,7 @@
                     "name": "m1.medium"
                 },
                 "image": {
-                    "name": "shit"
+                    "name": "Ubuntu 14.04 LTS"
                 },
                 "to_flavor": {
                     "name": "m1.large"
@@ -21,7 +21,7 @@
             },
             "runner": {
                 "type": "constant",
-                "times": 2,
+                "times": 4,
                 "concurrency": 2
             },
             "context": {
