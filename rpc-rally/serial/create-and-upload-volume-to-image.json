@@ -8,7 +8,7 @@
                 "disk_format": "raw",
                 "do_delete": true,
                 "image": {
-                    "name": "cirros"
+                    "name": "Cirros-0.3.5"
                 }
             },
             "runner": {
@@ -39,7 +39,7 @@
                 "disk_format": "raw",
                 "do_delete": true,
                 "image": {
-                    "name": "cirros"
+                    "name": "Cirros-0.3.5"
                 }
             },
             "runner": {
