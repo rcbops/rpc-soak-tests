@@ -2,7 +2,7 @@
     "IronicNodes.create_and_list_node": [
         {
             "args": {
-                "driver": "pxe_ssh"
+                "driver": "agent_ipmitool"
             },
             "runner": {
                 "type": "constant",
