@@ -1,27 +1,24 @@
 {% set flavor_name = flavor_name or "m1.tiny" %}
-{% set volume_type = volume_type or "" %}
 {
-    "NovaServers.boot_server_from_volume_snapshot": [
+   "NovaServers.boot_and_migrate_server": [
         {
             "args": {
                 "flavor": {
-                    "name": "m1.medium"
+                    "name": "m1.large"
                 },
                 "image": {
-                    "name": "Ubuntu 14.04 LTS"
-                },
-                "volume_size": 50,
-                "volume_type": ""
+                    "name": "CentOS 7"
+                }
             },
             "runner": {
                 "type": "constant",
-                "times": 10,
-                "concurrency": 2
+                "times": 100,
+                "concurrency": 5
             },
             "context": {
                 "users": {
-                    "tenants": 3,
-                    "users_per_tenant": 2
+                    "tenants": 1,
+                    "users_per_tenant": 1
                 }
             },
             "sla": {

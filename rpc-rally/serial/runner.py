@@ -6,6 +6,11 @@ import subprocess
 import time
 
 
+"""
+This runner is deprecated and its enhanced version should be used instead:
+rpc-soak-tests/rpc-rally/runner.py
+"""
+
 def welcome_msg():
     print "\nWelcome to the Rally test runner! Starting Run :)\n"
     start_time = time.strftime("Run start %m-%d %H:%M:%S", time.gmtime())

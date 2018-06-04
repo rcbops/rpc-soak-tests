@@ -6,10 +6,11 @@ benchmarking and profiling simulating user loads.
 
 The contents of the rpc-rally directory are,
 
-* configs: examples of how to register a Rally deployment.
-* serial: test suite for the RPC OpenStack deployment
-validation and verification. These tests come from the
-Rally scenarios (see References) and are in JSON.
+* configs: JSON file examples for registering an OpenStack deployment with Rally.
+* serial: test suite with the nova, neutron, cinder and swift tests.
+
+Test suites are for load testing the OpenStack deployment with Rally
+and come from the Rally scenarios, see references at the end, and are in JSON.
 
 Rally uses two types of JSON files, the ones that
 Register the OpenStack deployment, described below
