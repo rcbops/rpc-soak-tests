@@ -7,7 +7,21 @@ benchmarking and profiling simulating user loads.
 The contents of the rpc-rally directory are,
 
 * configs: JSON file examples for registering an OpenStack deployment with Rally.
-* serial: test suite with the nova, neutron, cinder and swift tests.
+* serial: test suite with the nova, neutron, cinder and swift scenarios.
+
+And there also test suites by OpenStack project in the following dirs,
+
+* nova
+* neutron
+* cinder
+* swift
+* ironic
+* keystone
+* heat - these are still work in progress
+* designate - Not available to be used at the moment since Rally is using the
+python-designateclient (deprecated) that interacts with the designate
+v1 API. Rally will need to be updated to use the python-openstackclient that
+does interacts with the designate v2 API.
 
 Test suites are for load testing the OpenStack deployment with Rally
 and come from the Rally scenarios, see references at the end, and are in JSON.
@@ -146,7 +160,7 @@ This deployment is now registered in the .rally dir and
 the "openrc" file points to it making it the active
 deployment to be used.
 
-*Other usefull commands  to manage deployments are:*
+*Other usefull commands  to manage deployments:*
 
 ```commandline
 # to get the registered deployment list
@@ -154,6 +168,16 @@ $ rally deployment list
 # to change the active deployment
 $ rally deployment use --deployment <uuid or name>
 ```
+
+*To see available Rally scenarios by OpenStack project:*
+
+```rally plugin list --name ironic```
+
+These scenarios should be available at:
+https://github.com/openstack/rally/tree/master/samples/tasks/scenarios/ironic
+
+--name is the OpenStack project, for ex. nova, neutron, etc.
+
 
 Running Rally
 -------------
@@ -173,24 +197,158 @@ The scenario now becomes a Rally task and its results are printed to stdout
 and also an HTML, JUnit and raw JSON reports are generated and stored within
 the Rally DB.
 
-To run multiple scenarios in sequence a simple runner was created and can
+
+The RPC-O Rally runner
+----------------------
+
+To run multiple Rally tasks in sequence a simple runner was created and can
 be seen at,
 
-https://github.com/rcbops/rpc-soak-tests/blob/master/rpc-rally/serial/runner.py
+https://github.com/rcbops/rpc-soak-tests/blob/master/rpc-rally/runner.py
 
-This runner will pick up all the JSON scenario files within the same dir and
+Note: its initial version can be seen within the rpc-rally/serial directory
+but it has been deprecated.
+
+This runner will pick up all the JSON task files within the same dir and
 execute them as Rally tasks in sequence. The results are stored within a
 results directory, for ex.
 
 https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial/results
 
-And are timestamped text files that contain the stdout of the Rally tasks
-and within are the tasks IDs and Rally commands to generate the HTML, JUnit
-and or raw JSON reports if desired. Examples of these files can be seen
-within the results directory mentioned above.
+The results are timestamped text files that contain the stdout of the Rally
+tasks and within the results the tasks IDs and Rally commands to generate
+the HTML, JUnit or raw JSON reports can be found.
 
-**Note: the runner is still work in progress but fully functional.**
+To run runner.py the following is expected:
 
+ - The (rally) virutual environment is active
+ - The direcotry path of the JSON scenario files to run is available
+ - The directory path has a results directory within to store the
+   results as timestamped .txt files. Still if not, It will be created.
+
+ usage: $python runner.py --tests=`<dirpath>` [--dry-run][smoke]
+ 
+ Run Rally tasks within the `<dirpath>` argument.
+ 
+ required arguments:
+   
+   --tests=`<dirpath>` targets the Rally tasks within the dirpath directory.
+ 
+ optional arguments:
+   
+   --dry-run list the $rally task start ... cmds to run (without executing)
+   
+   smoke only run one rally task
+
+
+ Use cases ex.
+
+ $ python runner.py --tests=serial --dry-run
+ 
+ $ python runner.py --tests=./nova smoke
+ 
+ $ python runner.py --tests=/home/usr/rpc-soak-tests/rpc-rally/neutron
+ 
+
+The Rally Tempest Verifier
+--------------------------
+
+Rally can run tempest tests with its verification component known as
+"rally verify". With this component you can create tempest verifiers for
+the Rally OpenStack registered deployments as shown in the example below.
+
+**To create the verifier**
+```commandline
+$ rally verify create-verifier --type tempest --name tempver-eureka-queens --version 17.2.0
+2018-06-05 20:39:12.885 33527 INFO rally.api [-] Creating verifier 'tempver-eureka-queens'.
+2018-06-05 20:39:12.936 33527 INFO rally.verification.manager [-] Cloning verifier repo from https://git.openstack.org/openstack/tempest.
+2018-06-05 20:39:19.219 33527 INFO rally.verification.manager [-] Switching verifier repo to the '17.2.0' version.
+2018-06-05 20:39:19.344 33527 INFO rally.verification.manager [-] Creating virtual environment. It may take a few minutes.
+2018-06-05 20:39:34.179 33527 INFO rally.api [-] Verifier 'tempver-eureka-queens' (UUID=5bfb7d25-ead7-45d8-a038-85a49bfe5412) has been successfully created!
+Using verifier 'tempver-eureka-queens' (UUID=5bfb7d25-ead7-45d8-a038-85a49bfe5412) as the default verifier for the future CLI operations.
+```
+Note: the verifier created is for the active Rally deployment. The --version
+parameter is optional but in this case the tempest version 17.2.0 is used
+since there seems to be an issue when using a rally version below 0.11.
+Also, a --source param can be used to point to a local installation of
+tempest or an alternate git repository, for ex. /home/ubuntu/tempest/ or
+https://github.com/openstack/tempest.git
+
+
+**To configure the verifier**
+
+```commandline
+$ rally verify configure-verifier
+2018-06-05 20:56:35.756 33611 INFO rally.api [-] Configuring verifier 'tempver-eureka-queens' (UUID=5bfb7d25-ead7-45d8-a038-85a49bfe5412) for deployment 'eureka_queens' (UUID=9645acaa-d81e-48ac-8b77-9fe1d18f70f5).
+2018-06-05 20:56:36.593 33611 INFO rally.api [-] Verifier 'tempver-eureka-queens' (UUID=5bfb7d25-ead7-45d8-a038-85a49bfe5412) has been successfully configured for deployment 'eureka_queens' (UUID=9645acaa-d81e-48ac-8b77-9fe1d18f70f5)!
+```
+Note: the --show argument can be used to see the tempest config file that will
+be stored at the .rally verification dir, for ex.
+```commandline
+.rally/verification/verifier-5bfb7d25-ead7-45d8-a038-85a49bfe5412/for-deployment-9645acaa-d81e-48ac-8b77-9fe1d18f70f5
+```
+
+**Starting a verification**
+
+To run all tempest tests
+```commandline
+$ rally verify start
+```
+
+To run tests by product
+```commandline
+$ rally verify start --pattern set=compute
+```
+
+Note: available sets are full, smoke, compute, identity, image, network,
+object_storage, volume and scenario. The number of test suites
+depends on the Tempest version used.
+
+To run a certain set of tests from a test class or a single test, for ex.
+```commandline
+$ rally verify start --pattern tempest.api.compute.servers.test_create_server.ServersTestJSON
+$ rally verify start --pattern tempest.api.network.test_networks.NetworksTest --detailed
+$ rally verify start --regex tempest.api.compute.admin.test_flavors.FlavorsAdminTestJSON.test_create_flavor_using_string_ram
+```
+
+Note: the --detailed argument can be used to see the errors of failed tests after the verification finishes
+
+**Other useful commands**
+```commandline
+$ rally verify list-verifiers
+$ rally verify delete-verifier --id <UUID>
+```
+To configure the verifier vs another Rally deployment
+```commandline
+$ rally verify configure-verifier --deployment-id <UUID or name of a deployment>
+```
+
+To run a verifier given by ID vs a Rally deployment given by ID too
+```commandline
+$ rally verify start --id <UUID or name of a verifier> --deployment-id <UUID or name of a deployment>
+```
+
+To rerun failed tests
+```commandline
+$ rally verify rerun --uuid <UUID of a verification> --failed
+```
+Note: --failed is optional and can be used to rerun only failed tests of a
+verification. If not given all tests of the verification will rerun.
+
+To see detailed information of a verification
+```commandline
+$ rally verify show <UUID of a verification>
+```
+
+To generate a report of a verification
+```commandline
+$ rally verify report <UUID of a verification>
+```
+
+To just list the tests to run, for ex.
+```commandline
+$ rally verify list-verifier-tests --pattern set=scenario
+```
 
 References
 ----------
@@ -202,3 +360,19 @@ https://docs.openstack.org/developer/rally/quick_start/index.html
 Rally scenarios
 
 https://github.com/openstack/rally/tree/master/samples/tasks/scenarios
+
+Rally Tempest Verifier
+
+https://docs.openstack.org/developer/rally/quick_start/tutorial/step_10_verifying_cloud_via_tempest_verifier.html
+
+Rally Verify CLI reference
+
+https://docs.openstack.org/rally/latest/verification/cli_reference.html
+
+Tempest API tests
+
+https://github.com/openstack/tempest/tree/master/tempest/api
+
+Tempest Scenario tests
+
+https://github.com/openstack/tempest/tree/master/tempest/scenario
