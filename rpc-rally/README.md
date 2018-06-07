@@ -237,18 +237,40 @@ To run runner.py the following is expected:
  optional arguments:
    
    --dry-run list the $rally task start ... cmds to run (without executing)
+       no results file is created.
    
    smoke only run one rally task
 
+   --task-args-file=<dirpath>  template variable JSON file
 
- Use cases ex.
+ **Use cases ex.**
 
  $ python runner.py --tests=serial --dry-run
  
  $ python runner.py --tests=./nova smoke
  
  $ python runner.py --tests=/home/usr/rpc-soak-tests/rpc-rally/neutron
- 
+
+ **Run ex.**
+```commandline
+$ python runner.py --tests='neutron' --task-args-file=args.json --dry-run
+
+Welcome to the Rally test runner! Starting Run :)
+
+Run start 06-07 20:01:49
+running: rally task start neutron/create-and-list-networks.json --task-args-file args.json >> neutron/results/results_0607_200149.txt
+running: rally task start neutron/create-and-delete-networks.json --task-args-file args.json >> neutron/results/results_0607_200149.txt
+running: rally task start neutron/create-and-delete-subnets.json --task-args-file args.json >> neutron/results/results_0607_200149.txt
+running: rally task start neutron/create-and-delete-ports.json --task-args-file args.json >> neutron/results/results_0607_200149.txt
+Run finish 06-07 20:01:49
+
+This is a dry run! Results files are NOT created
+
+Run duration was 0.0 hours 0.0 mins 0.0002 secs
+Log file created at neutron/results/logs/results_0607_200149.log
+
+Run finished have a nice day!
+```
 
 The Rally Tempest Verifier
 --------------------------
