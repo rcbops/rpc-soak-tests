@@ -8,8 +8,8 @@ and validate the RPC-OpenStack deployments.
 It consists of the following directories and
 test types,
 
-* rpc-rally: testing done with OpenStack Rally
-* rpc-scenarios: customized RPC tests
+* rpc_rally: testing done with OpenStack Rally
+* rpc_scenarios: customized RPC tests
 
 
 
