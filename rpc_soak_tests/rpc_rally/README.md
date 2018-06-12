@@ -191,7 +191,7 @@ be selected, for ex.
 
 This ex. scenario can be found at:
 
-https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial
+https://github.com/rcbops/rpc_soak_tests/tree/master/rpc_soak_tests/rpc_rally/serial
 
 The scenario now becomes a Rally task and its results are printed to stdout
 and also an HTML, JUnit and raw JSON reports are generated and stored within
@@ -204,7 +204,7 @@ The RPC-O Rally runner
 To run multiple Rally tasks in sequence a simple runner was created and can
 be seen at,
 
-https://github.com/rcbops/rpc-soak-tests/blob/master/rpc-rally/runner.py
+https://github.com/rcbops/rpc_soak_tests/blob/master/rpc_soak_tests/rpc_rally/runner.py
 
 Note: its initial version can be seen within the rpc-rally/serial directory
 but it has been deprecated.
@@ -213,7 +213,7 @@ This runner will pick up all the JSON task files within the same dir and
 execute them as Rally tasks in sequence. The results are stored within a
 results directory, for ex.
 
-https://github.com/rcbops/rpc-soak-tests/tree/master/rpc-rally/serial/results
+https://github.com/rcbops/rpc_soak_tests/tree/master/rpc_soak_tests/rpc_rally/serial/results
 
 The results are timestamped text files that contain the stdout of the Rally
 tasks and within the results the tasks IDs and Rally commands to generate
