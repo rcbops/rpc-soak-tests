@@ -178,6 +178,49 @@ https://github.com/openstack/rally/tree/master/samples/tasks/scenarios/ironic
 
 --name is the OpenStack project, for ex. nova, neutron, etc.
 
+Before Running Rally
+--------------------
+
+Rally runs can create tenants and users on the fly with the Admin
+user or they can use pre existing tenants and users.
+
+The Rally scenarios in the task files in this repo are configured
+with the "context users" parameter to create the tenants and users
+on the fly. These users will inherit the quotas from the default
+class and are limited on resource creation initially.
+
+For testing the RPC-O deployments, and avoid beeing limited
+by quotas while running Rally, we increase the default
+class quotas, with the Admin user and the OpenStack client,
+as following:
+```commandline
+$openstack quota set --class --instances 200 default
+$openstack quota set --class --cores 400 default
+$openstack quota set --class --ram 1024000 default
+$openstack quota set --class --volumes 40 default
+```
+
+These quotas should be good to run any Rally tasks/scenarios from
+this repo.
+
+Note: if the environment, where Rally testing is to be done,
+is limited and can't handle these quotas, it is recommended that
+a new test suite for the environment is created with Rally
+tasks/scenarios with less confurrency and/or times.
+
+
+Rally, for RPC-O testing, isn't running with the existing users
+approach, but as a reference, here is what needs to be done in
+case a test suite is desired to run with pre existing users.
+
+- The user quotas should be increased for each user as needed by the
+Rally tasks and scenarios.
+- The users need to be added to the Rally deployment config file, for ex.
+https://github.com/rcbops/rpc_soak_tests/blob/master/rpc_soak_tests/rpc_rally/configs/deimos01_mul.json
+- The "context users" parameter needs to be removed from the Rally
+tasks in a new test suite (this is what creates the tenants and users
+on the fly). For ex.
+https://github.com/rcbops/rpc_soak_tests/blob/master/rpc_soak_tests/rpc_rally/serial/boot-and-delete-multiple.json#L20
 
 Running Rally
 -------------
