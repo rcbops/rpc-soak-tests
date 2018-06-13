@@ -13,7 +13,7 @@
           "name": "Ubuntu 16.04"
         },
         "flavor": {
-          "name": "m1.tiny"
+          "name": "m1.small"
         }
       },
       "context": {
