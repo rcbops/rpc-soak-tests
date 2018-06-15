@@ -8,6 +8,9 @@ The contents of the rpc-rally directory are,
 
 * configs: JSON file examples for registering an OpenStack deployment with Rally.
 * serial: test suite with the nova, neutron, cinder and swift scenarios.
+* embedded: test suite with the nova, neturon, cinder and swift scenarios
+with less times, concurrency, and flavor disk & volume sizes to test smaller
+embedded environments.
 
 And there also test suites by OpenStack project in the following dirs,
 
@@ -206,7 +209,7 @@ this repo.
 Note: if the environment, where Rally testing is to be done,
 is limited and can't handle these quotas, it is recommended that
 a new test suite for the environment is created with Rally
-tasks/scenarios with less confurrency and/or times.
+tasks/scenarios with less concurrency and/or times.
 
 
 Rally, for RPC-O testing, isn't running with the existing users
@@ -284,7 +287,7 @@ To run runner.py the following is expected:
    
    smoke only run one rally task
 
-   --task-args-file=<dirpath>  template variable JSON file
+   --task-args-file=`<dirpath>` template variable JSON file
 
  **Use cases ex.**
 
