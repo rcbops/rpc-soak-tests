@@ -1,0 +1,379 @@
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "IronicNodes.create_and_delete_node": [
+        {
+            "args": {
+                "driver": "agent_ipmitool",
+                "properties": {
+                    "capabilities": "boot_option:local"
+                }
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 5,
+                    "users_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  507273fc-8ea5-473d-a6d0-38dd75462816: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 507273fc-8ea5-473d-a6d0-38dd75462816
+2018-06-28 16:27:16.894 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Starting:  Task validation.
+2018-06-28 16:27:16.905 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Starting:  Task validation of syntax.
+2018-06-28 16:27:16.920 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Completed: Task validation of syntax.
+2018-06-28 16:27:16.920 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Starting:  Task validation of required platforms.
+2018-06-28 16:27:16.927 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Completed: Task validation of required platforms.
+2018-06-28 16:27:16.928 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Starting:  Task validation of semantic.
+2018-06-28 16:27:19.925 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack setup()  finished in 2.29 sec
+2018-06-28 16:27:20.424 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack cleanup() started
+2018-06-28 16:27:23.947 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack cleanup() finished in 3.52 sec
+2018-06-28 16:27:23.947 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Completed: Task validation of semantic.
+2018-06-28 16:27:23.947 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Completed: Task validation.
+2018-06-28 16:27:23.948 36997 INFO rally.api [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 input file is valid.
+2018-06-28 16:27:23.948 36997 INFO rally.api [-] Run Task 507273fc-8ea5-473d-a6d0-38dd75462816 against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 16:27:23.948 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Starting:  Running task.
+2018-06-28 16:27:24.066 36997 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=98f4461a-8f14-4316-ac9f-50e74758880c)", 
+   "subtasks": [
+      {
+         "title": "IronicNodes.create_and_delete_node", 
+         "description": "Create and delete node.", 
+         "scenario": {
+            "IronicNodes.create_and_delete_node": {
+               "driver": "agent_ipmitool", 
+               "properties": {
+                  "capabilities": "boot_option:local"
+               }
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 5, 
+               "users_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 16:27:26.802 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack setup()  finished in 2.70 sec
+2018-06-28 16:27:26.802 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context admin_cleanup@openstack setup()  finished in 0.01 msec
+2018-06-28 16:27:26.828 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 1 START
+2018-06-28 16:27:26.831 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 2 START
+2018-06-28 16:27:29.023 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 2 END: OK
+2018-06-28 16:27:29.028 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 3 START
+2018-06-28 16:27:29.339 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 1 END: OK
+2018-06-28 16:27:29.344 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 4 START
+2018-06-28 16:27:30.845 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 3 END: OK
+2018-06-28 16:27:30.849 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 5 START
+2018-06-28 16:27:31.181 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 4 END: OK
+2018-06-28 16:27:31.185 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 6 START
+2018-06-28 16:27:32.789 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 5 END: OK
+2018-06-28 16:27:32.792 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 7 START
+2018-06-28 16:27:33.089 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 6 END: OK
+2018-06-28 16:27:33.093 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 8 START
+2018-06-28 16:27:34.712 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 7 END: OK
+2018-06-28 16:27:34.717 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 9 START
+2018-06-28 16:27:34.921 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 8 END: OK
+2018-06-28 16:27:34.926 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 10 START
+2018-06-28 16:27:36.514 37126 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 9 END: OK
+2018-06-28 16:27:36.801 37125 INFO rally.task.runner [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | ITER: 10 END: OK
+2018-06-28 16:27:36.821 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context admin_cleanup@openstack cleanup() started
+2018-06-28 16:27:37.387 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context admin_cleanup@openstack cleanup() finished in 0.57 sec
+2018-06-28 16:27:37.387 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack cleanup() started
+2018-06-28 16:27:45.282 36997 INFO rally.task.context [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Context users@openstack cleanup() finished in 7.89 sec
+2018-06-28 16:27:46.271 36997 INFO rally.task.engine [-] Load duration is: 8.970726
+2018-06-28 16:27:46.271 36997 INFO rally.task.engine [-] Full runner duration is: 10.010742
+2018-06-28 16:27:46.272 36997 INFO rally.task.engine [-] Full duration is: 21.209059
+2018-06-28 16:27:47.500 36997 INFO rally.task.engine [-] Task 507273fc-8ea5-473d-a6d0-38dd75462816 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 507273fc-8ea5-473d-a6d0-38dd75462816: finished
+--------------------------------------------------------------------------------
+
+test scenario IronicNodes.create_and_delete_node
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 5, 
+      "users_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "driver": "agent_ipmitool", 
+    "properties": {
+      "capabilities": "boot_option:local"
+    }
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 507273fc-8ea5-473d-a6d0-38dd75462816 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------------------+
+|                                                 Response Times (sec)                                                  |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action             | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| ironic.create_node | 1.563     | 1.647        | 1.929        | 2.076        | 2.224     | 1.723     | 100.0%  | 10    |
+| ironic.delete_node | 0.134     | 0.232        | 0.294        | 0.296        | 0.299     | 0.238     | 100.0%  | 10    |
+| total              | 1.796     | 1.889        | 2.221        | 2.365        | 2.509     | 1.961     | 100.0%  | 10    |
+|  -> duration       | 0.796     | 0.889        | 1.221        | 1.365        | 1.509     | 0.961     | 100.0%  | 10    |
+|  -> idle_duration  | 1.0       | 1.0          | 1.0          | 1.0          | 1.0       | 1.0       | 100.0%  | 10    |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 8.970726
+Full duration: 21.209059
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 507273fc-8ea5-473d-a6d0-38dd75462816 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 507273fc-8ea5-473d-a6d0-38dd75462816 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 507273fc-8ea5-473d-a6d0-38dd75462816 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "IronicNodes.create_and_list_node": [
+        {
+            "args": {
+                "driver": "agent_ipmitool"
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 2
+            },
+            "context": {
+                "users": {
+                    "tenants": 5,
+                    "users_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  b068fa67-25ec-4375-a953-f9de4f30e155: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: b068fa67-25ec-4375-a953-f9de4f30e155
+2018-06-28 16:27:50.325 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Starting:  Task validation.
+2018-06-28 16:27:50.337 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Starting:  Task validation of syntax.
+2018-06-28 16:27:50.353 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Completed: Task validation of syntax.
+2018-06-28 16:27:50.353 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Starting:  Task validation of required platforms.
+2018-06-28 16:27:50.360 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Completed: Task validation of required platforms.
+2018-06-28 16:27:50.361 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Starting:  Task validation of semantic.
+2018-06-28 16:27:53.244 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack setup()  finished in 2.18 sec
+2018-06-28 16:27:53.673 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack cleanup() started
+2018-06-28 16:27:57.025 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack cleanup() finished in 3.35 sec
+2018-06-28 16:27:57.026 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Completed: Task validation of semantic.
+2018-06-28 16:27:57.027 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Completed: Task validation.
+2018-06-28 16:27:57.027 37202 INFO rally.api [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 input file is valid.
+2018-06-28 16:27:57.028 37202 INFO rally.api [-] Run Task b068fa67-25ec-4375-a953-f9de4f30e155 against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 16:27:57.028 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Starting:  Running task.
+2018-06-28 16:27:57.091 37202 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=e4388323-d497-4d2c-98d2-b0c067f6b4d7)", 
+   "subtasks": [
+      {
+         "title": "IronicNodes.create_and_list_node", 
+         "description": "Create and list nodes.", 
+         "scenario": {
+            "IronicNodes.create_and_list_node": {
+               "driver": "agent_ipmitool"
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 5, 
+               "users_per_tenant": 1
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 2
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 16:27:59.799 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack setup()  finished in 2.67 sec
+2018-06-28 16:27:59.800 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context admin_cleanup@openstack setup()  finished in 0.05 msec
+2018-06-28 16:27:59.836 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 1 START
+2018-06-28 16:27:59.839 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 2 START
+2018-06-28 16:28:01.748 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 1 END: OK
+2018-06-28 16:28:01.753 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 3 START
+2018-06-28 16:28:01.777 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 2 END: OK
+2018-06-28 16:28:01.781 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 4 START
+2018-06-28 16:28:03.471 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 3 END: OK
+2018-06-28 16:28:03.475 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 5 START
+2018-06-28 16:28:03.552 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 4 END: OK
+2018-06-28 16:28:03.556 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 6 START
+2018-06-28 16:28:05.126 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 5 END: OK
+2018-06-28 16:28:05.129 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 7 START
+2018-06-28 16:28:05.259 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 6 END: OK
+2018-06-28 16:28:05.263 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 8 START
+2018-06-28 16:28:07.033 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 8 END: OK
+2018-06-28 16:28:07.037 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 9 START
+2018-06-28 16:28:07.293 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 7 END: OK
+2018-06-28 16:28:07.297 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 10 START
+2018-06-28 16:28:08.700 37331 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 9 END: OK
+2018-06-28 16:28:09.172 37330 INFO rally.task.runner [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | ITER: 10 END: OK
+2018-06-28 16:28:09.195 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context admin_cleanup@openstack cleanup() started
+2018-06-28 16:28:11.930 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context admin_cleanup@openstack cleanup() finished in 2.74 sec
+2018-06-28 16:28:11.931 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack cleanup() started
+2018-06-28 16:28:19.597 37202 INFO rally.task.context [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Context users@openstack cleanup() finished in 7.67 sec
+2018-06-28 16:28:21.354 37202 INFO rally.task.engine [-] Load duration is: 8.33275
+2018-06-28 16:28:21.355 37202 INFO rally.task.engine [-] Full runner duration is: 9.38727
+2018-06-28 16:28:21.355 37202 INFO rally.task.engine [-] Full duration is: 22.491579
+2018-06-28 16:28:21.425 37202 INFO rally.task.engine [-] Task b068fa67-25ec-4375-a953-f9de4f30e155 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task b068fa67-25ec-4375-a953-f9de4f30e155: finished
+--------------------------------------------------------------------------------
+
+test scenario IronicNodes.create_and_list_node
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 2
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 5, 
+      "users_per_tenant": 1
+    }
+  }, 
+  "args": {
+    "driver": "agent_ipmitool"
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task b068fa67-25ec-4375-a953-f9de4f30e155 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-----------------------------------------------------------------------------------------------------------------------+
+|                                                 Response Times (sec)                                                  |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action             | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| ironic.create_node | 1.513     | 1.647        | 1.878        | 1.948        | 2.018     | 1.697     | 100.0%  | 10    |
+| ironic.list_nodes  | 0.068     | 0.108        | 0.164        | 0.171        | 0.178     | 0.119     | 100.0%  | 10    |
+| total              | 1.65      | 1.77         | 1.959        | 2.061        | 2.163     | 1.815     | 100.0%  | 10    |
+|  -> duration       | 0.65      | 0.77         | 0.959        | 1.061        | 1.163     | 0.815     | 100.0%  | 10    |
+|  -> idle_duration  | 1.0       | 1.0          | 1.0          | 1.0          | 1.0       | 1.0       | 100.0%  | 10    |
++--------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 8.33275
+Full duration: 22.491579
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report b068fa67-25ec-4375-a953-f9de4f30e155 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export b068fa67-25ec-4375-a953-f9de4f30e155 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report b068fa67-25ec-4375-a953-f9de4f30e155 --json --out output.json
+
