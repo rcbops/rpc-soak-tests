@@ -1,0 +1,19 @@
+{
+    "default": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/default.yaml.template",
+    "resource_group_with_constraint": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/resource-group-with-constraint.yaml.template",
+    "autoscaling_group": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/autoscaling-group.yaml.template",
+    "autoscaling_policy": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/autoscaling-policy.yaml.template",
+    "random_strings": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/random-strings.yaml.template",
+    "resource_group_server_with_volume": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/resource-group-server-with-volume.yaml.template",
+    "resource_group_with_outputs": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/resource-group-with-outputs.yaml.template",
+    "resource_group": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/resource-group.yaml.template",
+    "server_with_ports": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/server-with-ports.yaml.template",
+    "server_with_volume": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/server-with-volume.yaml.template",
+    "updated_autoscaling_policy_inplace": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-autoscaling-policy-inplace.yaml.template",
+    "updated_random_strings_add": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-random-strings-add.yaml.template",
+    "updated_random_strings_delete": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-random-strings-delete.yaml.template",
+    "updated_random_strings_replace": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-random-strings-replace.yaml.template",
+    "updated_resource_group_increase": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-resource-group-increase.yaml.template",
+    "updated-resource-group-reduce": "/home/leon0944/rpc_soak_tests/rpc_soak_tests/rpc_rally/heat/templates/updated-resource-group-reduce.yaml.template"
+}
+
