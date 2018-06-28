@@ -2,7 +2,7 @@
     "HeatStacks.create_and_delete_stack": [
         {
             "args": {
-               "template_path": "samples/tasks/scenarios/heat/templates/server-with-volume.yaml.template"
+                "template_path": {{server_with_volume}}
             },
             "runner": {
                 "type": "constant",

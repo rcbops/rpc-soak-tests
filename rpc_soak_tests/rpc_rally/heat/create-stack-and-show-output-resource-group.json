@@ -2,7 +2,7 @@
     "HeatStacks.create_stack_and_show_output": [
         {
             "args": {
-               "template_path": "samples/tasks/scenarios/heat/templates/resource-group-with-outputs.yaml.template",
+               "template_path": {{resource_group_with_outputs}},
                "output_key": "val1"
             },
             "runner": {

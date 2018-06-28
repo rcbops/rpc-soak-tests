@@ -2,7 +2,7 @@
   "HeatStacks.create_stack_and_scale": [
     {
       "args": {
-        "template_path": "samples/tasks/scenarios/heat/templates/autoscaling-group.yaml.template",
+        "template_path": {{autoscaling_group}},
         "output_key": "scaling_url",
         "delta": 1
       },
