@@ -1,0 +1,1390 @@
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_delete_networks": [
+        {
+            "args": {
+                "network_create_args": {}
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  903e8d24-ce02-4a27-b1f5-a50564c958e4: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 903e8d24-ce02-4a27-b1f5-a50564c958e4
+2018-06-28 21:29:56.356 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Starting:  Task validation.
+2018-06-28 21:29:56.364 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Starting:  Task validation of syntax.
+2018-06-28 21:29:56.380 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Completed: Task validation of syntax.
+2018-06-28 21:29:56.380 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Starting:  Task validation of required platforms.
+2018-06-28 21:29:56.386 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Completed: Task validation of required platforms.
+2018-06-28 21:29:56.386 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Starting:  Task validation of semantic.
+2018-06-28 21:29:59.453 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack setup()  finished in 2.39 sec
+2018-06-28 21:29:59.889 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack cleanup() started
+2018-06-28 21:30:03.307 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack cleanup() finished in 3.42 sec
+2018-06-28 21:30:03.307 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Completed: Task validation of semantic.
+2018-06-28 21:30:03.307 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Completed: Task validation.
+2018-06-28 21:30:03.308 15886 INFO rally.api [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 input file is valid.
+2018-06-28 21:30:03.308 15886 INFO rally.api [-] Run Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 21:30:03.308 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Starting:  Running task.
+2018-06-28 21:30:03.358 15886 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=6ec693ab-a19f-475e-acaa-947d8ca4133d)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_delete_networks", 
+         "description": "Create and delete a network.", 
+         "scenario": {
+            "NeutronNetworks.create_and_delete_networks": {
+               "network_create_args": {}
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 21:30:06.232 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack setup()  finished in 2.84 sec
+2018-06-28 21:30:06.874 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context quotas@openstack setup()  finished in 0.64 sec
+2018-06-28 21:30:06.875 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context cleanup@openstack setup()  finished in 0.04 msec
+2018-06-28 21:30:06.907 16101 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 1 START
+2018-06-28 21:30:06.913 16102 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 2 START
+2018-06-28 21:30:06.915 16103 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 3 START
+2018-06-28 21:30:06.920 16104 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 4 START
+2018-06-28 21:30:06.923 16110 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 6 START
+2018-06-28 21:30:06.924 16105 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 5 START
+2018-06-28 21:30:06.931 16114 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 8 START
+2018-06-28 21:30:06.931 16116 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 9 START
+2018-06-28 21:30:06.931 16113 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 7 START
+2018-06-28 21:30:06.935 16118 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 10 START
+2018-06-28 21:30:08.652 16103 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 3 END: OK
+2018-06-28 21:30:08.698 16110 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 6 END: OK
+2018-06-28 21:30:08.797 16104 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 4 END: OK
+2018-06-28 21:30:08.865 16113 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 7 END: OK
+2018-06-28 21:30:08.867 16102 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 2 END: OK
+2018-06-28 21:30:08.875 16101 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 1 END: OK
+2018-06-28 21:30:08.912 16114 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 8 END: OK
+2018-06-28 21:30:08.981 16118 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 10 END: OK
+2018-06-28 21:30:09.000 16105 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 5 END: OK
+2018-06-28 21:30:09.024 16116 INFO rally.task.runner [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | ITER: 9 END: OK
+2018-06-28 21:30:09.054 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context cleanup@openstack cleanup() started
+2018-06-28 21:30:25.504 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context cleanup@openstack cleanup() finished in 16.45 sec
+2018-06-28 21:30:25.505 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context quotas@openstack cleanup() started
+2018-06-28 21:30:25.584 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context quotas@openstack cleanup() finished in 79.66 msec
+2018-06-28 21:30:25.585 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack cleanup() started
+2018-06-28 21:30:30.547 15886 INFO rally.task.context [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Context users@openstack cleanup() finished in 4.96 sec
+2018-06-28 21:30:31.566 15886 INFO rally.task.engine [-] Load duration is: 2.110784
+2018-06-28 21:30:31.567 15886 INFO rally.task.engine [-] Full runner duration is: 2.171066
+2018-06-28 21:30:31.567 15886 INFO rally.task.engine [-] Full duration is: 27.179964
+2018-06-28 21:30:31.635 15886 INFO rally.task.engine [-] Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 903e8d24-ce02-4a27-b1f5-a50564c958e4: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_delete_networks
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 903e8d24-ce02-4a27-b1f5-a50564c958e4 has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_network | 0.936     | 1.072        | 1.211        | 1.225        | 1.24      | 1.101     | 100.0%  | 10    |
+| neutron.delete_network | 0.695     | 0.835        | 1.016        | 1.019        | 1.021     | 0.841     | 100.0%  | 10    |
+| total                  | 1.735     | 1.957        | 2.074        | 2.082        | 2.091     | 1.942     | 100.0%  | 10    |
+|  -> duration           | 1.735     | 1.957        | 2.074        | 2.082        | 2.091     | 1.942     | 100.0%  | 10    |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 2.110784
+Full duration: 27.179964
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 903e8d24-ce02-4a27-b1f5-a50564c958e4 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 903e8d24-ce02-4a27-b1f5-a50564c958e4 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 903e8d24-ce02-4a27-b1f5-a50564c958e4 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_delete_subnets": [
+        {
+            "args": {
+                "network_create_args": {},
+                "subnet_create_args": {},
+                "subnet_cidr_start": "1.1.0.0/30",
+                "subnets_per_network": 2
+            },
+            "runner": {
+                "type": "constant",
+                "times": 10,
+                "concurrency": 10
+            },
+            "context": {
+                "network": {},
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1,
+                        "subnet": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  cb1d67b6-2718-4e3a-be86-8079301dd3c2: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: cb1d67b6-2718-4e3a-be86-8079301dd3c2
+2018-06-28 21:30:33.470 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Starting:  Task validation.
+2018-06-28 21:30:33.477 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Starting:  Task validation of syntax.
+2018-06-28 21:30:33.492 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Completed: Task validation of syntax.
+2018-06-28 21:30:33.492 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Starting:  Task validation of required platforms.
+2018-06-28 21:30:33.498 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Completed: Task validation of required platforms.
+2018-06-28 21:30:33.498 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Starting:  Task validation of semantic.
+2018-06-28 21:30:36.466 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack setup()  finished in 2.37 sec
+2018-06-28 21:30:36.961 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack cleanup() started
+2018-06-28 21:30:40.431 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack cleanup() finished in 3.47 sec
+2018-06-28 21:30:40.433 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Completed: Task validation of semantic.
+2018-06-28 21:30:40.433 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Completed: Task validation.
+2018-06-28 21:30:40.434 16470 INFO rally.api [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 input file is valid.
+2018-06-28 21:30:40.435 16470 INFO rally.api [-] Run Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 21:30:40.435 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Starting:  Running task.
+2018-06-28 21:30:40.497 16470 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=1bfc7834-e3cd-4f62-b942-561ea824413b)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_delete_subnets", 
+         "description": "Create and delete a given number of subnets.", 
+         "scenario": {
+            "NeutronNetworks.create_and_delete_subnets": {
+               "network_create_args": {}, 
+               "subnet_create_args": {}, 
+               "subnet_cidr_start": "1.1.0.0/30", 
+               "subnets_per_network": 2
+            }
+         }, 
+         "contexts": {
+            "network": {}, 
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1, 
+                  "subnet": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 10, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 21:30:43.523 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack setup()  finished in 2.98 sec
+2018-06-28 21:30:44.209 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context quotas@openstack setup()  finished in 0.69 sec
+2018-06-28 21:30:58.613 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context network@openstack setup()  finished in 14.40 sec
+2018-06-28 21:30:58.613 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context cleanup@openstack setup()  finished in 0.04 msec
+2018-06-28 21:30:58.655 16598 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 1 START
+2018-06-28 21:30:58.658 16599 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 2 START
+2018-06-28 21:30:58.663 16600 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 3 START
+2018-06-28 21:30:58.668 16603 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 4 START
+2018-06-28 21:30:58.671 16606 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 5 START
+2018-06-28 21:30:58.679 16611 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 6 START
+2018-06-28 21:30:58.685 16614 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 7 START
+2018-06-28 21:30:58.686 16615 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 8 START
+2018-06-28 21:30:58.691 16618 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 9 START
+2018-06-28 21:30:58.694 16619 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 10 START
+2018-06-28 21:31:03.523 16600 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 3 END: OK
+2018-06-28 21:31:03.939 16611 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 6 END: OK
+2018-06-28 21:31:03.987 16614 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 7 END: OK
+2018-06-28 21:31:04.252 16618 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 9 END: OK
+2018-06-28 21:31:04.504 16615 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 8 END: OK
+2018-06-28 21:31:04.527 16599 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 2 END: OK
+2018-06-28 21:31:04.769 16598 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 1 END: OK
+2018-06-28 21:31:05.686 16619 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 10 END: OK
+2018-06-28 21:31:05.732 16603 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 4 END: OK
+2018-06-28 21:31:06.299 16606 INFO rally.task.runner [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | ITER: 5 END: OK
+2018-06-28 21:31:06.328 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context cleanup@openstack cleanup() started
+2018-06-28 21:31:24.617 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context cleanup@openstack cleanup() finished in 18.29 sec
+2018-06-28 21:31:24.618 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context network@openstack cleanup() started
+2018-06-28 21:31:55.073 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context network@openstack cleanup() finished in 30.45 sec
+2018-06-28 21:31:55.074 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context quotas@openstack cleanup() started
+2018-06-28 21:31:55.141 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context quotas@openstack cleanup() finished in 67.57 msec
+2018-06-28 21:31:55.142 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack cleanup() started
+2018-06-28 21:31:59.999 16470 INFO rally.task.context [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Context users@openstack cleanup() finished in 4.86 sec
+2018-06-28 21:32:01.089 16470 INFO rally.task.engine [-] Load duration is: 7.640543
+2018-06-28 21:32:01.089 16470 INFO rally.task.engine [-] Full runner duration is: 7.706094
+2018-06-28 21:32:01.090 16470 INFO rally.task.engine [-] Full duration is: 79.48746
+2018-06-28 21:32:01.160 16470 INFO rally.task.engine [-] Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task cb1d67b6-2718-4e3a-be86-8079301dd3c2: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_delete_subnets
+args position 0
+args values:
+{
+  "runner": {
+    "times": 10, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "network": {}, 
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1, 
+        "subnet": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}, 
+    "subnet_create_args": {}, 
+    "subnet_cidr_start": "1.1.0.0/30", 
+    "subnets_per_network": 2
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task cb1d67b6-2718-4e3a-be86-8079301dd3c2 has 0 error(s)
+--------------------------------------------------------------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Response Times (sec)                                                      |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                     | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_subnet (x2) | 2.2       | 2.803        | 4.516        | 4.556        | 4.596     | 3.187     | 100.0%  | 10    |
+| neutron.delete_subnet (x2) | 1.271     | 2.7          | 3.755        | 4.288        | 4.82      | 2.857     | 100.0%  | 10    |
+| total                      | 4.858     | 5.841        | 7.118        | 7.372        | 7.626     | 6.045     | 100.0%  | 10    |
+|  -> duration               | 4.858     | 5.841        | 7.118        | 7.372        | 7.626     | 6.045     | 100.0%  | 10    |
+|  -> idle_duration          | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 10    |
++----------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 7.640543
+Full duration: 79.48746
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report cb1d67b6-2718-4e3a-be86-8079301dd3c2 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export cb1d67b6-2718-4e3a-be86-8079301dd3c2 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report cb1d67b6-2718-4e3a-be86-8079301dd3c2 --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_list_networks": [
+        {
+            "args": {
+                "network_create_args": {}
+            },
+            "runner": {
+                "type": "constant",
+                "times": 100,
+                "concurrency": 10
+            },
+            "context": {
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        },
+        {
+            "args": {
+                "network_create_args": {
+                    "provider:network_type": "vxlan"
+                }
+            },
+            "runner": {
+                "type": "constant",
+                "times": 100,
+                "concurrency": 10
+            },
+            "context": {
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1
+                    }
+                },
+                "roles": ["admin"]
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  295e04fb-67e5-4269-8533-d24d5b91a21e: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 295e04fb-67e5-4269-8533-d24d5b91a21e
+2018-06-28 21:32:03.125 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Starting:  Task validation.
+2018-06-28 21:32:03.137 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Starting:  Task validation of syntax.
+2018-06-28 21:32:03.178 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Completed: Task validation of syntax.
+2018-06-28 21:32:03.179 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Starting:  Task validation of required platforms.
+2018-06-28 21:32:03.190 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Completed: Task validation of required platforms.
+2018-06-28 21:32:03.191 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Starting:  Task validation of semantic.
+2018-06-28 21:32:05.975 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack setup()  finished in 2.20 sec
+2018-06-28 21:32:06.860 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() started
+2018-06-28 21:32:10.040 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() finished in 3.18 sec
+2018-06-28 21:32:10.040 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Completed: Task validation of semantic.
+2018-06-28 21:32:10.040 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Completed: Task validation.
+2018-06-28 21:32:10.041 17142 INFO rally.api [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e input file is valid.
+2018-06-28 21:32:10.041 17142 INFO rally.api [-] Run Task 295e04fb-67e5-4269-8533-d24d5b91a21e against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 21:32:10.041 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Starting:  Running task.
+2018-06-28 21:32:10.088 17142 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=0594c646-08f3-43bd-85a7-ce748bea056c)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_list_networks", 
+         "description": "Create a network and then list all networks.", 
+         "scenario": {
+            "NeutronNetworks.create_and_list_networks": {
+               "network_create_args": {}
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 100, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 21:32:12.847 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack setup()  finished in 2.73 sec
+2018-06-28 21:32:13.460 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack setup()  finished in 0.61 sec
+2018-06-28 21:32:13.460 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack setup()  finished in 0.01 msec
+2018-06-28 21:32:13.488 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 1 START
+2018-06-28 21:32:13.495 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 2 START
+2018-06-28 21:32:13.499 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 4 START
+2018-06-28 21:32:13.501 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 3 START
+2018-06-28 21:32:13.502 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 5 START
+2018-06-28 21:32:13.511 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 7 START
+2018-06-28 21:32:13.512 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 6 START
+2018-06-28 21:32:13.513 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 9 START
+2018-06-28 21:32:13.513 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 8 START
+2018-06-28 21:32:13.519 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 10 START
+2018-06-28 21:32:14.694 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 6 END: OK
+2018-06-28 21:32:14.700 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 11 START
+2018-06-28 21:32:14.831 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 8 END: OK
+2018-06-28 21:32:14.836 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 12 START
+2018-06-28 21:32:14.874 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 9 END: OK
+2018-06-28 21:32:14.878 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 13 START
+2018-06-28 21:32:14.888 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 2 END: OK
+2018-06-28 21:32:14.892 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 14 START
+2018-06-28 21:32:14.945 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 1 END: OK
+2018-06-28 21:32:14.950 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 15 START
+2018-06-28 21:32:14.970 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 10 END: OK
+2018-06-28 21:32:14.974 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 16 START
+2018-06-28 21:32:15.199 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 5 END: OK
+2018-06-28 21:32:15.204 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 17 START
+2018-06-28 21:32:15.272 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 3 END: OK
+2018-06-28 21:32:15.278 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 18 START
+2018-06-28 21:32:15.401 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 4 END: OK
+2018-06-28 21:32:15.407 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 19 START
+2018-06-28 21:32:15.636 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 7 END: OK
+2018-06-28 21:32:15.643 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 20 START
+2018-06-28 21:32:15.754 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 12 END: OK
+2018-06-28 21:32:15.759 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 21 START
+2018-06-28 21:32:15.923 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 16 END: OK
+2018-06-28 21:32:15.928 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 22 START
+2018-06-28 21:32:16.011 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 11 END: OK
+2018-06-28 21:32:16.012 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 13 END: OK
+2018-06-28 21:32:16.016 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 23 START
+2018-06-28 21:32:16.018 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 24 START
+2018-06-28 21:32:16.037 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 15 END: OK
+2018-06-28 21:32:16.042 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 25 START
+2018-06-28 21:32:16.204 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 14 END: OK
+2018-06-28 21:32:16.208 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 26 START
+2018-06-28 21:32:16.286 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 18 END: OK
+2018-06-28 21:32:16.291 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 27 START
+2018-06-28 21:32:16.294 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 17 END: OK
+2018-06-28 21:32:16.299 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 28 START
+2018-06-28 21:32:16.370 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 19 END: OK
+2018-06-28 21:32:16.375 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 29 START
+2018-06-28 21:32:16.573 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 20 END: OK
+2018-06-28 21:32:16.577 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 30 START
+2018-06-28 21:32:16.784 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 21 END: OK
+2018-06-28 21:32:16.789 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 31 START
+2018-06-28 21:32:17.015 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 24 END: OK
+2018-06-28 21:32:17.020 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 32 START
+2018-06-28 21:32:17.051 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 25 END: OK
+2018-06-28 21:32:17.057 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 33 START
+2018-06-28 21:32:17.101 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 23 END: OK
+2018-06-28 21:32:17.105 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 34 START
+2018-06-28 21:32:17.166 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 26 END: OK
+2018-06-28 21:32:17.172 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 35 START
+2018-06-28 21:32:17.294 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 22 END: OK
+2018-06-28 21:32:17.298 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 36 START
+2018-06-28 21:32:17.424 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 28 END: OK
+2018-06-28 21:32:17.428 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 37 START
+2018-06-28 21:32:17.565 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 29 END: OK
+2018-06-28 21:32:17.570 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 38 START
+2018-06-28 21:32:17.587 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 27 END: OK
+2018-06-28 21:32:17.591 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 39 START
+2018-06-28 21:32:17.852 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 30 END: OK
+2018-06-28 21:32:17.856 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 40 START
+2018-06-28 21:32:18.063 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 31 END: OK
+2018-06-28 21:32:18.068 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 41 START
+2018-06-28 21:32:18.182 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 34 END: OK
+2018-06-28 21:32:18.187 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 42 START
+2018-06-28 21:32:18.285 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 33 END: OK
+2018-06-28 21:32:18.290 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 43 START
+2018-06-28 21:32:18.319 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 35 END: OK
+2018-06-28 21:32:18.323 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 44 START
+2018-06-28 21:32:18.565 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 32 END: OK
+2018-06-28 21:32:18.570 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 45 START
+2018-06-28 21:32:18.571 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 36 END: OK
+2018-06-28 21:32:18.575 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 46 START
+2018-06-28 21:32:18.618 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 37 END: OK
+2018-06-28 21:32:18.622 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 47 START
+2018-06-28 21:32:18.629 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 38 END: OK
+2018-06-28 21:32:18.634 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 48 START
+2018-06-28 21:32:18.686 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 39 END: OK
+2018-06-28 21:32:18.691 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 49 START
+2018-06-28 21:32:18.882 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 40 END: OK
+2018-06-28 21:32:18.887 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 50 START
+2018-06-28 21:32:19.177 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 41 END: OK
+2018-06-28 21:32:19.181 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 51 START
+2018-06-28 21:32:19.369 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 42 END: OK
+2018-06-28 21:32:19.375 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 52 START
+2018-06-28 21:32:19.443 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 43 END: OK
+2018-06-28 21:32:19.448 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 53 START
+2018-06-28 21:32:19.451 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 44 END: OK
+2018-06-28 21:32:19.456 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 54 START
+2018-06-28 21:32:19.802 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 47 END: OK
+2018-06-28 21:32:19.805 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 55 START
+2018-06-28 21:32:19.815 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 45 END: OK
+2018-06-28 21:32:19.820 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 56 START
+2018-06-28 21:32:19.867 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 49 END: OK
+2018-06-28 21:32:19.871 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 57 START
+2018-06-28 21:32:19.976 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 46 END: OK
+2018-06-28 21:32:19.980 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 58 START
+2018-06-28 21:32:20.065 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 48 END: OK
+2018-06-28 21:32:20.070 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 59 START
+2018-06-28 21:32:20.074 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 50 END: OK
+2018-06-28 21:32:20.080 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 60 START
+2018-06-28 21:32:20.444 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 51 END: OK
+2018-06-28 21:32:20.450 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 61 START
+2018-06-28 21:32:20.547 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 52 END: OK
+2018-06-28 21:32:20.552 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 62 START
+2018-06-28 21:32:20.629 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 53 END: OK
+2018-06-28 21:32:20.634 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 63 START
+2018-06-28 21:32:20.645 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 54 END: OK
+2018-06-28 21:32:20.650 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 64 START
+2018-06-28 21:32:20.913 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 56 END: OK
+2018-06-28 21:32:20.918 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 65 START
+2018-06-28 21:32:21.176 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 57 END: OK
+2018-06-28 21:32:21.181 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 66 START
+2018-06-28 21:32:21.245 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 58 END: OK
+2018-06-28 21:32:21.250 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 67 START
+2018-06-28 21:32:21.273 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 59 END: OK
+2018-06-28 21:32:21.279 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 68 START
+2018-06-28 21:32:21.317 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 55 END: OK
+2018-06-28 21:32:21.322 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 69 START
+2018-06-28 21:32:21.420 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 60 END: OK
+2018-06-28 21:32:21.425 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 70 START
+2018-06-28 21:32:21.728 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 61 END: OK
+2018-06-28 21:32:21.733 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 71 START
+2018-06-28 21:32:21.797 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 64 END: OK
+2018-06-28 21:32:21.801 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 72 START
+2018-06-28 21:32:21.806 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 63 END: OK
+2018-06-28 21:32:21.811 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 73 START
+2018-06-28 21:32:21.938 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 62 END: OK
+2018-06-28 21:32:21.943 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 74 START
+2018-06-28 21:32:22.107 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 65 END: OK
+2018-06-28 21:32:22.111 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 75 START
+2018-06-28 21:32:22.608 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 68 END: OK
+2018-06-28 21:32:22.613 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 76 START
+2018-06-28 21:32:22.676 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 70 END: OK
+2018-06-28 21:32:22.681 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 77 START
+2018-06-28 21:32:23.018 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 69 END: OK
+2018-06-28 21:32:23.024 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 78 START
+2018-06-28 21:32:23.072 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 72 END: OK
+2018-06-28 21:32:23.072 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 71 END: OK
+2018-06-28 21:32:23.076 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 79 START
+2018-06-28 21:32:23.078 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 80 START
+2018-06-28 21:32:23.176 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 67 END: OK
+2018-06-28 21:32:23.180 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 66 END: OK
+2018-06-28 21:32:23.181 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 81 START
+2018-06-28 21:32:23.185 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 82 START
+2018-06-28 21:32:23.223 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 73 END: OK
+2018-06-28 21:32:23.227 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 83 START
+2018-06-28 21:32:23.362 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 74 END: OK
+2018-06-28 21:32:23.367 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 84 START
+2018-06-28 21:32:23.830 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 75 END: OK
+2018-06-28 21:32:23.835 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 85 START
+2018-06-28 21:32:23.939 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 76 END: OK
+2018-06-28 21:32:23.944 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 86 START
+2018-06-28 21:32:24.031 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 77 END: OK
+2018-06-28 21:32:24.037 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 87 START
+2018-06-28 21:32:24.343 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 78 END: OK
+2018-06-28 21:32:24.348 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 88 START
+2018-06-28 21:32:24.530 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 82 END: OK
+2018-06-28 21:32:24.536 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 89 START
+2018-06-28 21:32:24.580 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 80 END: OK
+2018-06-28 21:32:24.585 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 90 START
+2018-06-28 21:32:24.609 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 83 END: OK
+2018-06-28 21:32:24.614 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 91 START
+2018-06-28 21:32:24.710 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 84 END: OK
+2018-06-28 21:32:24.715 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 92 START
+2018-06-28 21:32:24.733 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 79 END: OK
+2018-06-28 21:32:24.738 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 93 START
+2018-06-28 21:32:25.089 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 81 END: OK
+2018-06-28 21:32:25.094 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 94 START
+2018-06-28 21:32:25.211 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 85 END: OK
+2018-06-28 21:32:25.216 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 95 START
+2018-06-28 21:32:25.531 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 87 END: OK
+2018-06-28 21:32:25.537 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 96 START
+2018-06-28 21:32:25.649 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 86 END: OK
+2018-06-28 21:32:25.654 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 97 START
+2018-06-28 21:32:25.697 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 88 END: OK
+2018-06-28 21:32:25.702 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 98 START
+2018-06-28 21:32:25.938 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 89 END: OK
+2018-06-28 21:32:25.943 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 99 START
+2018-06-28 21:32:26.195 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 91 END: OK
+2018-06-28 21:32:26.200 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 100 START
+2018-06-28 21:32:26.216 17345 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 93 END: OK
+2018-06-28 21:32:26.348 17333 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 90 END: OK
+2018-06-28 21:32:26.490 17340 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 92 END: OK
+2018-06-28 21:32:26.624 17351 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 94 END: OK
+2018-06-28 21:32:26.722 17348 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 95 END: OK
+2018-06-28 21:32:27.146 17338 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 98 END: OK
+2018-06-28 21:32:27.220 17335 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 97 END: OK
+2018-06-28 21:32:27.270 17344 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 96 END: OK
+2018-06-28 21:32:27.397 17334 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 99 END: OK
+2018-06-28 21:32:27.628 17332 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 100 END: OK
+2018-06-28 21:32:27.656 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack cleanup() started
+2018-06-28 21:32:56.668 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack cleanup() finished in 29.01 sec
+2018-06-28 21:32:56.669 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack cleanup() started
+2018-06-28 21:32:56.752 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack cleanup() finished in 83.43 msec
+2018-06-28 21:32:56.753 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() started
+2018-06-28 21:33:01.375 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() finished in 4.62 sec
+2018-06-28 21:33:02.608 17142 INFO rally.task.engine [-] Load duration is: 14.134052
+2018-06-28 21:33:02.609 17142 INFO rally.task.engine [-] Full runner duration is: 14.187434
+2018-06-28 21:33:02.609 17142 INFO rally.task.engine [-] Full duration is: 51.279637
+2018-06-28 21:33:02.820 17142 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=bc205b3a-d7df-40da-ae58-15babf46b2dc)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_list_networks", 
+         "description": "Create a network and then list all networks.", 
+         "scenario": {
+            "NeutronNetworks.create_and_list_networks": {
+               "network_create_args": {
+                  "provider:network_type": "vxlan"
+               }
+            }
+         }, 
+         "contexts": {
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1
+               }
+            }, 
+            "roles": [
+               "admin"
+            ]
+         }, 
+         "runner": {
+            "constant": {
+               "times": 100, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 21:33:05.728 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack setup()  finished in 2.87 sec
+2018-06-28 21:33:06.332 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack setup()  finished in 0.60 sec
+2018-06-28 21:33:15.689 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context roles@openstack setup()  finished in 9.36 sec
+2018-06-28 21:33:15.690 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack setup()  finished in 0.03 msec
+2018-06-28 21:33:15.717 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 1 START
+2018-06-28 21:33:15.719 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 2 START
+2018-06-28 21:33:15.722 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 3 START
+2018-06-28 21:33:15.726 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 4 START
+2018-06-28 21:33:15.728 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 5 START
+2018-06-28 21:33:15.734 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 6 START
+2018-06-28 21:33:15.734 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 7 START
+2018-06-28 21:33:15.737 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 8 START
+2018-06-28 21:33:15.741 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 9 START
+2018-06-28 21:33:15.749 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 10 START
+2018-06-28 21:33:16.761 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 1 END: OK
+2018-06-28 21:33:16.768 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 11 START
+2018-06-28 21:33:16.773 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 8 END: OK
+2018-06-28 21:33:16.778 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 12 START
+2018-06-28 21:33:16.790 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 2 END: OK
+2018-06-28 21:33:16.796 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 13 START
+2018-06-28 21:33:16.872 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 10 END: OK
+2018-06-28 21:33:16.877 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 14 START
+2018-06-28 21:33:16.930 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 6 END: OK
+2018-06-28 21:33:16.935 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 15 START
+2018-06-28 21:33:17.035 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 7 END: OK
+2018-06-28 21:33:17.041 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 16 START
+2018-06-28 21:33:17.047 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 4 END: OK
+2018-06-28 21:33:17.054 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 17 START
+2018-06-28 21:33:17.074 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 9 END: OK
+2018-06-28 21:33:17.079 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 18 START
+2018-06-28 21:33:17.084 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 3 END: OK
+2018-06-28 21:33:17.088 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 19 START
+2018-06-28 21:33:17.093 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 5 END: OK
+2018-06-28 21:33:17.097 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 20 START
+2018-06-28 21:33:17.626 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 13 END: OK
+2018-06-28 21:33:17.631 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 21 START
+2018-06-28 21:33:17.655 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 11 END: OK
+2018-06-28 21:33:17.659 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 22 START
+2018-06-28 21:33:17.751 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 14 END: OK
+2018-06-28 21:33:17.756 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 23 START
+2018-06-28 21:33:17.783 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 12 END: OK
+2018-06-28 21:33:17.788 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 24 START
+2018-06-28 21:33:17.923 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 15 END: OK
+2018-06-28 21:33:17.928 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 25 START
+2018-06-28 21:33:17.938 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 16 END: OK
+2018-06-28 21:33:17.942 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 26 START
+2018-06-28 21:33:18.024 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 19 END: OK
+2018-06-28 21:33:18.029 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 17 END: OK
+2018-06-28 21:33:18.029 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 27 START
+2018-06-28 21:33:18.034 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 28 START
+2018-06-28 21:33:18.036 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 18 END: OK
+2018-06-28 21:33:18.042 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 29 START
+2018-06-28 21:33:18.208 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 20 END: OK
+2018-06-28 21:33:18.212 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 30 START
+2018-06-28 21:33:18.454 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 21 END: OK
+2018-06-28 21:33:18.460 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 31 START
+2018-06-28 21:33:18.644 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 23 END: OK
+2018-06-28 21:33:18.648 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 32 START
+2018-06-28 21:33:18.739 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 22 END: OK
+2018-06-28 21:33:18.744 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 33 START
+2018-06-28 21:33:18.797 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 24 END: OK
+2018-06-28 21:33:18.802 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 34 START
+2018-06-28 21:33:18.998 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 28 END: OK
+2018-06-28 21:33:19.004 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 35 START
+2018-06-28 21:33:19.026 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 26 END: OK
+2018-06-28 21:33:19.031 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 36 START
+2018-06-28 21:33:19.081 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 30 END: OK
+2018-06-28 21:33:19.086 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 37 START
+2018-06-28 21:33:19.105 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 27 END: OK
+2018-06-28 21:33:19.110 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 38 START
+2018-06-28 21:33:19.131 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 29 END: OK
+2018-06-28 21:33:19.137 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 39 START
+2018-06-28 21:33:19.216 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 25 END: OK
+2018-06-28 21:33:19.221 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 40 START
+2018-06-28 21:33:19.663 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 33 END: OK
+2018-06-28 21:33:19.669 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 41 START
+2018-06-28 21:33:19.709 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 32 END: OK
+2018-06-28 21:33:19.711 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 31 END: OK
+2018-06-28 21:33:19.714 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 42 START
+2018-06-28 21:33:19.716 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 43 START
+2018-06-28 21:33:19.947 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 35 END: OK
+2018-06-28 21:33:19.953 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 44 START
+2018-06-28 21:33:20.010 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 37 END: OK
+2018-06-28 21:33:20.016 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 45 START
+2018-06-28 21:33:20.031 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 36 END: OK
+2018-06-28 21:33:20.035 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 46 START
+2018-06-28 21:33:20.057 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 39 END: OK
+2018-06-28 21:33:20.063 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 47 START
+2018-06-28 21:33:20.117 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 38 END: OK
+2018-06-28 21:33:20.121 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 48 START
+2018-06-28 21:33:20.137 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 40 END: OK
+2018-06-28 21:33:20.143 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 49 START
+2018-06-28 21:33:20.198 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 34 END: OK
+2018-06-28 21:33:20.203 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 50 START
+2018-06-28 21:33:20.484 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 41 END: OK
+2018-06-28 21:33:20.489 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 51 START
+2018-06-28 21:33:20.556 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 43 END: OK
+2018-06-28 21:33:20.561 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 52 START
+2018-06-28 21:33:20.733 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 42 END: OK
+2018-06-28 21:33:20.738 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 53 START
+2018-06-28 21:33:20.833 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 44 END: OK
+2018-06-28 21:33:20.838 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 54 START
+2018-06-28 21:33:20.952 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 46 END: OK
+2018-06-28 21:33:20.956 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 55 START
+2018-06-28 21:33:20.981 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 45 END: OK
+2018-06-28 21:33:20.985 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 56 START
+2018-06-28 21:33:21.140 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 48 END: OK
+2018-06-28 21:33:21.146 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 57 START
+2018-06-28 21:33:21.147 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 49 END: OK
+2018-06-28 21:33:21.152 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 58 START
+2018-06-28 21:33:21.160 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 50 END: OK
+2018-06-28 21:33:21.164 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 59 START
+2018-06-28 21:33:21.254 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 47 END: OK
+2018-06-28 21:33:21.258 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 60 START
+2018-06-28 21:33:21.419 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 51 END: OK
+2018-06-28 21:33:21.423 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 61 START
+2018-06-28 21:33:21.469 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 52 END: OK
+2018-06-28 21:33:21.472 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 62 START
+2018-06-28 21:33:21.560 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 53 END: OK
+2018-06-28 21:33:21.565 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 63 START
+2018-06-28 21:33:21.706 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 54 END: OK
+2018-06-28 21:33:21.711 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 64 START
+2018-06-28 21:33:21.889 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 55 END: OK
+2018-06-28 21:33:21.893 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 65 START
+2018-06-28 21:33:21.954 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 56 END: OK
+2018-06-28 21:33:21.958 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 66 START
+2018-06-28 21:33:22.040 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 58 END: OK
+2018-06-28 21:33:22.044 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 67 START
+2018-06-28 21:33:22.129 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 57 END: OK
+2018-06-28 21:33:22.132 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 68 START
+2018-06-28 21:33:22.191 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 59 END: OK
+2018-06-28 21:33:22.194 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 69 START
+2018-06-28 21:33:22.347 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 60 END: OK
+2018-06-28 21:33:22.351 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 70 START
+2018-06-28 21:33:22.420 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 61 END: OK
+2018-06-28 21:33:22.424 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 71 START
+2018-06-28 21:33:22.490 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 63 END: OK
+2018-06-28 21:33:22.494 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 72 START
+2018-06-28 21:33:22.722 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 62 END: OK
+2018-06-28 21:33:22.726 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 73 START
+2018-06-28 21:33:22.793 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 65 END: OK
+2018-06-28 21:33:22.797 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 74 START
+2018-06-28 21:33:22.897 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 64 END: OK
+2018-06-28 21:33:22.900 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 75 START
+2018-06-28 21:33:22.904 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 67 END: OK
+2018-06-28 21:33:22.909 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 76 START
+2018-06-28 21:33:23.009 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 68 END: OK
+2018-06-28 21:33:23.013 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 77 START
+2018-06-28 21:33:23.155 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 66 END: OK
+2018-06-28 21:33:23.158 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 78 START
+2018-06-28 21:33:23.278 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 69 END: OK
+2018-06-28 21:33:23.281 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 79 START
+2018-06-28 21:33:23.398 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 70 END: OK
+2018-06-28 21:33:23.403 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 80 START
+2018-06-28 21:33:23.557 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 71 END: OK
+2018-06-28 21:33:23.560 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 81 START
+2018-06-28 21:33:23.562 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 72 END: OK
+2018-06-28 21:33:23.562 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 73 END: OK
+2018-06-28 21:33:23.565 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 83 START
+2018-06-28 21:33:23.565 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 82 START
+2018-06-28 21:33:23.694 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 74 END: OK
+2018-06-28 21:33:23.699 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 84 START
+2018-06-28 21:33:23.759 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 76 END: OK
+2018-06-28 21:33:23.764 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 85 START
+2018-06-28 21:33:23.770 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 75 END: OK
+2018-06-28 21:33:23.775 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 86 START
+2018-06-28 21:33:23.912 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 77 END: OK
+2018-06-28 21:33:23.916 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 87 START
+2018-06-28 21:33:24.139 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 79 END: OK
+2018-06-28 21:33:24.143 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 88 START
+2018-06-28 21:33:24.281 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 78 END: OK
+2018-06-28 21:33:24.286 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 89 START
+2018-06-28 21:33:24.442 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 80 END: OK
+2018-06-28 21:33:24.446 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 90 START
+2018-06-28 21:33:24.535 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 83 END: OK
+2018-06-28 21:33:24.541 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 91 START
+2018-06-28 21:33:24.561 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 81 END: OK
+2018-06-28 21:33:24.566 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 92 START
+2018-06-28 21:33:24.632 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 82 END: OK
+2018-06-28 21:33:24.637 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 93 START
+2018-06-28 21:33:24.671 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 86 END: OK
+2018-06-28 21:33:24.676 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 94 START
+2018-06-28 21:33:24.727 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 85 END: OK
+2018-06-28 21:33:24.732 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 95 START
+2018-06-28 21:33:24.771 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 84 END: OK
+2018-06-28 21:33:24.776 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 96 START
+2018-06-28 21:33:24.802 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 87 END: OK
+2018-06-28 21:33:24.807 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 97 START
+2018-06-28 21:33:25.074 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 88 END: OK
+2018-06-28 21:33:25.078 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 98 START
+2018-06-28 21:33:25.298 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 89 END: OK
+2018-06-28 21:33:25.303 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 99 START
+2018-06-28 21:33:25.316 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 90 END: OK
+2018-06-28 21:33:25.321 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 100 START
+2018-06-28 21:33:25.428 18017 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 91 END: OK
+2018-06-28 21:33:25.475 18016 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 92 END: OK
+2018-06-28 21:33:25.518 18039 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 93 END: OK
+2018-06-28 21:33:25.605 18027 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 95 END: OK
+2018-06-28 21:33:25.645 18020 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 94 END: OK
+2018-06-28 21:33:25.735 18018 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 97 END: OK
+2018-06-28 21:33:25.831 18030 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 96 END: OK
+2018-06-28 21:33:25.932 18033 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 98 END: OK
+2018-06-28 21:33:26.248 18024 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 99 END: OK
+2018-06-28 21:33:26.352 18034 INFO rally.task.runner [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | ITER: 100 END: OK
+2018-06-28 21:33:26.378 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack cleanup() started
+2018-06-28 21:33:55.223 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context cleanup@openstack cleanup() finished in 28.84 sec
+2018-06-28 21:33:55.224 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context roles@openstack cleanup() started
+2018-06-28 21:33:56.462 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context roles@openstack cleanup() finished in 1.24 sec
+2018-06-28 21:33:56.463 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack cleanup() started
+2018-06-28 21:33:56.546 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context quotas@openstack cleanup() finished in 82.95 msec
+2018-06-28 21:33:56.546 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() started
+2018-06-28 21:34:01.604 17142 INFO rally.task.context [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Context users@openstack cleanup() finished in 5.06 sec
+2018-06-28 21:34:03.549 17142 INFO rally.task.engine [-] Load duration is: 10.633369
+2018-06-28 21:34:03.550 17142 INFO rally.task.engine [-] Full runner duration is: 10.678164
+2018-06-28 21:34:03.550 17142 INFO rally.task.engine [-] Full duration is: 58.777158
+2018-06-28 21:34:03.662 17142 INFO rally.task.engine [-] Task 295e04fb-67e5-4269-8533-d24d5b91a21e | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 295e04fb-67e5-4269-8533-d24d5b91a21e: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_list_networks
+args position 0
+args values:
+{
+  "runner": {
+    "times": 100, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 295e04fb-67e5-4269-8533-d24d5b91a21e has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_network | 0.676     | 0.766        | 1.086        | 1.205        | 1.783     | 0.849     | 100.0%  | 100   |
+| neutron.list_networks  | 0.174     | 0.455        | 0.706        | 0.836        | 1.231     | 0.486     | 100.0%  | 100   |
+| total                  | 0.918     | 1.31         | 1.706        | 1.781        | 2.124     | 1.335     | 100.0%  | 100   |
+|  -> duration           | 0.918     | 1.31         | 1.706        | 1.781        | 2.124     | 1.335     | 100.0%  | 100   |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 100   |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 14.134052
+Full duration: 51.279637
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_list_networks
+args position 0
+args values:
+{
+  "runner": {
+    "times": 100, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1
+      }
+    }, 
+    "roles": [
+      "admin"
+    ]
+  }, 
+  "args": {
+    "network_create_args": {
+      "provider:network_type": "vxlan"
+    }
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 295e04fb-67e5-4269-8533-d24d5b91a21e has 0 error(s)
+--------------------------------------------------------------------------------
+
++---------------------------------------------------------------------------------------------------------------------------+
+|                                                   Response Times (sec)                                                    |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                 | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_network | 0.627     | 0.739        | 0.947        | 1.083        | 1.228     | 0.78      | 100.0%  | 100   |
+| neutron.list_networks  | 0.121     | 0.204        | 0.332        | 0.37         | 0.431     | 0.219     | 100.0%  | 100   |
+| total                  | 0.814     | 0.968        | 1.195        | 1.301        | 1.395     | 0.999     | 100.0%  | 100   |
+|  -> duration           | 0.814     | 0.968        | 1.195        | 1.301        | 1.395     | 0.999     | 100.0%  | 100   |
+|  -> idle_duration      | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 100   |
++------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 10.633369
+Full duration: 58.777158
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 295e04fb-67e5-4269-8533-d24d5b91a21e --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 295e04fb-67e5-4269-8533-d24d5b91a21e --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 295e04fb-67e5-4269-8533-d24d5b91a21e --json --out output.json
+
+--------------------------------------------------------------------------------
+Preparing input task
+--------------------------------------------------------------------------------
+
+Task is:
+{
+    "NeutronNetworks.create_and_delete_ports": [
+        {
+            "args": {
+                "network_create_args": {},
+                "port_create_args": {},
+                "ports_per_network": 10
+            },
+            "runner": {
+                "type": "constant",
+                "times": 20,
+                "concurrency": 10
+            },
+            "context": {
+                "network": {},
+                "users": {
+                    "tenants": 3,
+                    "users_per_tenant": 3
+                },
+                "quotas": {
+                    "neutron": {
+                        "network": -1,
+                        "port": -1
+                    }
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
+
+Task syntax is correct :)
+Running Rally version 0.10.1~dev119
+--------------------------------------------------------------------------------
+Task  21546f10-6ae7-4178-874c-c1d4a85df6f9: started
+--------------------------------------------------------------------------------
+
+Running Task... This can take a while...
+
+To track task status use:
+
+	rally task status
+	or
+	rally task detailed
+
+Using task: 21546f10-6ae7-4178-874c-c1d4a85df6f9
+2018-06-28 21:34:05.715 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Starting:  Task validation.
+2018-06-28 21:34:05.722 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Starting:  Task validation of syntax.
+2018-06-28 21:34:05.737 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Completed: Task validation of syntax.
+2018-06-28 21:34:05.737 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Starting:  Task validation of required platforms.
+2018-06-28 21:34:05.742 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Completed: Task validation of required platforms.
+2018-06-28 21:34:05.742 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Starting:  Task validation of semantic.
+2018-06-28 21:34:08.783 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack setup()  finished in 2.40 sec
+2018-06-28 21:34:09.251 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack cleanup() started
+2018-06-28 21:34:13.629 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack cleanup() finished in 4.38 sec
+2018-06-28 21:34:13.629 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Completed: Task validation of semantic.
+2018-06-28 21:34:13.630 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Completed: Task validation.
+2018-06-28 21:34:13.630 18876 INFO rally.api [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 input file is valid.
+2018-06-28 21:34:13.631 18876 INFO rally.api [-] Run Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 against Deployment 7a37a5af-20ae-460e-97c7-4fdb337cc0b6
+2018-06-28 21:34:13.631 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Starting:  Running task.
+2018-06-28 21:34:13.682 18876 INFO rally.task.engine [-] Running workload: 
+  position = 0
+  config = {
+   "version": 2, 
+   "title": "A cropped version of a bigger task.", 
+   "description": "Auto-generated task from a single workload (uuid=4f1ccd5d-ac02-413e-ae80-251ac0c6faf5)", 
+   "subtasks": [
+      {
+         "title": "NeutronNetworks.create_and_delete_ports", 
+         "description": "Create and delete a port.", 
+         "scenario": {
+            "NeutronNetworks.create_and_delete_ports": {
+               "network_create_args": {}, 
+               "port_create_args": {}, 
+               "ports_per_network": 10
+            }
+         }, 
+         "contexts": {
+            "network": {}, 
+            "users": {
+               "tenants": 3, 
+               "users_per_tenant": 3
+            }, 
+            "quotas": {
+               "neutron": {
+                  "network": -1, 
+                  "port": -1
+               }
+            }
+         }, 
+         "runner": {
+            "constant": {
+               "times": 20, 
+               "concurrency": 10
+            }
+         }, 
+         "hooks": [], 
+         "sla": {
+            "failure_rate": {
+               "max": 0
+            }
+         }
+      }
+   ]
+}
+2018-06-28 21:34:16.557 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack setup()  finished in 2.84 sec
+2018-06-28 21:34:17.149 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context quotas@openstack setup()  finished in 0.59 sec
+2018-06-28 21:34:31.024 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context network@openstack setup()  finished in 13.87 sec
+2018-06-28 21:34:31.025 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context cleanup@openstack setup()  finished in 0.04 msec
+2018-06-28 21:34:31.052 19128 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 1 START
+2018-06-28 21:34:31.057 19129 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 2 START
+2018-06-28 21:34:31.058 19130 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 3 START
+2018-06-28 21:34:31.063 19131 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 4 START
+2018-06-28 21:34:31.064 19134 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 5 START
+2018-06-28 21:34:31.071 19140 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 7 START
+2018-06-28 21:34:31.071 19135 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 6 START
+2018-06-28 21:34:31.073 19142 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 8 START
+2018-06-28 21:34:31.080 19147 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 10 START
+2018-06-28 21:34:31.080 19146 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 9 START
+2018-06-28 21:34:50.107 19128 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 1 END: OK
+2018-06-28 21:34:50.114 19128 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 11 START
+2018-06-28 21:34:50.822 19146 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 9 END: OK
+2018-06-28 21:34:50.829 19146 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 12 START
+2018-06-28 21:34:50.835 19147 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 10 END: OK
+2018-06-28 21:34:50.841 19147 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 13 START
+2018-06-28 21:34:51.068 19130 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 3 END: OK
+2018-06-28 21:34:51.072 19142 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 8 END: OK
+2018-06-28 21:34:51.075 19130 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 14 START
+2018-06-28 21:34:51.079 19142 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 15 START
+2018-06-28 21:34:51.222 19131 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 4 END: OK
+2018-06-28 21:34:51.228 19131 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 16 START
+2018-06-28 21:34:51.509 19134 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 5 END: OK
+2018-06-28 21:34:51.516 19134 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 17 START
+2018-06-28 21:34:51.622 19129 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 2 END: OK
+2018-06-28 21:34:51.630 19129 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 18 START
+2018-06-28 21:34:52.092 19140 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 7 END: OK
+2018-06-28 21:34:52.099 19140 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 19 START
+2018-06-28 21:34:52.745 19135 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 6 END: OK
+2018-06-28 21:34:52.752 19135 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 20 START
+2018-06-28 21:35:09.031 19134 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 17 END: OK
+2018-06-28 21:35:09.638 19147 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 13 END: OK
+2018-06-28 21:35:09.858 19128 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 11 END: OK
+2018-06-28 21:35:11.911 19146 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 12 END: OK
+2018-06-28 21:35:11.925 19135 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 20 END: OK
+2018-06-28 21:35:12.134 19140 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 19 END: OK
+2018-06-28 21:35:12.217 19129 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 18 END: OK
+2018-06-28 21:35:12.636 19131 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 16 END: OK
+2018-06-28 21:35:12.812 19142 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 15 END: OK
+2018-06-28 21:35:13.047 19130 INFO rally.task.runner [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | ITER: 14 END: OK
+2018-06-28 21:35:13.068 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context cleanup@openstack cleanup() started
+2018-06-28 21:35:32.174 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context cleanup@openstack cleanup() finished in 19.11 sec
+2018-06-28 21:35:32.175 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context network@openstack cleanup() started
+2018-06-28 21:35:56.385 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context network@openstack cleanup() finished in 24.21 sec
+2018-06-28 21:35:56.385 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context quotas@openstack cleanup() started
+2018-06-28 21:35:56.466 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context quotas@openstack cleanup() finished in 81.31 msec
+2018-06-28 21:35:56.467 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack cleanup() started
+2018-06-28 21:36:01.566 18876 INFO rally.task.context [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Context users@openstack cleanup() finished in 5.10 sec
+2018-06-28 21:36:02.492 18876 INFO rally.task.engine [-] Load duration is: 41.992133
+2018-06-28 21:36:02.492 18876 INFO rally.task.engine [-] Full runner duration is: 42.035465
+2018-06-28 21:36:02.493 18876 INFO rally.task.engine [-] Full duration is: 107.875309
+2018-06-28 21:36:02.603 18876 INFO rally.task.engine [-] Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 | Completed: Running task.
+
+--------------------------------------------------------------------------------
+Task 21546f10-6ae7-4178-874c-c1d4a85df6f9: finished
+--------------------------------------------------------------------------------
+
+test scenario NeutronNetworks.create_and_delete_ports
+args position 0
+args values:
+{
+  "runner": {
+    "times": 20, 
+    "concurrency": 10
+  }, 
+  "contexts": {
+    "network": {}, 
+    "users": {
+      "tenants": 3, 
+      "users_per_tenant": 3
+    }, 
+    "quotas": {
+      "neutron": {
+        "network": -1, 
+        "port": -1
+      }
+    }
+  }, 
+  "args": {
+    "network_create_args": {}, 
+    "port_create_args": {}, 
+    "ports_per_network": 10
+  }, 
+  "sla": {
+    "failure_rate": {
+      "max": 0
+    }
+  }, 
+  "hooks": []
+}
+
+--------------------------------------------------------------------------------
+Task 21546f10-6ae7-4178-874c-c1d4a85df6f9 has 0 error(s)
+--------------------------------------------------------------------------------
+
++------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Response Times (sec)                                                     |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| Action                    | Min (sec) | Median (sec) | 90%ile (sec) | 95%ile (sec) | Max (sec) | Avg (sec) | Success | Count |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+| neutron.create_port (x10) | 10.776    | 12.939       | 13.589       | 14.41        | 14.419    | 12.832    | 100.0%  | 20    |
+| neutron.delete_port (x10) | 6.462     | 7.391        | 8.208        | 8.528        | 8.531     | 7.389     | 100.0%  | 20    |
+| total                     | 17.514    | 20.095       | 21.677       | 21.744       | 21.971    | 20.222    | 100.0%  | 20    |
+|  -> duration              | 17.514    | 20.095       | 21.677       | 21.744       | 21.971    | 20.222    | 100.0%  | 20    |
+|  -> idle_duration         | 0.0       | 0.0          | 0.0          | 0.0          | 0.0       | 0.0       | 100.0%  | 20    |
++---------------------------+-----------+--------------+--------------+--------------+-----------+-----------+---------+-------+
+
+Load duration: 41.992133
+Full duration: 107.875309
+
+HINTS:
+* To plot HTML graphics with this data, run:
+	rally task report 21546f10-6ae7-4178-874c-c1d4a85df6f9 --out output.html
+
+* To generate a JUnit report, run:
+	rally task export 21546f10-6ae7-4178-874c-c1d4a85df6f9 --type junit --to output.xml
+
+* To get raw JSON output of task results, run:
+	rally task report 21546f10-6ae7-4178-874c-c1d4a85df6f9 --json --out output.json
+

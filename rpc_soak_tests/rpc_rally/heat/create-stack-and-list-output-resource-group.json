@@ -26,7 +26,7 @@
     "HeatStacks.create_stack_and_list_output_via_API": [
         {
             "args": {
-               "template_path": "samples/tasks/scenarios/heat/templates/resource-group-with-outputs.yaml.template"
+                "template_path": {{resource_group_with_outputs}}
             },
             "runner": {
                 "type": "constant",

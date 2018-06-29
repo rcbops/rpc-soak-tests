@@ -9,7 +9,7 @@
                     "name": "Ubuntu 16.04"
                 },
                 "flavor": {
-                    "name": "m1.xlarge"
+                    "name": "m1.medium"
                 },
                 "create_volume_params": {
                     "availability_zone": "nova"
@@ -39,7 +39,7 @@
                     "max": 50
                 },
                 "flavor": {
-                    "name": "m1.large"
+                    "name": "m1.small"
                 },
                 "image": {
                     "name": "Ubuntu 16.04"
