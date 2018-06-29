@@ -4,16 +4,16 @@
         {
             "args": {
                 "flavor": {
-                    "name": "m1.large"
+                    "name": "m1.medium"
                 },
                 "image": {
-                    "name": "CentOS 7"
+                    "name": "Ubuntu 16.04"
                 }
             },
             "runner": {
                 "type": "constant",
-                "times": 100,
-                "concurrency": 5
+                "times": 10,
+                "concurrency": 2
             },
             "context": {
                 "users": {
