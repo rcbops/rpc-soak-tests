@@ -4,7 +4,7 @@
         {
             "args": {
                 "size": 8,
-                "block_migration": false,
+                "block_migration": true,
                 "image": {
                     "name": "Ubuntu 14.04 LTS"
                 },

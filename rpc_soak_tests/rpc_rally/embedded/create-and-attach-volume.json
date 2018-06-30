@@ -39,7 +39,7 @@
                     "max": 20
                 },
                 "flavor": {
-                    "name": "m1.large"
+                    "name": "m1.medium"
                 },
                 "image": {
                     "name": "Ubuntu 16.04"
