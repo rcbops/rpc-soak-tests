@@ -4,7 +4,7 @@
         {
             "args": {
                 "flavor": {
-                    "name": "m1.xlarge"
+                    "name": "m1.large"
                 },
                 "from_image": {
                     "name": "Debian 9"
@@ -15,7 +15,7 @@
             },
             "runner": {
                 "type": "constant",
-                "times": 50,
+                "times": 4,
                 "concurrency": 2
             },
             "context": {
