@@ -1,0 +1,17 @@
+{0} octavia_tempest_plugin.tests.scenario.v2.test_l7rule.L7RuleScenarioTest.test_l7rule_CRUD [16.258622s] ... ok
+
+======
+Totals
+======
+Ran: 1 tests in 138.0000 sec.
+ - Passed: 1
+ - Skipped: 0
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 0
+Sum of execute time for each test: 16.2586 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (1 tests) => 0:00:16.258622
