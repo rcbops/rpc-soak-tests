@@ -1,0 +1,934 @@
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_delete [143.217281s] ... ok
+{2} setUpClass (octavia_tempest_plugin.tests.api.v2.test_l7rule.L7RuleAPITest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_l7rule.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (L7RuleAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+{5} setUpClass (octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 56, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (ListenerAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+{3} setUpClass (octavia_tempest_plugin.tests.api.v2.test_l7policy.L7PolicyAPITest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_l7policy.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (L7PolicyAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+{4} setUpClass (octavia_tempest_plugin.tests.api.v2.test_healthmonitor.HealthMonitorAPITest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_healthmonitor.py", line 57, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (HealthMonitorAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_batch_update [5.439166s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 699, in test_member_batch_update
+        member1 = self.mem_member_client.create_member(**member1_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:30,826 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools 0.167s
+    2018-08-20 22:12:30,827 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:30,921 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.093s
+    2018-08-20 22:12:35,989 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.062s
+    2018-08-20 22:12:35,990 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:12:36,077 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/c6b910fb-bd37-411d-add9-2592693dada7/members 0.086s
+    
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_delete [11.744573s] ... ok
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_ipv4_create [0.116188s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 102, in test_member_ipv4_create
+        self._test_member_create(4)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 149, in _test_member_create
+        **member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:47,936 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_ipv4_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.091s
+    
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_ipv6_create [0.092107s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 109, in test_member_ipv6_create
+        self._test_member_create(6)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 149, in _test_member_create
+        **member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:48,053 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_ipv6_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.089s
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_delete_cascade [62.361561s] ... ok
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_list [49.658027s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 358, in test_member_list
+        self.assertEqual(1, len(members[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:48,207 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools 0.149s
+    2018-08-20 22:12:48,208 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:48,352 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.144s
+    2018-08-20 22:12:53,469 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.109s
+    2018-08-20 22:12:53,473 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:12:53,716 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.240s
+    2018-08-20 22:12:53,717 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:12:53,838 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.120s
+    2018-08-20 22:12:58,951 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.106s
+    2018-08-20 22:12:58,952 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:12:58,952 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:59,037 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.084s
+    2018-08-20 22:12:59,038 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:00,234 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.194s
+    2018-08-20 22:13:00,235 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:13:00,345 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.109s
+    2018-08-20 22:13:05,484 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.133s
+    2018-08-20 22:13:05,485 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:13:05,486 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:05,590 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.104s
+    2018-08-20 22:13:05,591 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:06,943 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.350s
+    2018-08-20 22:13:06,944 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:13:07,061 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.116s
+    2018-08-20 22:13:12,252 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.184s
+    2018-08-20 22:13:12,252 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:13:12,253 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:12,377 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.124s
+    2018-08-20 22:13:12,378 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:12,530 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.151s
+    2018-08-20 22:13:12,694 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.161s
+    2018-08-20 22:13:12,933 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.238s
+    2018-08-20 22:13:13,191 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?sort=protocol_port:desc 0.256s
+    2018-08-20 22:13:13,458 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?sort=protocol_port:asc 0.266s
+    2018-08-20 22:13:13,732 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=id 0.273s
+    2018-08-20 22:13:13,986 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=name 0.253s
+    2018-08-20 22:13:14,288 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=provisioning_status 0.301s
+    2018-08-20 22:13:14,531 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=operating_status 0.241s
+    2018-08-20 22:13:14,748 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=admin_state_up 0.216s
+    2018-08-20 22:13:15,138 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=address 0.389s
+    2018-08-20 22:13:15,399 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=protocol_port 0.260s
+    2018-08-20 22:13:15,594 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=weight 0.194s
+    2018-08-20 22:13:15,842 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=backup 0.247s
+    2018-08-20 22:13:15,844 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:15,845 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:15,845 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:15,974 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.128s
+    2018-08-20 22:13:15,975 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:15,975 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:16,148 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.171s
+    2018-08-20 22:13:16,148 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:16,149 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:16,258 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.108s
+    2018-08-20 22:13:21,364 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.099s
+    2018-08-20 22:13:21,365 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:21,365 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:21,366 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:21,366 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:21,367 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:21,485 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.117s
+    2018-08-20 22:13:21,486 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:21,486 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:21,676 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.189s
+    2018-08-20 22:13:21,677 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:21,677 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:21,754 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.076s
+    2018-08-20 22:13:26,868 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.107s
+    2018-08-20 22:13:26,868 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:26,869 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:26,869 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:26,870 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:26,870 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:26,994 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.123s
+    2018-08-20 22:13:26,995 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:26,996 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:27,114 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.118s
+    2018-08-20 22:13:27,115 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:27,115 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:27,227 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.111s
+    2018-08-20 22:13:32,306 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.073s
+    2018-08-20 22:13:32,307 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:32,308 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:32,308 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    2018-08-20 22:13:32,309 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:32,309 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:32,378 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.067s
+    2018-08-20 22:13:32,378 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:32,379 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    2018-08-20 22:13:32,503 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6 0.123s
+    2018-08-20 22:13:32,503 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:32,504 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:32,626 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.121s
+    2018-08-20 22:13:37,712 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.080s
+    2018-08-20 22:13:37,713 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:37,714 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_show [0.092522s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 432, in test_member_show
+        member = self.mem_member_client.create_member(**member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:13:37,810 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_show): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.089s
+    
+{1} octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_update [0.058125s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 524, in test_member_update
+        member = self.mem_member_client.create_member(**member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:13:37,870 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.056s
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_failover [142.759107s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_ipv4_create [61.998194s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_ipv6_create [71.596024s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_list [160.795984s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_load_balancer.py", line 372, in test_load_balancer_list
+        self.assertEqual(1, len(lbs[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:17:28,274 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.088s
+    2018-08-20 22:17:30,082 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.806s
+    2018-08-20 22:17:30,082 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:17:30,118 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.034s
+    2018-08-20 22:17:40,175 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.046s
+    2018-08-20 22:17:50,216 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.038s
+    2018-08-20 22:18:00,262 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.044s
+    2018-08-20 22:18:10,298 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.032s
+    2018-08-20 22:18:20,345 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.038s
+    2018-08-20 22:18:20,345 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:18:23,115 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.767s
+    2018-08-20 22:18:23,115 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:18:23,149 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.032s
+    2018-08-20 22:18:33,203 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.053s
+    2018-08-20 22:18:43,280 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.069s
+    2018-08-20 22:18:53,335 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.053s
+    2018-08-20 22:19:03,391 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.052s
+    2018-08-20 22:19:13,443 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.049s
+    2018-08-20 22:19:13,444 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:19:16,244 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.798s
+    2018-08-20 22:19:16,245 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:19:16,289 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.043s
+    2018-08-20 22:19:26,459 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.159s
+    2018-08-20 22:19:36,509 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.043s
+    2018-08-20 22:19:46,579 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.058s
+    2018-08-20 22:19:56,620 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.034s
+    2018-08-20 22:20:06,687 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.057s
+    2018-08-20 22:20:06,688 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:20:07,397 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.709s
+    2018-08-20 22:20:07,568 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.170s
+    2018-08-20 22:20:07,651 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.082s
+    2018-08-20 22:20:07,764 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?sort=description:desc 0.113s
+    2018-08-20 22:20:07,861 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?sort=description:asc 0.096s
+    2018-08-20 22:20:07,951 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.088s
+    2018-08-20 22:20:08,092 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=admin_state_up 0.141s
+    2018-08-20 22:20:08,242 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=created_at 0.149s
+    2018-08-20 22:20:08,358 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=description 0.115s
+    2018-08-20 22:20:08,615 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=flavor_id 0.255s
+    2018-08-20 22:20:08,619 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,620 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c to be ACTIVE...
+    2018-08-20 22:20:08,620 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,680 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.059s
+    2018-08-20 22:20:08,681 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,681 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,753 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.070s
+    2018-08-20 22:20:08,753 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,754 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,754 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c to be ACTIVE...
+    2018-08-20 22:20:08,755 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,808 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.052s
+    2018-08-20 22:20:08,808 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,809 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,879 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.069s
+    2018-08-20 22:20:08,880 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,880 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    2018-08-20 22:20:08,881 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 to be ACTIVE...
+    2018-08-20 22:20:08,881 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,916 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.034s
+    2018-08-20 22:20:08,917 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,917 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    2018-08-20 22:20:08,980 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.062s
+    2018-08-20 22:20:08,981 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_show [63.093899s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_show_stats [62.826478s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_show_status [62.841725s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_update [72.419467s] ... ok
+{0} setUpClass (octavia_tempest_plugin.tests.api.v2.test_pool.PoolAPITest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_pool.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (PoolAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+==============================
+Failed 12 tests - output below:
+==============================
+
+setUpClass (octavia_tempest_plugin.tests.api.v2.test_l7rule.L7RuleAPITest)
+--------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_l7rule.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (L7RuleAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+setUpClass (octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest)
+------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 56, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (ListenerAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+setUpClass (octavia_tempest_plugin.tests.api.v2.test_l7policy.L7PolicyAPITest)
+------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_l7policy.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (L7PolicyAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+setUpClass (octavia_tempest_plugin.tests.api.v2.test_healthmonitor.HealthMonitorAPITest)
+----------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_healthmonitor.py", line 57, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (HealthMonitorAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_batch_update[id-83e0a9f2-491f-46a8-b3ce-6969d70a4e9f]
+-------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 699, in test_member_batch_update
+        member1 = self.mem_member_client.create_member(**member1_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:30,826 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools 0.167s
+    2018-08-20 22:12:30,827 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:30,921 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.093s
+    2018-08-20 22:12:35,989 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.062s
+    2018-08-20 22:12:35,990 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:12:36,077 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_batch_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/c6b910fb-bd37-411d-add9-2592693dada7/members 0.086s
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_ipv4_create[id-0623aa1f-753d-44e7-afa1-017d274eace7]
+------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 102, in test_member_ipv4_create
+        self._test_member_create(4)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 149, in _test_member_create
+        **member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:47,936 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_ipv4_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.091s
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_ipv6_create[id-141944cc-5e2c-4e83-88f8-f61a6797c9b7]
+------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 109, in test_member_ipv6_create
+        self._test_member_create(6)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 149, in _test_member_create
+        **member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:48,053 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_ipv6_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.089s
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_list[id-9ce7ad78-915b-42ce-b0d8-44d88a929f3d]
+-----------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 358, in test_member_list
+        self.assertEqual(1, len(members[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:12:48,207 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools 0.149s
+    2018-08-20 22:12:48,208 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:48,352 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.144s
+    2018-08-20 22:12:53,469 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.109s
+    2018-08-20 22:12:53,473 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:12:53,716 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.240s
+    2018-08-20 22:12:53,717 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:12:53,838 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.120s
+    2018-08-20 22:12:58,951 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.106s
+    2018-08-20 22:12:58,952 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:12:58,952 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:12:59,037 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.084s
+    2018-08-20 22:12:59,038 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:00,234 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.194s
+    2018-08-20 22:13:00,235 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:13:00,345 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.109s
+    2018-08-20 22:13:05,484 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.133s
+    2018-08-20 22:13:05,485 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:13:05,486 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:05,590 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.104s
+    2018-08-20 22:13:05,591 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:06,943 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.350s
+    2018-08-20 22:13:06,944 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_member status to update to ACTIVE
+    2018-08-20 22:13:07,061 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.116s
+    2018-08-20 22:13:12,252 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.184s
+    2018-08-20 22:13:12,252 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_member's status updated to ACTIVE.
+    2018-08-20 22:13:12,253 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:12,377 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.124s
+    2018-08-20 22:13:12,378 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:12,530 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.151s
+    2018-08-20 22:13:12,694 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.161s
+    2018-08-20 22:13:12,933 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members 0.238s
+    2018-08-20 22:13:13,191 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?sort=protocol_port:desc 0.256s
+    2018-08-20 22:13:13,458 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?sort=protocol_port:asc 0.266s
+    2018-08-20 22:13:13,732 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=id 0.273s
+    2018-08-20 22:13:13,986 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=name 0.253s
+    2018-08-20 22:13:14,288 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=provisioning_status 0.301s
+    2018-08-20 22:13:14,531 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=operating_status 0.241s
+    2018-08-20 22:13:14,748 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=admin_state_up 0.216s
+    2018-08-20 22:13:15,138 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=address 0.389s
+    2018-08-20 22:13:15,399 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=protocol_port 0.260s
+    2018-08-20 22:13:15,594 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=weight 0.194s
+    2018-08-20 22:13:15,842 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members?fields=backup 0.247s
+    2018-08-20 22:13:15,844 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:15,845 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:15,845 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:15,974 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.128s
+    2018-08-20 22:13:15,975 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:15,975 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:16,148 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/6297bbcc-dd4d-4323-9bde-d4bac33e8355 0.171s
+    2018-08-20 22:13:16,148 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:16,149 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:16,258 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.108s
+    2018-08-20 22:13:21,364 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.099s
+    2018-08-20 22:13:21,365 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:21,365 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member 6297bbcc-dd4d-4323-9bde-d4bac33e8355...
+    2018-08-20 22:13:21,366 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:21,366 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:21,367 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:21,485 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.117s
+    2018-08-20 22:13:21,486 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:21,486 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:21,676 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/dab542ac-71fb-454b-b87d-77794b3fc943 0.189s
+    2018-08-20 22:13:21,677 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:21,677 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:21,754 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.076s
+    2018-08-20 22:13:26,868 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.107s
+    2018-08-20 22:13:26,868 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:26,869 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member dab542ac-71fb-454b-b87d-77794b3fc943...
+    2018-08-20 22:13:26,869 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:26,870 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:26,870 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:26,994 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.123s
+    2018-08-20 22:13:26,995 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:26,996 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:27,114 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6/members/9037873c-022c-42d9-b3a9-5b55f26cda58 0.118s
+    2018-08-20 22:13:27,115 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:27,115 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:27,227 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.111s
+    2018-08-20 22:13:32,306 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.073s
+    2018-08-20 22:13:32,307 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:32,308 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for member 9037873c-022c-42d9-b3a9-5b55f26cda58...
+    2018-08-20 22:13:32,308 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    2018-08-20 22:13:32,309 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:32,309 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:32,378 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.067s
+    2018-08-20 22:13:32,378 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:32,379 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    2018-08-20 22:13:32,503 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/pools/d785b4c8-cef9-4618-a34c-87a8c13bdac6 0.123s
+    2018-08-20 22:13:32,503 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 6b58d00a-0f14-4915-ac95-c7c890e5c803 to be ACTIVE...
+    2018-08-20 22:13:32,504 41759 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:13:32,626 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.121s
+    2018-08-20 22:13:37,712 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/6b58d00a-0f14-4915-ac95-c7c890e5c803 0.080s
+    2018-08-20 22:13:37,713 41759 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:13:37,714 41759 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for pool d785b4c8-cef9-4618-a34c-87a8c13bdac6...
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_show[id-7674ae04-7e92-44ef-9adf-40718d7ec705]
+-----------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 432, in test_member_show
+        member = self.mem_member_client.create_member(**member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:13:37,810 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_show): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.089s
+    
+
+octavia_tempest_plugin.tests.api.v2.test_member.MemberAPITest.test_member_update[id-c07572b8-e853-48f3-a8ea-37fc293a4724]
+-------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_member.py", line 524, in test_member_update
+        member = self.mem_member_client.create_member(**member_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/member_client.py", line 96, in create_member
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attribute for argument member_.member: backup'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:13:37,870 41759 INFO     [tempest.lib.common.rest_client] Request (MemberAPITest:test_member_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/pools/e9193364-0dba-4f93-b8f0-400be0154d47/members 0.056s
+    
+
+octavia_tempest_plugin.tests.api.v2.test_load_balancer.LoadBalancerAPITest.test_load_balancer_list[id-6546ef3c-c0e2-46af-b892-f795f4d01119]
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_load_balancer.py", line 372, in test_load_balancer_list
+        self.assertEqual(1, len(lbs[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-20 22:17:28,274 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.088s
+    2018-08-20 22:17:30,082 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.806s
+    2018-08-20 22:17:30,082 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:17:30,118 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.034s
+    2018-08-20 22:17:40,175 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.046s
+    2018-08-20 22:17:50,216 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.038s
+    2018-08-20 22:18:00,262 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.044s
+    2018-08-20 22:18:10,298 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.032s
+    2018-08-20 22:18:20,345 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.038s
+    2018-08-20 22:18:20,345 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:18:23,115 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.767s
+    2018-08-20 22:18:23,115 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:18:23,149 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.032s
+    2018-08-20 22:18:33,203 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.053s
+    2018-08-20 22:18:43,280 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.069s
+    2018-08-20 22:18:53,335 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.053s
+    2018-08-20 22:19:03,391 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.052s
+    2018-08-20 22:19:13,443 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.049s
+    2018-08-20 22:19:13,444 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:19:16,244 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 1.798s
+    2018-08-20 22:19:16,245 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-20 22:19:16,289 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.043s
+    2018-08-20 22:19:26,459 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.159s
+    2018-08-20 22:19:36,509 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.043s
+    2018-08-20 22:19:46,579 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.058s
+    2018-08-20 22:19:56,620 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.034s
+    2018-08-20 22:20:06,687 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.057s
+    2018-08-20 22:20:06,688 41757 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-20 22:20:07,397 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.709s
+    2018-08-20 22:20:07,568 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.170s
+    2018-08-20 22:20:07,651 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.082s
+    2018-08-20 22:20:07,764 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?sort=description:desc 0.113s
+    2018-08-20 22:20:07,861 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?sort=description:asc 0.096s
+    2018-08-20 22:20:07,951 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 0.088s
+    2018-08-20 22:20:08,092 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=admin_state_up 0.141s
+    2018-08-20 22:20:08,242 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=created_at 0.149s
+    2018-08-20 22:20:08,358 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=description 0.115s
+    2018-08-20 22:20:08,615 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:test_load_balancer_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers?fields=flavor_id 0.255s
+    2018-08-20 22:20:08,619 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,620 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c to be ACTIVE...
+    2018-08-20 22:20:08,620 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,680 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.059s
+    2018-08-20 22:20:08,681 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,681 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,753 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/d0e49ce8-1881-4762-b1e1-e92f44b48a2c 0.070s
+    2018-08-20 22:20:08,753 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer d0e49ce8-1881-4762-b1e1-e92f44b48a2c...
+    2018-08-20 22:20:08,754 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,754 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c to be ACTIVE...
+    2018-08-20 22:20:08,755 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,808 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.052s
+    2018-08-20 22:20:08,808 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,809 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,879 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/251495ef-7829-4d1a-a42a-046358b7c56c 0.069s
+    2018-08-20 22:20:08,880 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer 251495ef-7829-4d1a-a42a-046358b7c56c...
+    2018-08-20 22:20:08,880 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    2018-08-20 22:20:08,881 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 to be ACTIVE...
+    2018-08-20 22:20:08,881 41757 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-20 22:20:08,916 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.034s
+    2018-08-20 22:20:08,917 41757 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-20 22:20:08,917 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    2018-08-20 22:20:08,980 41757 INFO     [tempest.lib.common.rest_client] Request (LoadBalancerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef3ab1ee-88a4-4903-92dc-39d8d9b64c10 0.062s
+    2018-08-20 22:20:08,981 41757 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer ef3ab1ee-88a4-4903-92dc-39d8d9b64c10...
+    
+
+setUpClass (octavia_tempest_plugin.tests.api.v2.test_pool.PoolAPITest)
+----------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_pool.py", line 55, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (PoolAPITest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+
+======
+Totals
+======
+Ran: 22 tests in 9215.0000 sec.
+ - Passed: 10
+ - Skipped: 0
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 12
+Sum of execute time for each test: 971.1104 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (11 tests) => 2:33:22.999048
+ - Worker 1 (7 tests) => 0:01:07.213260
+ - Worker 2 (1 tests) => 0:00:00
+ - Worker 3 (1 tests) => 0:00:00
+ - Worker 4 (1 tests) => 0:00:00
+ - Worker 5 (1 tests) => 0:00:00
