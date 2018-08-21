@@ -1,0 +1,55 @@
+{0} setUpClass (octavia_tempest_plugin.tests.scenario.v2.test_member.MemberScenarioTest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/scenario/v2/test_member.py", line 52, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (MemberScenarioTest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+==============================
+Failed 1 tests - output below:
+==============================
+
+setUpClass (octavia_tempest_plugin.tests.scenario.v2.test_member.MemberScenarioTest)
+------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/scenario/v2/test_member.py", line 52, in resource_setup
+        CONF.load_balancer.lb_build_timeout)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/waiters.py", line 78, in wait_for_status
+        raise exceptions.UnexpectedResponseCode(message)
+    tempest.lib.exceptions.UnexpectedResponseCode: Unexpected response code received
+    Details: (MemberScenarioTest:setUpClass) show_loadbalancer provisioning_status updated to an invalid state of ERROR
+    
+
+
+======
+Totals
+======
+Ran: 1 tests in 112.0000 sec.
+ - Passed: 0
+ - Skipped: 0
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 1
+Sum of execute time for each test: 0.0000 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (1 tests) => 0:00:00

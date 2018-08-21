@@ -1,0 +1,79 @@
+{0} setUpClass (octavia_tempest_plugin.tests.scenario.v2.test_traffic_ops.TrafficOperationsScenarioTest) [0.000000s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/scenario/v2/test_traffic_ops.py", line 38, in resource_setup
+        super(TrafficOperationsScenarioTest, cls).resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/test_base.py", line 519, in resource_setup
+        cls.webserver1_response)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/test_base.py", line 679, in _install_start_webserver
+        linux_client.validate_authentication()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 60, in wrapper
+        six.reraise(*original_exception)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 33, in wrapper
+        return function(self, *args, **kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 116, in validate_authentication
+        self.ssh_client.test_connection_auth()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/ssh.py", line 207, in test_connection_auth
+        connection = self._get_ssh_connection()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/ssh.py", line 121, in _get_ssh_connection
+        password=self.password)
+    tempest.lib.exceptions.SSHTimeout: Connection to the 10.2.1.13 via SSH timed out.
+    User: ubuntu, Password: None
+    
+
+==============================
+Failed 1 tests - output below:
+==============================
+
+setUpClass (octavia_tempest_plugin.tests.scenario.v2.test_traffic_ops.TrafficOperationsScenarioTest)
+----------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 172, in setUpClass
+        six.reraise(etype, value, trace)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/test.py", line 165, in setUpClass
+        cls.resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/scenario/v2/test_traffic_ops.py", line 38, in resource_setup
+        super(TrafficOperationsScenarioTest, cls).resource_setup()
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/test_base.py", line 519, in resource_setup
+        cls.webserver1_response)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/test_base.py", line 679, in _install_start_webserver
+        linux_client.validate_authentication()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 60, in wrapper
+        six.reraise(*original_exception)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 33, in wrapper
+        return function(self, *args, **kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/utils/linux/remote_client.py", line 116, in validate_authentication
+        self.ssh_client.test_connection_auth()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/ssh.py", line 207, in test_connection_auth
+        connection = self._get_ssh_connection()
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/ssh.py", line 121, in _get_ssh_connection
+        password=self.password)
+    tempest.lib.exceptions.SSHTimeout: Connection to the 10.2.1.13 via SSH timed out.
+    User: ubuntu, Password: None
+    
+
+
+======
+Totals
+======
+Ran: 1 tests in 439.0000 sec.
+ - Passed: 0
+ - Skipped: 0
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 1
+Sum of execute time for each test: 0.0000 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (1 tests) => 0:00:00
