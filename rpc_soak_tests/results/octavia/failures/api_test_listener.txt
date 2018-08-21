@@ -1,0 +1,932 @@
+{0} octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_create [0.447669s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 103, in test_listener_create
+        **listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:24:59,584 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.438s
+    2018-08-21 19:24:59,584 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": true, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 80, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-create-649599247"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-b1d4c247-6f72-4d73-8c3d-9c1b25b187c3'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_delete [11.072683s] ... ok
+{0} octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_list [90.914889s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 346, in test_listener_list
+        self.assertEqual(1, len(listeners[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:25:12,712 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 2.044s
+    2018-08-21 19:25:12,713 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"loadbalancer": {"vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+        Response - Headers: {'status': '201', u'content-length': '636', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1dab91e4-b755-49d3-9b88-08daecd6e860'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "provisioning_status": "PENDING_CREATE", "created_at": "2018-08-21T19:25:11", "admin_state_up": true, "updated_at": null, "vip_qos_policy_id": null, "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "vip_address": "10.1.1.12", "pools": [], "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:12,713 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:25:12,744 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.030s
+    2018-08-21 19:25:12,745 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '636', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-cae80d85-7903-498b-b6b4-12867a757cc1'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": null, "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:22,822 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.066s
+    2018-08-21 19:25:22,823 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-9989d21f-a6da-4392-a5f8-05d3d5124568'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:32,890 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:25:32,891 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-21175601-b533-4a8b-83d9-4664b97d142f'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:42,962 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.064s
+    2018-08-21 19:25:42,963 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-3436e381-df1f-4fbf-a5a4-51728bd868fe'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:53,006 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.035s
+    2018-08-21 19:25:53,006 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '652', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-129f82bf-e090-45db-8973-4517e2569d72'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:52", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:03,056 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.042s
+    2018-08-21 19:26:03,057 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-74d24d8f-a6d6-48f8-81e2-9d67381913e9'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:00", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:03,058 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:03,196 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.137s
+    2018-08-21 19:26:03,197 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "B", "admin_state_up": true, "protocol_port": 80, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener2-list-1691625797"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5717c975-ea2a-4768-b82c-9adb4b2ec1df'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:03,197 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:03,242 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.044s
+    2018-08-21 19:26:03,243 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-4a2cfebf-df8e-46e5-a54a-d3182ac5da18'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:08,364 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.115s
+    2018-08-21 19:26:08,365 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-e67bb47a-c145-4e92-957a-f839fbabb7cc'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:08,365 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:08,366 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:08,422 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.055s
+    2018-08-21 19:26:08,423 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8238794d-f417-4483-9670-2c8d03297190'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:05", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:08,423 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:09,694 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.269s
+    2018-08-21 19:26:09,695 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "A", "admin_state_up": true, "protocol_port": 81, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener1-list-1141997786"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-f27cd409-264f-4082-9e84-eb394e087f18'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:09,695 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:09,808 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.112s
+    2018-08-21 19:26:09,809 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-fea3ccd1-0736-4a0e-a4ec-4ff9e0ee2364'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:14,899 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.083s
+    2018-08-21 19:26:14,899 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-003c05dc-d80f-4c8f-8527-180ae0d4cba0'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:14,900 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:14,901 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:14,958 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:26:14,958 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-b7fccbcd-f823-4762-9959-83c569676725'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:11", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:14,959 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:16,163 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.202s
+    2018-08-21 19:26:16,164 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "C", "admin_state_up": false, "protocol_port": 82, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener3-list-289605644"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ed437c6c-45dd-4bd9-bf73-1119bd8ae549'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:16,165 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:16,232 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.066s
+    2018-08-21 19:26:16,233 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ffc2f91d-ce2a-4eb1-9bbb-0c0336c77a25'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:21,397 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.158s
+    2018-08-21 19:26:21,397 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '605', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8531d906-05ec-4f1e-8f15-713ee674133d'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:21,398 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:21,399 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:21,496 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.097s
+    2018-08-21 19:26:21,497 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '786', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-df1c2703-a5c2-4511-8018-082f54bd11dc'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:18", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:21,498 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:21,498 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ONLINE
+    2018-08-21 19:26:21,578 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.079s
+    2018-08-21 19:26:21,579 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1569876d-32b2-41e8-85db-ea0ee11babf2'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:21,580 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ONLINE.
+    2018-08-21 19:26:21,580 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ONLINE
+    2018-08-21 19:26:21,675 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.094s
+    2018-08-21 19:26:21,676 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5b68ac59-5eec-4d90-b6c8-4ef8ce98ddda'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:21,676 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ONLINE.
+    2018-08-21 19:26:21,860 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910 0.182s
+    2018-08-21 19:26:21,861 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '40', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-16ece2bd-3a31-4455-9531-5d8080870000'}
+            Body: {"listeners": [], "listeners_links": []}
+    2018-08-21 19:26:21,894 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/listeners 0.031s
+    2018-08-21 19:26:21,895 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '403', u'content-length': '112', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8d6f5bea-af13-49fa-93fa-b52358aa0f95'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Policy does not allow this request to be performed."}
+    2018-08-21 19:26:22,067 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910 0.171s
+    2018-08-21 19:26:22,067 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-f339fe9a-edce-479e-84e0-d7db020f33e7'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,211 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:desc 0.142s
+    2018-08-21 19:26:22,211 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:desc', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6e19daf2-f4a2-4633-9a41-69268b44385d'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}], "listeners_links": []}
+    2018-08-21 19:26:22,424 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:asc 0.211s
+    2018-08-21 19:26:22,425 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:asc', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1a5b794f-96d0-412b-b310-ec5e30c8d2f8'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,582 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=id 0.156s
+    2018-08-21 19:26:22,582 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '182', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=id', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-c71e2461-fa0e-44b1-b4e2-30b16aa3a731'}
+            Body: {"listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}], "listeners_links": []}
+    2018-08-21 19:26:22,782 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=name 0.198s
+    2018-08-21 19:26:22,783 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '208', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=name', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-08506680-8220-4624-858a-7459c6d02fcb'}
+            Body: {"listeners": [{"name": "tempest-lb_member_listener2-list-1691625797"}, {"name": "tempest-lb_member_listener1-list-1141997786"}, {"name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,903 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=description 0.119s
+    2018-08-21 19:26:22,904 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '104', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=description', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-14dc64d5-24fd-4e8d-8362-b0b912d97b17'}
+            Body: {"listeners": [{"description": "B"}, {"description": "A"}, {"description": "C"}], "listeners_links": []}
+    2018-08-21 19:26:23,080 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=provisioning_status 0.175s
+    2018-08-21 19:26:23,080 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '143', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=provisioning_status', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-2c0c3401-5bf4-401b-b9f4-8bb167af0df2'}
+            Body: {"listeners": [{"provisioning_status": "ACTIVE"}, {"provisioning_status": "ACTIVE"}, {"provisioning_status": "ACTIVE"}], "listeners_links": []}
+    2018-08-21 19:26:23,459 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=operating_status 0.378s
+    2018-08-21 19:26:23,460 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '135', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=operating_status', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-865d1420-5f3c-4d4f-95e9-05a11da2d97d'}
+            Body: {"listeners": [{"operating_status": "ONLINE"}, {"operating_status": "ONLINE"}, {"operating_status": "OFFLINE"}], "listeners_links": []}
+    2018-08-21 19:26:23,594 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=admin_state_up 0.133s
+    2018-08-21 19:26:23,595 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '117', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=admin_state_up', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-4c56a40b-6fc5-4f08-9d73-434219671411'}
+            Body: {"listeners": [{"admin_state_up": true}, {"admin_state_up": true}, {"admin_state_up": false}], "listeners_links": []}
+    2018-08-21 19:26:23,729 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol 0.133s
+    2018-08-21 19:26:23,730 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '104', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-81c9f453-f661-4a94-ab7b-02542e6dd932'}
+            Body: {"listeners": [{"protocol": "HTTP"}, {"protocol": "HTTP"}, {"protocol": "HTTP"}], "listeners_links": []}
+    2018-08-21 19:26:23,977 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol_port 0.246s
+    2018-08-21 19:26:23,977 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '107', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol_port', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ff729323-85d7-45ed-9040-36bda0a70834'}
+            Body: {"listeners": [{"protocol_port": 80}, {"protocol_port": 81}, {"protocol_port": 82}], "listeners_links": []}
+    2018-08-21 19:26:24,173 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=connection_limit 0.195s
+    2018-08-21 19:26:24,174 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '116', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=connection_limit', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6bc26b1e-886f-4cb4-baf7-c86d61ca3300'}
+            Body: {"listeners": [{"connection_limit": -1}, {"connection_limit": -1}, {"connection_limit": -1}], "listeners_links": []}
+    2018-08-21 19:26:24,318 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=default_tls_container_ref 0.143s
+    2018-08-21 19:26:24,319 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '149', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=default_tls_container_ref', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ac8b5c26-d22e-4d8c-b926-42a839e71686'}
+            Body: {"listeners": [{"default_tls_container_ref": null}, {"default_tls_container_ref": null}, {"default_tls_container_ref": null}], "listeners_links": []}
+    2018-08-21 19:26:24,477 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=sni_container_refs 0.157s
+    2018-08-21 19:26:24,478 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '122', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=sni_container_refs', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-37b56ea1-6ebe-4f8a-aade-8f0b2a6e0486'}
+            Body: {"listeners": [{"sni_container_refs": []}, {"sni_container_refs": []}, {"sni_container_refs": []}], "listeners_links": []}
+    2018-08-21 19:26:24,576 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=project_id 0.097s
+    2018-08-21 19:26:24,577 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '194', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=project_id', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5811e22e-34c6-4ec2-a426-a3b53d3bf66f'}
+            Body: {"listeners": [{"project_id": "32815d36c4474368803b831f3e4535e7"}, {"project_id": "32815d36c4474368803b831f3e4535e7"}, {"project_id": "32815d36c4474368803b831f3e4535e7"}], "listeners_links": []}
+    2018-08-21 19:26:24,781 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=insert_headers 0.203s
+    2018-08-21 19:26:24,782 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '110', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=insert_headers', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1762c3cf-1a34-4938-9ce3-bedfe3448020'}
+            Body: {"listeners": [{"insert_headers": {}}, {"insert_headers": {}}, {"insert_headers": {}}], "listeners_links": []}
+    2018-08-21 19:26:25,115 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=created_at 0.332s
+    2018-08-21 19:26:25,115 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '155', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=created_at', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-cb1abedc-1e15-43f9-87a7-8043ae55b775'}
+            Body: {"listeners": [{"created_at": "2018-08-21T19:26:03"}, {"created_at": "2018-08-21T19:26:09"}, {"created_at": "2018-08-21T19:26:16"}], "listeners_links": []}
+    2018-08-21 19:26:25,248 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=updated_at 0.131s
+    2018-08-21 19:26:25,248 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '155', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=updated_at', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-bd7802f7-3849-4ce4-88c0-25a28f1384f9'}
+            Body: {"listeners": [{"updated_at": "2018-08-21T19:26:05"}, {"updated_at": "2018-08-21T19:26:12"}, {"updated_at": "2018-08-21T19:26:18"}], "listeners_links": []}
+    2018-08-21 19:26:25,387 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=timeout_client_data 0.138s
+    2018-08-21 19:26:25,388 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '50', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=timeout_client_data', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-2efecc2f-4117-4bc0-8b42-9725ef00c8dc'}
+            Body: {"listeners": [{}, {}, {}], "listeners_links": []}
+    2018-08-21 19:26:25,389 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:25,390 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:25,390 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:25,478 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.086s
+    2018-08-21 19:26:25,478 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '786', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6d805d3e-0ce7-40b3-885d-e2a19d6b62ea'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:18", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:25,479 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:25,479 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:25,627 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.147s
+    2018-08-21 19:26:25,628 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-length': '0', u'x-openstack-request-id': 'req-ef6f4d42-2087-4067-a519-511990e6abe5'}
+            Body: 
+    2018-08-21 19:26:25,628 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:25,629 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:25,724 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.094s
+    2018-08-21 19:26:25,725 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '794', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-db94b429-c60e-4c4a-bab0-55c4405fd8ba'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:25", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,818 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.086s
+    2018-08-21 19:26:30,818 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-01678b6c-b223-4c84-a32b-8f26052e5719'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:27", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,819 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:30,819 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:30,820 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:30,820 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:30,821 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:30,888 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.066s
+    2018-08-21 19:26:30,889 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-e125be9e-5105-4132-97c5-2b4961f4e8b6'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:27", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,889 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:30,890 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:31,009 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.118s
+    2018-08-21 19:26:31,009 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-length': '0', u'x-openstack-request-id': 'req-fba11981-fcc2-4584-8ca3-ab1a102874c5'}
+            Body: 
+    2018-08-21 19:26:31,010 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:31,010 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:31,067 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:26:31,068 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '746', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-0dc172d1-b825-4f97-bfc7-be5f1112e799'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:30", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,139 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.064s
+    2018-08-21 19:26:36,140 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5bfcacb3-8f48-4b1f-9c47-67bea90ac08a'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:32", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,141 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:36,141 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:36,214 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.071s
+    2018-08-21 19:26:36,215 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-d84879ba-b1aa-4418-8a5e-04e02391fc20'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:32", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,215 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:36,216 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:36,296 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.079s
+    2018-08-21 19:26:36,296 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-length': '0', u'x-openstack-request-id': 'req-bbc2aad2-d68c-414f-b9f7-8a7eb8ff27bc'}
+            Body: 
+    2018-08-21 19:26:36,297 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:36,297 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:36,345 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.047s
+    2018-08-21 19:26:36,346 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '698', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-0e5a163d-a840-46c7-9eed-00fd0b8bce0b'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:36", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,422 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.070s
+    2018-08-21 19:26:41,423 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-131f929c-0550-4863-a1c8-f8c4b376f6c9'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:37", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,423 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:41,424 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:41,424 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    2018-08-21 19:26:41,425 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:41,425 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-21 19:26:41,471 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.045s
+    2018-08-21 19:26:41,472 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-183acf6c-33fb-40ff-9935-d3ed76f50b23'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:37", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,473 43171 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-21 19:26:41,473 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    2018-08-21 19:26:41,580 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.106s
+    2018-08-21 19:26:41,580 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-length': '0', u'x-openstack-request-id': 'req-0f88fe57-35f9-4eee-9fa2-cf1b940b04ee'}
+            Body: 
+    2018-08-21 19:26:41,581 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_show [0.023713s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 428, in test_listener_show
+        listener = self.mem_listener_client.create_listener(**listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:26:41,615 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_show): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.021s
+    2018-08-21 19:26:41,615 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": true, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 81, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-show-2075478813"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-aebb8091-381b-4bf4-a015-64deec118e07'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+{0} octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_update [0.022615s] ... FAILED
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 542, in test_listener_update
+        listener = self.mem_listener_client.create_listener(**listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:26:41,639 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.020s
+    2018-08-21 19:26:41,639 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": false, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 82, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-update-1033857345"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1c14747e-2942-4a3d-a7e1-a28762f51ddb'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+
+==============================
+Failed 4 tests - output below:
+==============================
+
+octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_create[id-88d0ec83-7b08-48d9-96e2-0df1d2f8cd98]
+-------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 103, in test_listener_create
+        **listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 485, in assertRaises
+        self.assertThat(our_callable, matcher)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 496, in assertThat
+        mismatch_error = self._matchHelper(matchee, matcher, message, verbose)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 547, in _matchHelper
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 108, in match
+        mismatch = self.exception_matcher.match(exc_info)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_higherorder.py", line 62, in match
+        mismatch = matcher.match(matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 475, in match
+        reraise(*matchee)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/matchers/_exception.py", line 101, in match
+        result = matchee()
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 1049, in __call__
+        return self._callable_object(*self._args, **self._kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:24:59,584 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_create): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.438s
+    2018-08-21 19:24:59,584 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": true, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 80, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-create-649599247"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-b1d4c247-6f72-4d73-8c3d-9c1b25b187c3'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+
+octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_list[id-78ba6eb0-178c-477e-9156-b6775ca7b271]
+-----------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 346, in test_listener_list
+        self.assertEqual(1, len(listeners[0]))
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 411, in assertEqual
+        self.assertThat(observed, matcher, message)
+      File "/usr/local/lib/python2.7/dist-packages/testtools/testcase.py", line 498, in assertThat
+        raise mismatch_error
+    testtools.matchers._impl.MismatchError: 1 != 0
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:25:12,712 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/loadbalancers 2.044s
+    2018-08-21 19:25:12,713 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"loadbalancer": {"vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+        Response - Headers: {'status': '201', u'content-length': '636', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1dab91e4-b755-49d3-9b88-08daecd6e860'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "provisioning_status": "PENDING_CREATE", "created_at": "2018-08-21T19:25:11", "admin_state_up": true, "updated_at": null, "vip_qos_policy_id": null, "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "vip_address": "10.1.1.12", "pools": [], "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:12,713 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:25:12,744 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.030s
+    2018-08-21 19:25:12,745 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '636', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-cae80d85-7903-498b-b6b4-12867a757cc1'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": null, "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:22,822 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.066s
+    2018-08-21 19:25:22,823 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-9989d21f-a6da-4392-a5f8-05d3d5124568'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:32,890 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:25:32,891 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-21175601-b533-4a8b-83d9-4664b97d142f'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:42,962 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.064s
+    2018-08-21 19:25:42,963 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '653', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-3436e381-df1f-4fbf-a5a4-51728bd868fe'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:13", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "OFFLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:25:53,006 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.035s
+    2018-08-21 19:25:53,006 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '652', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-129f82bf-e090-45db-8973-4517e2569d72'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_CREATE", "updated_at": "2018-08-21T19:25:52", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:03,056 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.042s
+    2018-08-21 19:26:03,057 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-74d24d8f-a6d6-48f8-81e2-9d67381913e9'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:00", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:03,058 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:03,196 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.137s
+    2018-08-21 19:26:03,197 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "B", "admin_state_up": true, "protocol_port": 80, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener2-list-1691625797"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5717c975-ea2a-4768-b82c-9adb4b2ec1df'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:03,197 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:03,242 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.044s
+    2018-08-21 19:26:03,243 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-4a2cfebf-df8e-46e5-a54a-d3182ac5da18'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:08,364 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.115s
+    2018-08-21 19:26:08,365 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-e67bb47a-c145-4e92-957a-f839fbabb7cc'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:08,365 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:08,366 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:08,422 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.055s
+    2018-08-21 19:26:08,423 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8238794d-f417-4483-9670-2c8d03297190'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:05", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:08,423 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:09,694 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.269s
+    2018-08-21 19:26:09,695 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "A", "admin_state_up": true, "protocol_port": 81, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener1-list-1141997786"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-f27cd409-264f-4082-9e84-eb394e087f18'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:09,695 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:09,808 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.112s
+    2018-08-21 19:26:09,809 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-fea3ccd1-0736-4a0e-a4ec-4ff9e0ee2364'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:14,899 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.083s
+    2018-08-21 19:26:14,899 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-003c05dc-d80f-4c8f-8527-180ae0d4cba0'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:14,900 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:14,901 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:14,958 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:26:14,958 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-b7fccbcd-f823-4762-9959-83c569676725'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:11", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:14,959 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:16,163 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 201 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.202s
+    2018-08-21 19:26:16,164 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"protocol": "HTTP", "description": "C", "admin_state_up": false, "protocol_port": 82, "loadbalancer_id": "ef54e84d-29ec-42e1-830f-a55139519910", "name": "tempest-lb_member_listener3-list-289605644"}}
+        Response - Headers: {'status': '201', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ed437c6c-45dd-4bd9-bf73-1119bd8ae549'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:16,165 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ACTIVE
+    2018-08-21 19:26:16,232 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.066s
+    2018-08-21 19:26:16,233 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '596', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ffc2f91d-ce2a-4eb1-9bbb-0c0336c77a25'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "PENDING_CREATE", "connection_limit": -1, "updated_at": null, "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:21,397 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.158s
+    2018-08-21 19:26:21,397 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '605', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8531d906-05ec-4f1e-8f15-713ee674133d'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}}
+    2018-08-21 19:26:21,398 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ACTIVE.
+    2018-08-21 19:26:21,399 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:21,496 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.097s
+    2018-08-21 19:26:21,497 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '786', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-df1c2703-a5c2-4511-8018-082f54bd11dc'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:18", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:21,498 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:21,498 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ONLINE
+    2018-08-21 19:26:21,578 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.079s
+    2018-08-21 19:26:21,579 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1569876d-32b2-41e8-85db-ea0ee11babf2'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}}
+    2018-08-21 19:26:21,580 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ONLINE.
+    2018-08-21 19:26:21,580 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_listener status to update to ONLINE
+    2018-08-21 19:26:21,675 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.094s
+    2018-08-21 19:26:21,676 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '604', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5b68ac59-5eec-4d90-b6c8-4ef8ce98ddda'}
+            Body: {"listener": {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}}
+    2018-08-21 19:26:21,676 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_listener's status updated to ONLINE.
+    2018-08-21 19:26:21,860 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910 0.182s
+    2018-08-21 19:26:21,861 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '40', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-16ece2bd-3a31-4455-9531-5d8080870000'}
+            Body: {"listeners": [], "listeners_links": []}
+    2018-08-21 19:26:21,894 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 403 GET https://172.21.0.199:9876/v2.0/lbaas/listeners 0.031s
+    2018-08-21 19:26:21,895 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '403', u'content-length': '112', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-8d6f5bea-af13-49fa-93fa-b52358aa0f95'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Policy does not allow this request to be performed."}
+    2018-08-21 19:26:22,067 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910 0.171s
+    2018-08-21 19:26:22,067 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-f339fe9a-edce-479e-84e0-d7db020f33e7'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,211 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:desc 0.142s
+    2018-08-21 19:26:22,211 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:desc', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6e19daf2-f4a2-4633-9a41-69268b44385d'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}], "listeners_links": []}
+    2018-08-21 19:26:22,424 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:asc 0.211s
+    2018-08-21 19:26:22,425 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '1815', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&sort=description:asc', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1a5b794f-96d0-412b-b310-ec5e30c8d2f8'}
+            Body: {"listeners": [{"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "A", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:09", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:12", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 81, "id": "3c840c3a-6050-4742-9236-6114356f3186", "operating_status": "ONLINE", "name": "tempest-lb_member_listener1-list-1141997786"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "B", "default_tls_container_ref": null, "admin_state_up": true, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:03", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:05", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 80, "id": "1beec508-8323-4bef-adcb-712db823a18c", "operating_status": "ONLINE", "name": "tempest-lb_member_listener2-list-1691625797"}, {"insert_headers": {}, "project_id": "32815d36c4474368803b831f3e4535e7", "protocol": "HTTP", "description": "C", "default_tls_container_ref": null, "admin_state_up": false, "loadbalancers": [{"id": "ef54e84d-29ec-42e1-830f-a55139519910"}], "created_at": "2018-08-21T19:26:16", "provisioning_status": "ACTIVE", "connection_limit": -1, "updated_at": "2018-08-21T19:26:18", "default_pool_id": null, "sni_container_refs": [], "l7policies": [], "protocol_port": 82, "id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2", "operating_status": "OFFLINE", "name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,582 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=id 0.156s
+    2018-08-21 19:26:22,582 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '182', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=id', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-c71e2461-fa0e-44b1-b4e2-30b16aa3a731'}
+            Body: {"listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}], "listeners_links": []}
+    2018-08-21 19:26:22,782 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=name 0.198s
+    2018-08-21 19:26:22,783 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '208', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=name', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-08506680-8220-4624-858a-7459c6d02fcb'}
+            Body: {"listeners": [{"name": "tempest-lb_member_listener2-list-1691625797"}, {"name": "tempest-lb_member_listener1-list-1141997786"}, {"name": "tempest-lb_member_listener3-list-289605644"}], "listeners_links": []}
+    2018-08-21 19:26:22,903 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=description 0.119s
+    2018-08-21 19:26:22,904 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '104', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=description', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-14dc64d5-24fd-4e8d-8362-b0b912d97b17'}
+            Body: {"listeners": [{"description": "B"}, {"description": "A"}, {"description": "C"}], "listeners_links": []}
+    2018-08-21 19:26:23,080 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=provisioning_status 0.175s
+    2018-08-21 19:26:23,080 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '143', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=provisioning_status', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-2c0c3401-5bf4-401b-b9f4-8bb167af0df2'}
+            Body: {"listeners": [{"provisioning_status": "ACTIVE"}, {"provisioning_status": "ACTIVE"}, {"provisioning_status": "ACTIVE"}], "listeners_links": []}
+    2018-08-21 19:26:23,459 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=operating_status 0.378s
+    2018-08-21 19:26:23,460 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '135', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=operating_status', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-865d1420-5f3c-4d4f-95e9-05a11da2d97d'}
+            Body: {"listeners": [{"operating_status": "ONLINE"}, {"operating_status": "ONLINE"}, {"operating_status": "OFFLINE"}], "listeners_links": []}
+    2018-08-21 19:26:23,594 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=admin_state_up 0.133s
+    2018-08-21 19:26:23,595 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '117', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=admin_state_up', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-4c56a40b-6fc5-4f08-9d73-434219671411'}
+            Body: {"listeners": [{"admin_state_up": true}, {"admin_state_up": true}, {"admin_state_up": false}], "listeners_links": []}
+    2018-08-21 19:26:23,729 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol 0.133s
+    2018-08-21 19:26:23,730 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '104', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-81c9f453-f661-4a94-ab7b-02542e6dd932'}
+            Body: {"listeners": [{"protocol": "HTTP"}, {"protocol": "HTTP"}, {"protocol": "HTTP"}], "listeners_links": []}
+    2018-08-21 19:26:23,977 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol_port 0.246s
+    2018-08-21 19:26:23,977 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '107', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=protocol_port', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ff729323-85d7-45ed-9040-36bda0a70834'}
+            Body: {"listeners": [{"protocol_port": 80}, {"protocol_port": 81}, {"protocol_port": 82}], "listeners_links": []}
+    2018-08-21 19:26:24,173 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=connection_limit 0.195s
+    2018-08-21 19:26:24,174 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '116', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=connection_limit', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6bc26b1e-886f-4cb4-baf7-c86d61ca3300'}
+            Body: {"listeners": [{"connection_limit": -1}, {"connection_limit": -1}, {"connection_limit": -1}], "listeners_links": []}
+    2018-08-21 19:26:24,318 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=default_tls_container_ref 0.143s
+    2018-08-21 19:26:24,319 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '149', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=default_tls_container_ref', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-ac8b5c26-d22e-4d8c-b926-42a839e71686'}
+            Body: {"listeners": [{"default_tls_container_ref": null}, {"default_tls_container_ref": null}, {"default_tls_container_ref": null}], "listeners_links": []}
+    2018-08-21 19:26:24,477 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=sni_container_refs 0.157s
+    2018-08-21 19:26:24,478 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '122', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=sni_container_refs', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-37b56ea1-6ebe-4f8a-aade-8f0b2a6e0486'}
+            Body: {"listeners": [{"sni_container_refs": []}, {"sni_container_refs": []}, {"sni_container_refs": []}], "listeners_links": []}
+    2018-08-21 19:26:24,576 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=project_id 0.097s
+    2018-08-21 19:26:24,577 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '194', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=project_id', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5811e22e-34c6-4ec2-a426-a3b53d3bf66f'}
+            Body: {"listeners": [{"project_id": "32815d36c4474368803b831f3e4535e7"}, {"project_id": "32815d36c4474368803b831f3e4535e7"}, {"project_id": "32815d36c4474368803b831f3e4535e7"}], "listeners_links": []}
+    2018-08-21 19:26:24,781 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=insert_headers 0.203s
+    2018-08-21 19:26:24,782 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '110', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=insert_headers', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1762c3cf-1a34-4938-9ce3-bedfe3448020'}
+            Body: {"listeners": [{"insert_headers": {}}, {"insert_headers": {}}, {"insert_headers": {}}], "listeners_links": []}
+    2018-08-21 19:26:25,115 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=created_at 0.332s
+    2018-08-21 19:26:25,115 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '155', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=created_at', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-cb1abedc-1e15-43f9-87a7-8043ae55b775'}
+            Body: {"listeners": [{"created_at": "2018-08-21T19:26:03"}, {"created_at": "2018-08-21T19:26:09"}, {"created_at": "2018-08-21T19:26:16"}], "listeners_links": []}
+    2018-08-21 19:26:25,248 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=updated_at 0.131s
+    2018-08-21 19:26:25,248 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '155', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=updated_at', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-bd7802f7-3849-4ce4-88c0-25a28f1384f9'}
+            Body: {"listeners": [{"updated_at": "2018-08-21T19:26:05"}, {"updated_at": "2018-08-21T19:26:12"}, {"updated_at": "2018-08-21T19:26:18"}], "listeners_links": []}
+    2018-08-21 19:26:25,387 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_list): 200 GET https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=timeout_client_data 0.138s
+    2018-08-21 19:26:25,388 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '50', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners?loadbalancer_id=ef54e84d-29ec-42e1-830f-a55139519910&fields=timeout_client_data', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-2efecc2f-4117-4bc0-8b42-9725ef00c8dc'}
+            Body: {"listeners": [{}, {}, {}], "listeners_links": []}
+    2018-08-21 19:26:25,389 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:25,390 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:25,390 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:25,478 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.086s
+    2018-08-21 19:26:25,478 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '786', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-6d805d3e-0ce7-40b3-885d-e2a19d6b62ea'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:18", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:25,479 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:25,479 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:25,627 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2 0.147s
+    2018-08-21 19:26:25,628 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/2d05858f-e8c9-4999-aa6c-5715aa6647c2', u'content-length': '0', u'x-openstack-request-id': 'req-ef6f4d42-2087-4067-a519-511990e6abe5'}
+            Body: 
+    2018-08-21 19:26:25,628 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:25,629 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:25,724 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.094s
+    2018-08-21 19:26:25,725 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '794', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-db94b429-c60e-4c4a-bab0-55c4405fd8ba'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:25", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "2d05858f-e8c9-4999-aa6c-5715aa6647c2"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,818 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.086s
+    2018-08-21 19:26:30,818 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-01678b6c-b223-4c84-a32b-8f26052e5719'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:27", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,819 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:30,819 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 2d05858f-e8c9-4999-aa6c-5715aa6647c2...
+    2018-08-21 19:26:30,820 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:30,820 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:30,821 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:30,888 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.066s
+    2018-08-21 19:26:30,889 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '738', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-e125be9e-5105-4132-97c5-2b4961f4e8b6'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:27", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:30,889 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:30,890 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:31,009 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186 0.118s
+    2018-08-21 19:26:31,009 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/3c840c3a-6050-4742-9236-6114356f3186', u'content-length': '0', u'x-openstack-request-id': 'req-fba11981-fcc2-4584-8ca3-ab1a102874c5'}
+            Body: 
+    2018-08-21 19:26:31,010 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:31,010 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:31,067 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.056s
+    2018-08-21 19:26:31,068 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '746', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-0dc172d1-b825-4f97-bfc7-be5f1112e799'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:30", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}, {"id": "3c840c3a-6050-4742-9236-6114356f3186"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,139 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.064s
+    2018-08-21 19:26:36,140 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-5bfcacb3-8f48-4b1f-9c47-67bea90ac08a'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:32", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,141 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:36,141 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 3c840c3a-6050-4742-9236-6114356f3186...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:36,142 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:36,214 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.071s
+    2018-08-21 19:26:36,215 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '690', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-d84879ba-b1aa-4418-8a5e-04e02391fc20'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:32", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:36,215 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:36,216 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:36,296 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c 0.079s
+    2018-08-21 19:26:36,296 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners/1beec508-8323-4bef-adcb-712db823a18c', u'content-length': '0', u'x-openstack-request-id': 'req-bbc2aad2-d68c-414f-b9f7-8a7eb8ff27bc'}
+            Body: 
+    2018-08-21 19:26:36,297 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:36,297 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for show_loadbalancer status to update to ACTIVE
+    2018-08-21 19:26:36,345 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.047s
+    2018-08-21 19:26:36,346 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '698', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-0e5a163d-a840-46c7-9eed-00fd0b8bce0b'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "PENDING_UPDATE", "updated_at": "2018-08-21T19:26:36", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [{"id": "1beec508-8323-4bef-adcb-712db823a18c"}], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,422 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.070s
+    2018-08-21 19:26:41,423 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-131f929c-0550-4863-a1c8-f8c4b376f6c9'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:37", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,423 43171 INFO     [octavia_tempest_plugin.tests.waiters] show_loadbalancer's status updated to ACTIVE.
+    2018-08-21 19:26:41,424 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for listener 1beec508-8323-4bef-adcb-712db823a18c...
+    2018-08-21 19:26:41,424 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Starting cleanup for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    2018-08-21 19:26:41,425 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Waiting for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910 to be ACTIVE...
+    2018-08-21 19:26:41,425 43171 INFO     [octavia_tempest_plugin.tests.waiters] Waiting for _show_object status to update to ACTIVE
+    2018-08-21 19:26:41,471 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 200 GET https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.045s
+    2018-08-21 19:26:41,472 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '200', u'content-length': '644', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-183acf6c-33fb-40ff-9935-d3ed76f50b23'}
+            Body: {"loadbalancer": {"provider": "octavia", "description": "", "admin_state_up": true, "pools": [], "created_at": "2018-08-21T19:25:11", "provisioning_status": "ACTIVE", "updated_at": "2018-08-21T19:26:37", "vip_qos_policy_id": null, "vip_network_id": "3cd1f0e0-8d38-4647-99ea-fa001978c6dd", "listeners": [], "vip_port_id": "de00c9c5-1317-4186-8048-08ecdaefe700", "vip_address": "10.1.1.12", "vip_subnet_id": "43646d5e-1fc5-4679-b92c-28c5d617753b", "flavor": "", "project_id": "32815d36c4474368803b831f3e4535e7", "id": "ef54e84d-29ec-42e1-830f-a55139519910", "operating_status": "ONLINE", "name": "tempest-lb_member_lb2_listener-list-1060913795"}}
+    2018-08-21 19:26:41,473 43171 INFO     [octavia_tempest_plugin.tests.waiters] _show_object's status updated to ACTIVE.
+    2018-08-21 19:26:41,473 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleaning up loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    2018-08-21 19:26:41,580 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:_run_cleanups): 204 DELETE https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910 0.106s
+    2018-08-21 19:26:41,580 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: None
+        Response - Headers: {'status': '204', u'connection': 'close', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/loadbalancers/ef54e84d-29ec-42e1-830f-a55139519910', u'content-length': '0', u'x-openstack-request-id': 'req-0f88fe57-35f9-4eee-9fa2-cf1b940b04ee'}
+            Body: 
+    2018-08-21 19:26:41,581 43171 INFO     [octavia_tempest_plugin.services.load_balancer.v2.base_client] Cleanup complete for loadbalancer ef54e84d-29ec-42e1-830f-a55139519910...
+    
+
+octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_show[id-6e299eae-6907-4dfc-89c2-e57709d25d3d]
+-----------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 428, in test_listener_show
+        listener = self.mem_listener_client.create_listener(**listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:26:41,615 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_show): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.021s
+    2018-08-21 19:26:41,615 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": true, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 81, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-show-2075478813"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-aebb8091-381b-4bf4-a015-64deec118e07'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+
+octavia_tempest_plugin.tests.api.v2.test_listener.ListenerAPITest.test_listener_update[id-aaae0298-5778-4c7e-a27a-01549a71b319]
+-------------------------------------------------------------------------------------------------------------------------------
+
+Captured traceback:
+~~~~~~~~~~~~~~~~~~~
+    Traceback (most recent call last):
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/tests/api/v2/test_listener.py", line 542, in test_listener_update
+        listener = self.mem_listener_client.create_listener(**listener_kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/listener_client.py", line 103, in create_listener
+        return self._create_object(**kwargs)
+      File "/usr/local/lib/python2.7/dist-packages/octavia_tempest_plugin/services/load_balancer/v2/base_client.py", line 102, in _create_object
+        response, body = self.post(request_uri, json.dumps(obj_dict))
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 279, in post
+        return self.request('POST', url, extra_headers, headers, body, chunked)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 670, in request
+        self._error_checker(resp, resp_body)
+      File "/usr/local/lib/python2.7/dist-packages/tempest/lib/common/rest_client.py", line 781, in _error_checker
+        raise exceptions.BadRequest(resp_body, resp=resp)
+    tempest.lib.exceptions.BadRequest: Bad request
+    Details: {u'debuginfo': None, u'faultcode': u'Client', u'faultstring': u'Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data'}
+    
+
+Captured pythonlogging:
+~~~~~~~~~~~~~~~~~~~~~~~
+    2018-08-21 19:26:41,639 43171 INFO     [tempest.lib.common.rest_client] Request (ListenerAPITest:test_listener_update): 400 POST https://172.21.0.199:9876/v2.0/lbaas/listeners 0.020s
+    2018-08-21 19:26:41,639 43171 DEBUG    [tempest.lib.common.rest_client] Request - Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'X-Auth-Token': '<omitted>'}
+            Body: {"listener": {"insert_headers": {"X-Forwarded-Port": "true", "X-Forwarded-For": "true"}, "timeout_tcp_inspect": 50, "protocol": "HTTP", "description": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttes", "admin_state_up": false, "timeout_client_data": 1000, "connection_limit": 200, "timeout_member_data": 1000, "timeout_member_connect": 1000, "protocol_port": 82, "loadbalancer_id": "52a304d6-79c9-4895-b1da-f347afac62c0", "name": "tempest-lb_member_listener1-update-1033857345"}}
+        Response - Headers: {'status': '400', u'content-length': '198', 'content-location': 'https://172.21.0.199:9876/v2.0/lbaas/listeners', u'content-type': 'application/json', u'connection': 'close', u'x-openstack-request-id': 'req-1c14747e-2942-4a3d-a7e1-a28762f51ddb'}
+            Body: {"debuginfo": null, "faultcode": "Client", "faultstring": "Unknown attributes for argument listener_.listener: timeout_member_connect, timeout_member_data, timeout_tcp_inspect, timeout_client_data"}
+    
+
+
+======
+Totals
+======
+Ran: 5 tests in 204.0000 sec.
+ - Passed: 1
+ - Skipped: 0
+ - Expected Fail: 0
+ - Unexpected Success: 0
+ - Failed: 4
+Sum of execute time for each test: 102.4816 sec.
+
+==============
+Worker Balance
+==============
+ - Worker 0 (5 tests) => 0:01:42.497052
