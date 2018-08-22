@@ -1,0 +1,31 @@
+# This file is just an example, a new file in the ~/.config/openstack
+# directory should be created with the clouds.yaml name. For more info,
+# https://docs.openstack.org/openstacksdk/latest/user/config/configuration.html
+# The SDK clients will be set with the cloud given in the env variable
+# OPENSTACK_CLOUD, for ex. export OPENSTACK_CLOUD=deimos_internal
+
+clouds:
+ phobos:
+   region_name: RegionOne
+   verify: False
+   identity_api_version: 3
+   api_timeout: 7
+   auth:
+     username: 'admin'
+     password: '<adminPass>'
+     project_name: 'admin'
+     user_domain_id: 'default'
+     project_domain_id: 'default'
+     auth_url: 'https://<IPAddress>:5000/v3/'
+  deimos_internal:
+   region_name: RegionOne
+   verify: False
+   identity_api_version: 3
+   api_timeout: 7
+   auth:
+     username: 'admin'
+     password: '<adminPass>'
+     project_name: 'admin'
+     user_domain_id: 'default'
+     project_domain_id: 'default'
+     auth_url: 'http://172.21.8.199:5000/v3/'
