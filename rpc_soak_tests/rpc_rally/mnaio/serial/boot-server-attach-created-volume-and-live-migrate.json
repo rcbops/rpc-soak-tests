@@ -9,7 +9,7 @@
                     "name": "Ubuntu 14.04 LTS"
                 },
                 "flavor": {
-                    "name": "m1.medium"
+                    "name": "m1.small"
                 },
                 "boot_server_kwargs": {},
                 "create_volume_kwargs": {}
