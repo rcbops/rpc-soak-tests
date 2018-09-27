@@ -9,7 +9,7 @@
                     "name": "Ubuntu 16.04"
                 },
                 "flavor": {
-                    "name": "m1.xlarge"
+                    "name": "m1.small"
                 },
                 "create_volume_params": {
                     "availability_zone": "nova"

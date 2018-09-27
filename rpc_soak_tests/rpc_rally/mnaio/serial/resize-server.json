@@ -7,7 +7,7 @@
                     "name": "m1.mini"
                 },
                 "image": {
-                    "name": "CentOS 7"
+                    "name": "Debian 9"
                 },
                 "to_flavor": {
                     "name": "m1.small"
