@@ -1,0 +1,25 @@
+{
+    "HeatStacks.create_check_delete_stack": [
+        {
+            "args": {
+                "template_path": {{random_strings}}
+            },
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 1
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 3
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}

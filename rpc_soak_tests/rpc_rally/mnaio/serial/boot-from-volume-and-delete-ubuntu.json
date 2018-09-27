@@ -1,0 +1,31 @@
+{% set flavor_name = flavor_name or "m1.tiny" %}
+{% set volume_type = volume_type or "" %}
+{
+    "NovaServers.boot_server_from_volume_and_delete": [
+        {
+            "args": {
+                "flavor": {
+                    "name": "m1.small"
+                },
+                "image": {
+                    "name": "Ubuntu 16.04"
+                },
+                "volume_size": 20,
+                "volume_type": "",
+                "force_delete": false
+            },
+            "runner": {
+                "type": "constant",
+                "times": 3,
+                "concurrency": 1
+            },
+            "context": {
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}
