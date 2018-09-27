@@ -1,0 +1,28 @@
+{
+    "IronicNodes.create_and_delete_node": [
+        {
+            "args": {
+                "driver": "agent_ipmitool",
+                "properties": {
+                    "capabilities": "boot_option:local"
+                }
+            },
+            "runner": {
+                "type": "constant",
+                "times": 2,
+                "concurrency": 1
+            },
+            "context": {
+                "users": {
+                    "tenants": 2,
+                    "users_per_tenant": 1
+                }
+            },
+            "sla": {
+                "failure_rate": {
+                    "max": 0
+                }
+            }
+        }
+    ]
+}

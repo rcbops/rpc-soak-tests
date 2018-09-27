@@ -1,0 +1,32 @@
+{% set flavor_name = flavor_name or "m1.tiny" %}
+{
+  "NovaServers.boot_and_delete_multiple_servers": [
+    {
+      "runner": {
+        "type": "constant",
+        "concurrency": 2,
+        "times": 3
+      },
+      "args": {
+        "count": 5,
+        "image": {
+          "name": "cirros-0.3.5-x86_64-disk.img"
+        },
+        "flavor": {
+          "name": "m1.tiny"
+        }
+      },
+      "context": {
+        "users": {
+          "users_per_tenant": 1,
+          "tenants": 1
+        }
+      },
+      "sla": {
+         "failure_rate": {
+           "max": 0
+         }
+      }
+    }
+  ]
+}
