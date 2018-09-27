@@ -116,11 +116,8 @@ class Utils(object):
 
         return result
 
-    # TODO: find a fix, currently throwing the following exception,
-    # UnableToDeleteResource: The delete method is not supported for
-    # openstack.compute.v2.server.ServerDetail
     def delete_servers(self, project_name=None,
-                       project_ids=None, server_name=None,
+                       project_ids=None, server_name=None, query=None,
                        print_delete=True, raise_exception=False):
         """
         Delete servers filtered by project name, project IDs and/or
@@ -130,6 +127,8 @@ class Utils(object):
         :param str project_name: project name to filter by (can be None)
         :param list project_ids: delete only servers within these projects.
         :param str server_name: server name to filter by.
+        :param dict query: additional kwargs for delete filters
+            (GET resources call).
         :param bool print_delete: print the resource name and ID.
         :param bool raise_exception: flag to raise an Exception if True.
         :return: list of undeleted servers(s)
@@ -140,7 +139,8 @@ class Utils(object):
 
         result = self.compute.delete_resources(
             resource_type=SERVERS, project_ids=project_ids, name=server_name,
-            print_delete=print_delete, raise_exception=raise_exception)
+            query=query, print_delete=print_delete,
+            raise_exception=raise_exception)
 
         return result
 

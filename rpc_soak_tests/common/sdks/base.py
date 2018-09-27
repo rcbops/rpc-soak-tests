@@ -94,7 +94,8 @@ class BaseSDK(object):
 
         return result
 
-    def get_resources(self, resource_type, project_ids=None, name=None):
+    def get_resources(self, resource_type, project_ids=None, name=None,
+                      query=None):
         """
         Get OpenStack resources within projects, with names or ALL.
 
@@ -102,6 +103,7 @@ class BaseSDK(object):
             networks, users, projects, etc.
         :param list project_ids: only get resources within these projects.
         :param str name: name prefix or complete name
+        :param dict query: additional kwargs for the GET call.
         :rtype: list(openstack resource instance)
         :return: list of resources within the projects given and/or
             that match name (all if project_ids and name not given).
@@ -113,8 +115,13 @@ class BaseSDK(object):
 
             for project_id in project_ids:
                 kwargs = {project_id_label: project_id}
+                if query:
+                    kwargs.update(query)
                 resp = getattr(self.client, resource_type)(**kwargs)
                 resources.extend(list(resp))
+        elif query:
+            resp = getattr(self.client, resource_type)(**query)
+            resources.extend(list(resp))
         else:
             resp = getattr(self.client, resource_type)()
             resources.extend(list(resp))
@@ -130,7 +137,8 @@ class BaseSDK(object):
         return result
 
     def delete_resources(self, resource_type, project_ids=None, name=None,
-                         print_delete=False, raise_exception=False, all=False):
+                         query=None, print_delete=False,
+                         raise_exception=False, all=False):
         """
         Delete OpenStack resources within projects, by name or All.
 
@@ -138,6 +146,7 @@ class BaseSDK(object):
             networks, users, projects, etc.
         :param list project_ids: only get resources within these projects.
         :param str name: name(starts with) to filter resources to delete.
+        :param dict query: additional kwargs for the GET resources call.
         :param bool print_delete: print the resource name and ID.
         :param bool raise_exception: flag to raise an Exception if True.
         :param bool all: if set and no project_ids or name given it will try
@@ -152,8 +161,18 @@ class BaseSDK(object):
                    'deleting OpenStack cloud resources.')
             raise MissingDeleteParams(msg)
 
-        resources = self.get_resources(resource_type=resource_type,
-                                       project_ids=project_ids, name=name)
+        kwargs = dict(resource_type=resource_type, project_ids=project_ids,
+                      name=name)
+
+        # Need the server.Server instance for deleting servers (these
+        # instances don't have the project ID, None will be displayed in msgs)
+        if not query:
+            query = dict()
+        if resource_type==SERVERS:
+            query.update(details=False)
+
+        kwargs.update(query=query)
+        resources = self.get_resources(**kwargs)
 
         # singular resource type name, for ex. network, port, etc.
         type_name = SINGULAR[resource_type]
