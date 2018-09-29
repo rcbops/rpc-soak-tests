@@ -118,7 +118,7 @@ class Utils(object):
 
     def delete_servers(self, project_name=None,
                        project_ids=None, server_name=None, query=None,
-                       print_delete=True, raise_exception=False):
+                       print_delete=True, raise_exception=False, all=False):
         """
         Delete servers filtered by project name, project IDs and/or
         server names. If NOT given the deletes are done by the project IDs
@@ -131,16 +131,30 @@ class Utils(object):
             (GET resources call).
         :param bool print_delete: print the resource name and ID.
         :param bool raise_exception: flag to raise an Exception if True.
+        :param bool all: delete ALL resources found (ignores project ids/name)
         :return: list of undeleted servers(s)
         """
-        if not project_ids and not server_name:
+        if not project_ids and not server_name and not query:
             project_name = project_name or self.project_name
             project_ids = self.get_all_project_ids(name=project_name)
 
         result = self.compute.delete_resources(
             resource_type=SERVERS, project_ids=project_ids, name=server_name,
             query=query, print_delete=print_delete,
-            raise_exception=raise_exception)
+            raise_exception=raise_exception, all=all)
+
+        return result
+
+    def delete_rally_servers(self, server_name='s_rally'):
+        """
+        Delete servers from all tenants
+        :param str server_name: server name starts with, by default s_rally.
+        :return: list of undeleted servers(s)
+
+        """
+
+        query = dict(all_tenants=True, name='s_rally')
+        result = self.delete_servers(query=query, all=True)
 
         return result
 
