@@ -1,18 +1,25 @@
-RPC deployment testing with Rally
-=================================
+# RPC deployment testing with Rally
 
 Rally is a benchmarking tool used for cloud verification,
 benchmarking and profiling simulating user loads.
 
 The contents of the rpc-rally directory are,
 
-* configs: JSON file examples for registering an OpenStack deployment with Rally.
+* configs: JSON file examples for registering an OpenStack deployment with
+Rally.
 * serial: test suite with the nova, neutron, cinder and swift scenarios.
-* embedded: test suite with the nova, neturon, cinder and swift scenarios
-with less times, concurrency, and flavor disk & volume sizes to test smaller
-embedded environments.
+* embedded: nova, neutron, cinder and swift test suite with adaptations for
+testing a deployment in an embedded environment.
+* mnaio: test suites with adaptations for testing deployments in MNAIO
+environments.
 
-And there also test suites by OpenStack project in the following dirs,
+> Note: `adaptations` means setting the images, flavors, volume sizes,
+iterations and concurrency, of Rally tasks, based on the hardware limitations
+of the test environment like the embeded or mnaio ones. The serial test suite
+is meant to run vs production like test environments like Deimos or Eureka.
+
+And there are also directory test suites, Rally tasks for production like
+environments, by OpenStack projects in the following dirs,
 
 * nova
 * neutron
@@ -20,29 +27,136 @@ And there also test suites by OpenStack project in the following dirs,
 * swift
 * ironic
 * keystone
-* heat - these are still work in progress
-* designate - Not available to be used at the moment since Rally is using the
-python-designateclient (deprecated) that interacts with the designate
-v1 API. Rally will need to be updated to use the python-openstackclient that
-does interacts with the designate v2 API.
+* heat
+* designate - NA
 
-Test suites are for load testing the OpenStack deployment with Rally
-and come from the Rally scenarios, see references at the end, and are in JSON.
+> Note: Designate Rally tests use the python-designateclient (deprecated) that
+interact with the v1 API. Rally will need to be updated to use the
+python-openstackclient that interacts with the v2 API in order to run these
+tests.
 
-Rally uses two types of JSON files, the ones that
-Register the OpenStack deployment, described below
-and examples in the config directory, 
-and the ones used for running Rally against the 
-deployment "the Rally scenarios". 
-If more scenarios are desired, that doesn't
-exist within the Rally repository, then Rally development
-is to be done.
+Test suites are a set of Rally tasks, test scenarios in JSON, and are used for
+load testing OpenStack deployments. They can also be used just for functional
+testing if the iterations/concurrency are set to 1 or low values.
+See the Rally scenarios reference at the end for more info.
+
+Rally uses two types of JSON files,
+
+* Deployment config files: Register the OpenStack deployment, described below
+and an examples [here](https://github.com/rcbops/rpc_soak_tests/tree/master/rpc_soak_tests/rpc_rally/configs).
+* Rally tasks: test scenarios with run parameters and values.
+
+> Note: for more test scenarios Rally develoment is to be done.
 
 
-Installing Rally
-----------------
+## Installing Rally
 
-*Installing pre-dependencies, Ubuntu ex.*
+The following steps are for setting up a test VM to run Rally Scenarios
+vs an RPC-O or RPC-R deployment. These tests have been verified in Ubuntu
+and RedHat VMs.
+
+#### Registering the RedHat VM
+
+> Note: skip these steps if the RedHat VM is already subscribed or another
+Linux distribution is beeing used, for ex. Ubuntu. For more info on
+subscribing a RedHat VM check
+[here](https://access.redhat.com/documentation/en-us/reference_architectures/2017/html/guidelines_and_considerations_for_performance_and_scaling_your_red_hat_enterprise_linux_openstack_platform_7_cloud/rally).
+
+These steps are to register the Rally VM with the Content Delivery Network
+using the customer portal username and password credentials. They also show
+how to attach the Red Hat Enterprise Linux OpenStack Platform entitlements,
+disable default repositories, enable only the required ones and install
+the `epel` package.
+
+```commandline
+[cloud-user@rpcr-rally ~]$ sudo subscription-manager register
+Registering to: subscription.rhsm.redhat.com:443/subscription
+Username: <RedHat username, for ex. rs-rpc-test>
+Password: <RedHat password>
+The system has been registered with ID: <for ex. 039764b1-ff69-4a9f-9402-ecc5c7c8dbe9>
+The registered system name is: rpcr-rally.openstacklocal
+WARNING
+The yum plugins: /etc/yum/pluginconf.d/subscription-manager.conf, /etc/yum/pluginconf.d/product-id.conf were automatically enabled for the benefit of Red Hat Subscription Management. If not desired, use "subscription-manager config --rhsm.auto_enable_yum_plugins=0" to block this behavior.
+[cloud-user@rpcr-rally ~]$ sudo subscription-manager list --available --all
+...
+[cloud-user@rpcr-rally ~]$ sudo subscription-manager attach --pool=<RedHat pool ID>
+Successfully attached a subscription for: Red Hat Satellite - Add-Ons for Providers
+[cloud-user@rpcr-rally myrally]$ sudo subscription-manager repos --disable=*
+[cloud-user@rpcr-rally myrally]$ sudo subscription-manager repos --enable=rhel-7-server-rpms --enable=rhel-7-server-openstack-7.0-rpms --enable=rhel-ha-for-rhel-7-server-rpms
+[cloud-user@rpcr-rally ~]$ sudo subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+[cloud-user@rpcr-rally ~]$ sudo yum -y update
+[cloud-user@rpcr-rally ~]$ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+```
+
+#### Installing pre-dependencies, RedHat VM ex.
+
+These are general pre-dependencies for any Rally VM. For an Ubuntu VM,
+replace `yum install` for `apt-get install`.
+
+```commandline
+[cloud-user@rpcr-rally myrally]$ sudo yum install gcc
+[cloud-user@rpcr-rally ~]$ sudo yum install emacs-nox
+[cloud-user@rpcr-rally ~]$ sudo yum install tmux
+[cloud-user@rpcr-rally ~]$ sudo yum install git
+[cloud-user@rpcr-rally ~]$ sudo yum install python-pip
+[cloud-user@rpcr-rally ~]$ sudo yum install python-virtualenv
+[cloud-user@rpcr-rally myrally]$ sudo yum install python-subprocess32
+[cloud-user@rpcr-rally ~]$ pip install -U cryptography
+[cloud-user@rpcr-rally ~]$ pip install -U setuptools
+[cloud-user@rpcr-rally ~]$ sudo pip install sshuttle
+```
+
+> Note: emacs-nox and tmux are compeltely optional. Also, the following
+dependencies may be needed in an Ubuntu VM:
+```commandline
+$sudo apt-get install libffi-dev libpq-dev libssl-dev libxml2-dev libxslt1-dev
+```
+
+#### Installing the OpenStack clients
+```commandline
+$ pip install python-openstackclient
+$ pip install python-cinderclient==3.6.1    # At the time of this writing Rally needs this version
+$ pip install python-octaviaclient
+```
+
+#### Installing Rally
+
+```commandline
+[cloud-user@rpcr-rally myrally]$ virtualenv myrally
+[cloud-user@rpcr-rally myrally]$ cd myrally
+[cloud-user@rpcr-rally myrally]$ . bin/activate
+(myrally) [cloud-user@rpcr-rally myrally]$ pip install -U pip
+(myrally) [cloud-user@rpcr-rally myrally]$ pip install rally
+(myrally) [cloud-user@rpcr-rally openrcs]$ pip install rally-openstack
+(myrally) [cloud-user@rpcr-rally myrally]$ rally db create
+Creating database: sqlite:////tmp/rally.sqlite
+Database created successfully
+```
+
+#### Installing RPC Rally tests
+
+Rally tasks were updated for specific RPC needs for ex.
+- Runs vs RPC-O deployments at Deimos
+- Runs vs an embeded environment
+- Runs vs an MNAIO environment
+- Runs vs RPC-R deployments in an MNAIO environment
+
+These updates are generaly done on upstream tasks on our own repo. To get this
+GitHub repository just do the following.
+
+```commandline
+(myrally) [cloud-user@rpcr-rally openrcs]$ git clone git@github.com:rcbops/rpc_soak_tests.git
+```
+
+The git clone with https can be done if there's no need to push to the
+repository. If commits will be done then also do:
+- Create SSH keys
+- Upload the SSH public key to the GitHub repo as a Deploy key
+
+
+#### Installing Rally - the old way (deprecated, just as a reference)
+
+*Installing pre-dependencies, Ubuntu VM ex.*
 ```commandline
 $sudo apt-get install git python-pip
 $sudo apt-get install libffi-dev libpq-dev libssl-dev libxml2-dev libxslt1-dev
@@ -78,8 +192,8 @@ This directory contains the registered OpenStack deployments
 and a symlink "openrc" that points to the active deployment
 in use.
 
-Registering the OpenStack deployment
-------------------------------------
+## Registering the OpenStack deployment
+
 With rally installed the OpenStack deployment to be tested
 can be registered as a rally deployment with its openrc
 file or data to be used. This can be done by two different
@@ -418,29 +532,22 @@ To just list the tests to run, for ex.
 $ rally verify list-verifier-tests --pattern set=scenario
 ```
 
-References
-----------
+##References
 
-Rally Quick Start
+**Rally**
+- https://docs.openstack.org/developer/rally/quick_start/index.html
+- https://access.redhat.com/documentation/en-us/reference_architectures/2017/html/guidelines_and_considerations_for_performance_and_scaling_your_red_hat_enterprise_linux_openstack_platform_7_cloud/rally 
+- https://github.com/openstack/rally
+- https://github.com/openstack/rally-openstack
 
-https://docs.openstack.org/developer/rally/quick_start/index.html
+**Rally Scenarios**
+- https://github.com/openstack/rally-openstack/tree/master/rally_openstack/scenarios
+- https://github.com/openstack/rally-openstack/tree/master/samples/tasks/scenarios
 
-Rally scenarios
+**Rally Tempest Verifier**
+- https://docs.openstack.org/developer/rally/quick_start/tutorial/step_10_verifying_cloud_via_tempest_verifier.html
+- https://docs.openstack.org/rally/latest/verification/cli_reference.html
 
-https://github.com/openstack/rally/tree/master/samples/tasks/scenarios
-
-Rally Tempest Verifier
-
-https://docs.openstack.org/developer/rally/quick_start/tutorial/step_10_verifying_cloud_via_tempest_verifier.html
-
-Rally Verify CLI reference
-
-https://docs.openstack.org/rally/latest/verification/cli_reference.html
-
-Tempest API tests
-
-https://github.com/openstack/tempest/tree/master/tempest/api
-
-Tempest Scenario tests
-
-https://github.com/openstack/tempest/tree/master/tempest/scenario
+**Tempest API and Scenario tests**
+- https://github.com/openstack/tempest/tree/master/tempest/api
+- https://github.com/openstack/tempest/tree/master/tempest/scenario
