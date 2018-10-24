@@ -4,12 +4,12 @@
     "CinderVolumes.create_and_attach_volume": [
         {
             "args": {
-                "size": 50,
+                "size": 8,
                 "image": {
-                    "name": "Ubuntu 16.04"
+                    "name": "cirros-0.3.5-x86_64-disk.img"
                 },
                 "flavor": {
-                    "name": "m1.small"
+                    "name": "m1.mini"
                 },
                 "create_volume_params": {
                     "availability_zone": "nova"
@@ -35,14 +35,14 @@
         {
             "args": {
                 "size": {
-                    "min": 20,
-                    "max": 50
+                    "min": 1,
+                    "max": 8
                 },
                 "flavor": {
-                    "name": "m1.small"
+                    "name": "m1.mini"
                 },
                 "image": {
-                    "name": "Ubuntu 16.04"
+                    "name": "cirros-0.3.5-x86_64-disk.img"
                 },
                 "create_volume_params": {
                     "availability_zone": "nova"

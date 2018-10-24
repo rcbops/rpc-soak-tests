@@ -32,7 +32,7 @@
             "args": {
                 "size": {
                     "min": 1,
-                    "max": 5
+                    "max": 8
                 },
                 "force": false,
                 "container_format": "bare",
@@ -45,7 +45,7 @@
             "runner": {
                 "type": "constant",
                 "times": 3,
-                "concurrency": 2
+                "concurrency": 1
             },
             "context": {
                 "users": {
