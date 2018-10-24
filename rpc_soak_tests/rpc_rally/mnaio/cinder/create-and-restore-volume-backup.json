@@ -2,7 +2,7 @@
     "CinderVolumes.create_and_restore_volume_backup": [
         {
             "args": {
-                "size": 20,
+                "size": 8,
                 "do_delete": true,
                 "create_volume_kwargs": {},
                 "create_backup_kwargs": {}

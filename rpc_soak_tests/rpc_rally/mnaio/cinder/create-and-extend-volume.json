@@ -2,8 +2,8 @@
     "CinderVolumes.create_and_extend_volume": [
         {
             "args": {
-                "size": 20,
-                "new_size": 50
+                "size": 1,
+                "new_size": 8
             },
             "runner": {
                 "type": "constant",

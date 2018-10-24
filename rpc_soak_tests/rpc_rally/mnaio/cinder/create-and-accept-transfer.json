@@ -2,12 +2,12 @@
     "CinderVolumes.create_and_accept_transfer": [
         {
             "args": {
-                "size": 20
+                "size": 8
             },
             "runner": {
                 "type": "constant",
-                "times": 4,
-                "concurrency": 2
+                "times": 3,
+                "concurrency": 1
             },
             "context": {
                 "users": {

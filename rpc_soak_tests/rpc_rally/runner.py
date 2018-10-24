@@ -211,8 +211,11 @@ def get_test_files(dir_path, file_ext='*.json'):
 
 
 def run():
-    operator = '>>'
     rally_cmd = 'rally task start'
+    results_msg = 'Results being stored at: {0}\n'.format(file_path)
+
+    logging.info(results_msg)
+    print results_msg
 
     for test_file in test_files:
         if task_args_file:
@@ -220,12 +223,9 @@ def run():
             # --task-args-file args.json
             task_args = '{0} {1}'.format(TASK_ARGS_FILE_PREFIX[:-1],
                                          task_args_file)
-            linux_cmd = '{0} {1} {2} {3} {4}'.format(rally_cmd, test_file,
-                                                     task_args, operator,
-                                                     file_path)
+            linux_cmd = '{0} {1} {2}'.format(rally_cmd, test_file, task_args)
         else:
-            linux_cmd = '{0} {1} {2} {3}'.format(rally_cmd, test_file,
-                                                 operator, file_path)
+            linux_cmd = '{0} {1}'.format(rally_cmd, test_file)
 
         run_msg = 'running: {0}'.format(linux_cmd)
 
@@ -233,7 +233,8 @@ def run():
         print run_msg
 
         if not dry_run:
-            subprocess.call(linux_cmd, shell=True)
+            with open(file_path, 'w+') as f:
+                subprocess.call(linux_cmd, shell=True, stdout=f, stderr=f)
 
 
 if __name__ == "__main__":
