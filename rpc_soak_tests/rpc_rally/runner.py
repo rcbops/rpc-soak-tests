@@ -233,7 +233,7 @@ def run():
         print run_msg
 
         if not dry_run:
-            with open(file_path, 'w+') as f:
+            with open(file_path, 'a+') as f:
                 subprocess.call(linux_cmd, shell=True, stdout=f, stderr=f)
 
 
