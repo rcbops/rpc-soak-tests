@@ -8,7 +8,7 @@
             },
             "runner": {
                 "type": "constant",
-                "times": 10,
+                "times": 4,
                 "concurrency": 2
             },
             "context": {
